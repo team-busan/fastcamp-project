@@ -2,7 +2,18 @@
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#0AC7CE",
+        secondary: "#268AFF",
+        darkGray: "#505050",
+        mediumGray: "#A0A0A0",
+        lightGray: "#E5E5E5",
+      },
+    },
+  },
+  corePlugins: {
+    preflight: true,
   },
   plugins: [],
 };
