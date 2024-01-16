@@ -106,22 +106,16 @@ function CustomBottomSheet() {
     <>
       <button onClick={() => setOpen(true)}>open</button>
       <BottomSheet open={open} onDismiss={onDismiss}>
-        <div id="wrapper">
-          <div
-            id="bottomSheetHeader"
-            className="flex items-center pt-2 pb-4 border-b-2 border-tertiary"
-          >
+        <div>
+          <div className="flex items-center pt-2 pb-4 border-b-2 border-tertiary">
             <MdArrowBack
               className="text-3xl ml-2 cursor-pointer"
               onClick={() => setOpen(false)}
             />
             <span className="text-lg font-bold ml-4">지역 선택</span>
           </div>
-          <div id="bottomSheetBody">
-            <div
-              id="bodyDivider"
-              className="flex w-full border-b-[1px] border-lightGray"
-            >
+          <div>
+            <div className="flex w-full border-b-[1px] border-lightGray">
               <div className="w-[27.5%] pl-4 h-10 flex items-center text-base font-semibold">
                 광역시도
               </div>
@@ -132,7 +126,7 @@ function CustomBottomSheet() {
                 읍면동
               </div>
             </div>
-            <div id="bodyChoose" className="flex">
+            <div className="flex">
               <div className="w-[27.5%]">
                 <ul className="flex flex-col pt-1 max-h-[calc(100vh-173px)] overflow-y-scroll no-scrollbar">
                   {list.map((v, i) => (
@@ -182,7 +176,6 @@ function CustomBottomSheet() {
           </div>
           <button
             onClick={() => setOpen(false)}
-            id="bottomSheetButton"
             className="bg-primary w-full text-white text-xl font-bold h-14 outline-none"
           >
             선택 완료
