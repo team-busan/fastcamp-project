@@ -4,7 +4,7 @@ import { SlNotebook } from "react-icons/sl";
 import { MdOutlineMessage } from "react-icons/md";
 export default function Title() {
   return (
-    <div className = "bg-white p-5">
+    <div className = "bg-white p-5 mb-4">
       <div>
         <img
           src = "https://www.seoulfn.com/news/photo/202103/412309_187543_1220.gif"
