@@ -112,19 +112,19 @@ function CustomBottomSheet() {
               className="text-3xl ml-2 cursor-pointer"
               onClick={() => setOpen(false)}
             />
-            <span className="text-lg font-bold ml-4">지역 선택</span>
+            <h5 className="font-bold ml-4">지역 선택</h5>
           </div>
           <div>
             <div className="flex w-full border-b-[1px] border-lightGray">
-              <div className="w-[27.5%] pl-4 h-10 flex items-center text-base font-semibold">
+              <h6 className="w-[27.5%] pl-4 h-10 flex items-center font-semibold">
                 광역시도
-              </div>
-              <div className="w-[36.25%] pl-4 h-10 flex items-center text-base font-semibold">
+              </h6>
+              <h6 className="w-[36.25%] pl-4 h-10 flex items-center font-semibold">
                 시군구
-              </div>
-              <div className="w-[36.25%] pl-4 h-10 flex items-center text-base font-semibold">
+              </h6>
+              <h6 className="w-[36.25%] pl-4 h-10 flex items-center font-semibold">
                 읍면동
-              </div>
+              </h6>
             </div>
             <div className="flex">
               <div className="w-[27.5%]">
