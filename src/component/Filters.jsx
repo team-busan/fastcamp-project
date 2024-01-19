@@ -6,13 +6,13 @@ import {
   MdKeyboardArrowUp,
 } from "react-icons/md";
 
-const CheckBoxes = ({ list, isFlexCol }) => {
+const CheckBoxes = ({ list, isFlexCol, border }) => {
   const [selected, setSelected] = useState([]);
   return (
     <ul
-      className={`py-3 mb-3 border-b-[1px] border-lightGray ${
-        isFlexCol ? null : "flex flex-wrap"
-      }`}
+      className={`py-3 mb-3 ${
+        border ? "border-b-[1px] border-lightGray" : ""
+      } ${isFlexCol ? null : "flex flex-wrap"}`}
     >
       {list.map((v, i) => {
         return (
@@ -57,7 +57,7 @@ const CheckBoxes = ({ list, isFlexCol }) => {
   );
 };
 
-const Radios = ({ list }) => {
+const Radios = ({ list, border }) => {
   const [selected, setSelected] = useState(-1);
   const [listShown, setListShown] = useState(
     list.length > 4 ? list.slice(0, 8) : list
@@ -70,7 +70,11 @@ const Radios = ({ list }) => {
 
   return (
     <>
-      <ul className="py-3 mb-3 border-b-[1px] border-lightGray flex flex-wrap">
+      <ul
+        className={`py-3 mb-3 ${
+          border ? "border-b-[1px] border-lightGray" : ""
+        } flex flex-wrap`}
+      >
         {listShown.map((v, i) => {
           return (
             <li
@@ -183,14 +187,18 @@ const CheckBoxesWithMore = ({ list }) => {
   );
 };
 
-const Select = ({ list, state }) => {
+const Select = ({ list, state, border }) => {
   const locationRef = useRef();
   const [locationIsOpen, setLocationIsOpen] = useDetectColse(
     locationRef,
     false
   );
   return (
-    <div className="pb-4 mb-4 border-b-[1px] border-lightGray relative">
+    <div
+      className={`pb-4 mb-4 ${
+        border ? "border-b-[1px] border-lightGray" : "w-1/2"
+      } relative`}
+    >
       <input
         type="button"
         value={state ? state : "광역시도"}

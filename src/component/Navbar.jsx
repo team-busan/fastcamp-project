@@ -1,21 +1,70 @@
-import React from "react";
-import Search from "./Search";
+import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import useDetectClose from "../hooks/useDetectClose";
+import { MdOutlineSearch, MdLocationOn } from "react-icons/md";
 
 export default function Navbar() {
+  const [searchValue, setSearchValue] = useState("");
+
+  const inputRef = useRef();
+  const [isInputActive, setIsInputActive] = useDetectClose(inputRef, false);
+
   return (
-    <div className="hidden md:flex w-full items-stretch justify-between gap-5 px-20 py-4 h-0... sticky top-0 bg-white ">
-      <div className="justify-center text-cyan-500 text-3xl font-bold leading-9 self-center whitespace-nowrap my-auto">
-        다이닝 코드
-      </div>
-      <Search />
-      <div className='className="self-center flex items-stretch justify-between gap-5 my-auto'>
-        <div className="justify-center text-black text-sm leading-4">
-          로그인
+    <>
+      <div className="hidden md:flex w-full items-stretch justify-between gap-5 px-20 py-4 h-0... sticky top-0 bg-white z-[102] ">
+        <Link
+          to="/"
+          className="flex items-center justify-center text-primary text-3xl font-bold leading-9 self-center whitespace-nowrap my-auto cursor-pointer"
+        >
+          <MdLocationOn />
+          <span>다이닝</span>
+          <span className="ml-1 font-medium">코드</span>
+        </Link>
+        <div
+          ref={inputRef}
+          className={`flex items-center bg-lightGray ${
+            isInputActive ? "rounded-t-2xl" : "rounded-full"
+          } py-1 px-4 relative`}
+        >
+          <input
+            type={searchValue}
+            placeholder="지역, 음식 또는 식당명 입력"
+            className="bg-transparent outline-none w-96"
+            onChange={(e) => setSearchValue(e.currentTarget.value)}
+            onClick={() => setIsInputActive(!isInputActive)}
+          />
+          <MdOutlineSearch className="cursor-pointer text-2xl" />
+          {isInputActive && (
+            <div className="absolute w-full py-4 rounded-b-2xl bg-white -bottom-[72px] left-0 shadow z-[102]">
+              <div className="flex items-center cursor-pointer px-4 py-2 border-l-2 hover:bg-lightGray hover:border-primary">
+                {searchValue ? (
+                  <>
+                    <MdOutlineSearch className="text-2xl" />
+                    <span className="ml-2 text-myblue">{`'${searchValue}'`}</span>
+                    <span className="ml-1">검색</span>
+                  </>
+                ) : (
+                  <>
+                    <MdLocationOn className="text-primary text-2xl" />
+                    <span className="ml-2 font-semibold">내주변 검색</span>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
         </div>
-        <div className="justify-center text-black text-sm leading-4">
-          회원가입
+        <div className='className="self-center flex items-stretch justify-between gap-5 my-auto'>
+          <div className="justify-center text-black text-sm leading-4 cursor-pointer">
+            로그인
+          </div>
+          <div className="justify-center text-black text-sm leading-4 cursor-pointer">
+            회원가입
+          </div>
         </div>
       </div>
-    </div>
+      {isInputActive && (
+        <div className="absolute top-0 w-[calc(100vw-17px)] bg-black opacity-50 h-[200vh] z-[101]"></div>
+      )}
+    </>
   );
 }

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import Navbar from "../component/Navbar";
+import MobileNavbar from "../component/MobileNavbar";
 import {
   CheckBoxes,
   Radios,
@@ -16,6 +18,51 @@ import {
   MdKeyboardArrowUp,
   MdKeyboardArrowDown,
 } from "react-icons/md";
+
+const SearchResultNavbar = ({ browserSizeX }) => {
+  if (browserSizeX >= 1024) {
+    return <Navbar />;
+  } else {
+    return <MobileNavbar />;
+  }
+};
+
+const FilterSelect = ({
+  selectFilter,
+  socialList,
+  peopleList,
+  genderList,
+  categoryList,
+  locationList,
+  location,
+  tvList,
+  convenienceList,
+  purposeList,
+  moodList,
+}) => {
+  if (selectFilter === "social") {
+    return <CheckBoxes list={socialList} isFlexCol={false} border={false} />;
+  } else if (selectFilter === "people") {
+    return (
+      <div className="flex flex-col">
+        <CheckBoxes list={peopleList} isFlexCol={false} border={true} />
+        <Radios list={genderList} border={false} />
+      </div>
+    );
+  } else if (selectFilter === "category") {
+    return <Radios list={categoryList} border={false} />;
+  } else if (selectFilter === "location") {
+    return <Select list={locationList} state={location} border={false} />;
+  } else if (selectFilter === "tv") {
+    return <CheckBoxes list={tvList} isFlexCol={false} />;
+  } else if (selectFilter === "convenience") {
+    return <CheckBoxes list={convenienceList} isFlexCol={false} />;
+  } else if (selectFilter === "purpose") {
+    return <CheckBoxes list={purposeList} isFlexCol={false} />;
+  } else {
+    return <CheckBoxes list={moodList} isFlexCol={false} />;
+  }
+};
 
 const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
   const [location, setLocation] = useState("");
@@ -171,7 +218,7 @@ const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
           <div className="bg-lime-600 w-3 h-3 mr-2 rounded"></div>
           <h5 className="font-bold">지역</h5>
         </div>
-        <Select list={locationList} state={location} />
+        <Select list={locationList} state={location} border={true} />
         <div id="eachFilter6" className="flex items-center">
           <div className="bg-cyan-300 w-3 h-3 mr-2 rounded"></div>
           <h5 className="font-bold">TV맛집</h5>
@@ -199,9 +246,6 @@ const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
       <div className="relative bg-white shadow">
         {isFilterOpen ? (
           <>
-            <div>
-              <input type="text" placeholder="지역, 음식 또는 식당명 입력" />
-            </div>
             <div className="flex justify-between items-center p-4 bg-lightGray">
               <div>
                 <span>{"현 위치 : "}</span>
@@ -271,7 +315,21 @@ const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
                   color="bg-violet-800"
                 />
               </div>
-              <div className="shadow"></div>
+              <div className="shadow flex justify-center items-center w-[calc(100%-128px)] px-8">
+                <FilterSelect
+                  selectFilter={selectFilter}
+                  socialList={socialList}
+                  peopleList={peopleList}
+                  genderList={genderList}
+                  categoryList={categoryList}
+                  locationList={locationList}
+                  location={location}
+                  tvList={tvList}
+                  convenienceList={convenienceList}
+                  purposeList={purposeList}
+                  moodList={moodList}
+                />
+              </div>
             </div>
             <div className="flex justify-center bg-white my-2 py-2 px-4 border-y-[1px] border-lightGray">
               <Button
@@ -311,7 +369,7 @@ const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
           onClick={() => setIsFilterOpen(!isFilterOpen)}
           className="text-2xl bg-white text-mediumGray absolute bottom-[-18px] left-1/2 -translate-x-1/2 py-1 px-4 border-[1px] border-lightGray rounded-lg"
         >
-          {isFilterOpen ? <MdKeyboardArrowDown /> : <MdKeyboardArrowUp />}
+          {isFilterOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
         </button>
       </div>
     );
@@ -378,149 +436,152 @@ const SearchResult = () => {
   const [meter, setMeter] = useState("500m");
 
   return (
-    <div className="w-[calc(100vw-17px)] bg-lightGray flex flex-col justify-center no-scrollbar lg:flex-row lg:p-6">
-      <Filter
-        browserSizeX={browserSizeX}
-        setBrowserSizeX={setBrowserSizeX}
-        sortState={sortSelect}
-        setSortState={setSortSelect}
-      />
-      <div className="flex flex-col w-full lg:w-9/12">
-        <div id="content" className="bg-white lg:ml-6 lg:rounded-2xl">
-          {browserSizeX >= 1024 ? (
-            <div
-              id="contentHeader"
-              className="flex justify-between px-4 border-b-[1px] border-lightGray"
-            >
-              <div className="py-4 pr-4 flex items-center border-r-[1px] border-lightGray">
-                <MdImportExport />
-                <span className="ml-1 text-sm">정렬</span>
+    <>
+      <SearchResultNavbar browserSizeX={browserSizeX} />
+      <div className="w-[calc(100vw-17px)] bg-lightGray flex flex-col justify-center no-scrollbar lg:flex-row lg:p-6">
+        <Filter
+          browserSizeX={browserSizeX}
+          setBrowserSizeX={setBrowserSizeX}
+          sortState={sortSelect}
+          setSortState={setSortSelect}
+        />
+        <div className="flex flex-col w-full lg:w-9/12">
+          <div id="content" className="bg-white lg:ml-6 lg:rounded-2xl">
+            {browserSizeX >= 1024 ? (
+              <div
+                id="contentHeader"
+                className="flex justify-between px-4 border-b-[1px] border-lightGray"
+              >
+                <div className="py-4 pr-4 flex items-center border-r-[1px] border-lightGray">
+                  <MdImportExport />
+                  <span className="ml-1 text-sm">정렬</span>
+                </div>
+                <div className="pl-4 flex items-center">
+                  <Button
+                    value="relate"
+                    displayValue="연관순"
+                    sortState={sortSelect}
+                    setSortState={setSortSelect}
+                  />
+                  <Button
+                    value="score"
+                    displayValue="평점순"
+                    sortState={sortSelect}
+                    setSortState={setSortSelect}
+                  />
+                  <Button
+                    value="review"
+                    displayValue="리뷰많은순"
+                    sortState={sortSelect}
+                    setSortState={setSortSelect}
+                  />
+                  <Button
+                    value="favorite"
+                    displayValue="좋아요많은순"
+                    sortState={sortSelect}
+                    setSortState={setSortSelect}
+                  />
+                  <Button
+                    value="distance"
+                    displayValue="거리순"
+                    sortState={sortSelect}
+                    setSortState={setSortSelect}
+                  />
+                </div>
+                <div className="pl-4 flex items-center border-l-[1px] border-lightGray text-sm">
+                  <MdMyLocation />
+                  <span className="ml-1 font-semibold">{"현위치 : "}</span>
+                  <span className="ml-1 font-semibold">부산 금정구 구서동</span>
+                </div>
               </div>
-              <div className="pl-4 flex items-center">
-                <Button
-                  value="relate"
-                  displayValue="연관순"
-                  sortState={sortSelect}
-                  setSortState={setSortSelect}
-                />
-                <Button
-                  value="score"
-                  displayValue="평점순"
-                  sortState={sortSelect}
-                  setSortState={setSortSelect}
-                />
-                <Button
-                  value="review"
-                  displayValue="리뷰많은순"
-                  sortState={sortSelect}
-                  setSortState={setSortSelect}
-                />
-                <Button
-                  value="favorite"
-                  displayValue="좋아요많은순"
-                  sortState={sortSelect}
-                  setSortState={setSortSelect}
-                />
-                <Button
-                  value="distance"
-                  displayValue="거리순"
-                  sortState={sortSelect}
-                  setSortState={setSortSelect}
-                />
+            ) : null}
+            <div>
+              <div className="flex items-center justify-between px-5 py-4">
+                <div className="font-semibold">
+                  <span>{meter === "전국" ? null : "내주변"}</span>
+                  <span className="ml-1">{meter}</span>
+                  <span className="ml-1">맛집</span>
+                  <span className="ml-1">
+                    (<span className="text-primary">55</span>)
+                  </span>
+                  <span>곳</span>
+                </div>
+                <MdIosShare className="text-lg" />
               </div>
-              <div className="pl-4 flex items-center border-l-[1px] border-lightGray text-sm">
-                <MdMyLocation />
-                <span className="ml-1 font-semibold">{"현위치 : "}</span>
-                <span className="ml-1 font-semibold">부산 금정구 구서동</span>
+              <div className="px-4 rounded-2xl">
+                <div className="w-full p-1 bg-mediumGray text-white text-sm flex justify-between rounded-t-2xl">
+                  <MapButton
+                    value="100m"
+                    meterState={meter}
+                    setMeterState={setMeter}
+                  />
+                  <MapButton
+                    value="300m"
+                    meterState={meter}
+                    setMeterState={setMeter}
+                  />
+                  <MapButton
+                    value="500m"
+                    meterState={meter}
+                    setMeterState={setMeter}
+                  />
+                  <MapButton
+                    value="1km"
+                    meterState={meter}
+                    setMeterState={setMeter}
+                  />
+                  <MapButton
+                    value="2km"
+                    meterState={meter}
+                    setMeterState={setMeter}
+                  />
+                  <MapButton
+                    value="3km"
+                    meterState={meter}
+                    setMeterState={setMeter}
+                  />
+                  <MapButton
+                    value="5km"
+                    meterState={meter}
+                    setMeterState={setMeter}
+                  />
+                  <MapButton
+                    value="10km"
+                    meterState={meter}
+                    setMeterState={setMeter}
+                  />
+                  <MapButton
+                    value="15km"
+                    meterState={meter}
+                    setMeterState={setMeter}
+                  />
+                  <MapButton
+                    value="전국"
+                    meterState={meter}
+                    setMeterState={setMeter}
+                  />
+                </div>
+                <NaverMap width="100%" height="h-72" isRounded={true} />
               </div>
             </div>
-          ) : null}
-          <div>
-            <div className="flex items-center justify-between px-4 py-4">
-              <div className="font-semibold">
-                <span>{meter === "전국" ? null : "내주변"}</span>
-                <span className="ml-1">{meter}</span>
-                <span className="ml-1">맛집</span>
-                <span className="ml-1">
-                  (<span className="text-primary">55</span>)
-                </span>
-                <span>곳</span>
-              </div>
-              <MdIosShare className="text-lg" />
-            </div>
-            <div className="px-4 rounded-2xl">
-              <div className="w-full p-1 bg-mediumGray text-white text-sm flex justify-between rounded-t-2xl">
-                <MapButton
-                  value="100m"
-                  meterState={meter}
-                  setMeterState={setMeter}
-                />
-                <MapButton
-                  value="300m"
-                  meterState={meter}
-                  setMeterState={setMeter}
-                />
-                <MapButton
-                  value="500m"
-                  meterState={meter}
-                  setMeterState={setMeter}
-                />
-                <MapButton
-                  value="1km"
-                  meterState={meter}
-                  setMeterState={setMeter}
-                />
-                <MapButton
-                  value="2km"
-                  meterState={meter}
-                  setMeterState={setMeter}
-                />
-                <MapButton
-                  value="3km"
-                  meterState={meter}
-                  setMeterState={setMeter}
-                />
-                <MapButton
-                  value="5km"
-                  meterState={meter}
-                  setMeterState={setMeter}
-                />
-                <MapButton
-                  value="10km"
-                  meterState={meter}
-                  setMeterState={setMeter}
-                />
-                <MapButton
-                  value="15km"
-                  meterState={meter}
-                  setMeterState={setMeter}
-                />
-                <MapButton
-                  value="전국"
-                  meterState={meter}
-                  setMeterState={setMeter}
-                />
-              </div>
-              <NaverMap width="100%" height="h-72" isRounded={true} />
-            </div>
+            <RestaurantList />
+            <button className="w-[calc(100%-2rem)] m-4 bg-darkblue py-3 flex items-center justify-center text-white text-sm rounded-md">
+              <MdFormatListBulleted />
+              <span className="ml-1">검색 결과 더보기</span>
+            </button>
           </div>
-          <RestaurantList />
-          <button className="w-[calc(100%-2rem)] m-4 bg-darkblue py-3 flex items-center justify-center text-white text-sm rounded-md">
-            <MdFormatListBulleted />
-            <span className="ml-1">검색 결과 더보기</span>
-          </button>
-        </div>
-        <div className="bg-transparent py-8 flex flex-col items-center lg:mt-6 lg:ml-6 lg:rounded-lg lg:bg-white">
-          <p className="font-bold text-sm">찾으시는 식당이 없으신가요?</p>
-          <button className="bg-primary text-white text-sm py-3 px-16 mt-4 rounded-md">
-            맛집 등록 요청하기
-          </button>
-          <p className="text-xs text-mediumGray mt-4">
-            보통 당일 등록이 이루어지며, 등록 시 즉시 푸시 알림을 드립니다.
-          </p>
+          <div className="bg-transparent py-8 flex flex-col items-center lg:mt-6 lg:ml-6 lg:rounded-lg lg:bg-white">
+            <p className="font-bold text-sm">찾으시는 식당이 없으신가요?</p>
+            <button className="bg-primary text-white text-sm py-3 px-16 mt-4 rounded-md">
+              맛집 등록 요청하기
+            </button>
+            <p className="text-xs text-mediumGray mt-4">
+              보통 당일 등록이 이루어지며, 등록 시 즉시 푸시 알림을 드립니다.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
