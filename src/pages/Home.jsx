@@ -1,9 +1,19 @@
+import Column from "../component/Column";
 import CustomBottomSheet from "../component/CustomBottomSheet";
+import HomeTagList from "../component/HomeTagList";
+import LocalFoodPick from "../component/LocalFoodPick";
+import Navbar from "../component/Navbar";
+// import Search from "../component/Search";
+import MbLocalFood from "../component/mbLocalFood";
 
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
+      <Navbar />
+      <LocalFoodPick />
+      <MbLocalFood />
+      <Column />
+      <HomeTagList />
       <CustomBottomSheet />
     </div>
   );
