@@ -26,7 +26,7 @@ function RestaurantList({ upperElementHeight }) {
                 <img src={v.imgLink} className="rounded-2xl w-24 h-24" />
                 <div className="ml-5 w-full">
                   <div className="flex justify-between">
-                    <div className="flex">
+                    <div className="flex items-center">
                       <h5 className="font-bold mr-1">{v.name}</h5>
                       <span className="font-bold text-darkGray">
                         {v.location}

@@ -47,7 +47,7 @@ function TagDetail() {
           <RestaurantList upperElementHeight="128px" />
         </section>
         <section>
-          <NaverMap width="100vw - 450px" />
+          <NaverMap width="100vw - 450px" height="h-screen" isRounded={false} />
         </section>
       </div>
     );
@@ -65,7 +65,7 @@ function TagDetail() {
           </div>
           <MdIosShare className="text-2xl sm:text-3xl cursor-pointer" />
         </div>
-        <NaverMap width="100vw" />
+        <NaverMap width="100vw" height="h-screen" isRounded={false} />
         <BottomSheet
           open={open}
           blocking={false}

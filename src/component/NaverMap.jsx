@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-function NaverMap({ width }) {
+function NaverMap({ width, height, isRounded }) {
   const mapElement = useRef(null);
   const { naver } = window;
 
@@ -46,7 +46,7 @@ function NaverMap({ width }) {
   return (
     <div
       ref={mapElement}
-      className={`h-screen`}
+      className={`${height} ${isRounded ? "rounded-b-2xl" : null}`}
       style={{ width: `calc(${width})` }}
     ></div>
   );
