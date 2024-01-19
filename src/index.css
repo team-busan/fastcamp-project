@@ -41,9 +41,9 @@
 }
 
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   :root {
-    --rsbs-max-w: 700px;
+    --rsbs-max-w: 800px;
     --rsbs-ml: auto;
     --rsbs-mr: auto;
   }
