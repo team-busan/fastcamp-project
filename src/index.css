@@ -40,7 +40,6 @@
   --rsbs-handle-bg: #000000;
 }
 
-
 @media (min-width: 600px) {
   :root {
     --rsbs-max-w: 700px;
