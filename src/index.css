@@ -15,7 +15,7 @@
   h5 {
     @apply text-lg;
   }
-  h5 {
+  h6 {
     @apply text-base;
   }
 }
