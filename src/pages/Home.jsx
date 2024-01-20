@@ -1,5 +1,4 @@
 import Column from "../component/Column";
-import CustomBottomSheet from "../component/CustomBottomSheet";
 import HomeTagList from "../component/HomeTagList";
 import LocalFoodPick from "../component/LocalFoodPick";
 import Navbar from "../component/Navbar";
@@ -14,7 +13,6 @@ function Home() {
       <MbLocalFood />
       <Column />
       <HomeTagList />
-      <CustomBottomSheet />
     </div>
   );
 }

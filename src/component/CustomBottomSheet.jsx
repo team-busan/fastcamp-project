@@ -35,8 +35,7 @@ const RegionBlock = ({
   );
 };
 
-function CustomBottomSheet() {
-  const [open, setOpen] = useState(false);
+function CustomBottomSheet({ open, setOpen }) {
   const onDismiss = () => {
     setOpen(false);
   };
@@ -98,13 +97,8 @@ function CustomBottomSheet() {
     { name: "개포동", isSpecial: false },
   ];
 
-  useEffect(() => {
-    setOpen(true);
-  }, []);
-
   return (
     <>
-      <button onClick={() => setOpen(true)}>open</button>
       <BottomSheet open={open} onDismiss={onDismiss}>
         <div>
           <div className="flex items-center pt-2 pb-4 border-b-2 border-tertiary">
