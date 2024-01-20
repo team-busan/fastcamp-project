@@ -40,6 +40,13 @@
   --rsbs-handle-bg: #000000;
 }
 
+.panel {
+  display: none;
+}
+.panel.active{
+  display: block;
+}
+
 @media (min-width: 800px) {
   :root {
     --rsbs-max-w: 800px;
