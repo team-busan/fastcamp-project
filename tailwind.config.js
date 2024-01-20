@@ -12,6 +12,8 @@ export default {
         lightGray: "#E5E5E5",
         myblue: "#268AFF",
         darkblue: "#1A6CBD",
+        mint: "#00A6B7",
+        mintlight: "#F2F8FF",
       },
     },
   },
