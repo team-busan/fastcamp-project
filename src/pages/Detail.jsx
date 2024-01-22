@@ -7,8 +7,9 @@ import VisitRating from "../component/VisitRating";
 
 export default function Detail() {
   return (
-    <div className="flex flex-row center w-screen justify-evenly bg-lightGray">
-      <Map />
+    <>
+      <div className="flex flex-row center w-screen justify-evenly bg-lightGray">
+        <Map />
       <main className="w-6/12">
         <Title />
         <Information />
@@ -16,6 +17,8 @@ export default function Detail() {
         <VisitRating />
         <Blog />
       </main>
-    </div>
+      </div>
+    
+    </>
   );
 }
