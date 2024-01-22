@@ -44,7 +44,7 @@
   display: none;
 }
 .panel.active{
-  display: block;
+  display: flex;
 }
 
 @media (min-width: 800px) {

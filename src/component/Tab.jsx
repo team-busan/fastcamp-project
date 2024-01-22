@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import "../index.css";
 import {Rating, Save, Like} from "../stores/mockData.json";
-import { data } from 'autoprefixer';
 
 export default function Tab() {
   // const [datas, setDatas] = useState({});
@@ -12,7 +11,7 @@ export default function Tab() {
       num: "(264)",
       content: "tab 1 content",
       color: "text-pink-600",
-      data: Rating[0]
+      data: Rating
     },
     {
       id : 2,
@@ -20,7 +19,7 @@ export default function Tab() {
       num: "(38)",
       content: "tab 2 content",
       color: "text-indigo-600",
-      data: Save[0]
+      data: Save
     },
     {
       id : 3,
@@ -28,7 +27,7 @@ export default function Tab() {
       num: "(1248)",
       content: "tab 3 content",
       color: "text-yellow-600",
-      data: Like[0]
+      data: Like
     }
   ]
   const [tabIndex, setTabIndex] = useState(1);
@@ -41,9 +40,8 @@ export default function Tab() {
       <div className="bg-white ">
         <div className='gap-5 flex space-x-8 border-b-black border-b border-solid pr-20 py-12 justify-between items-center text-stone-300 text-center text-2xl leading-10 my-auto '>
           {Menu.map(item => (
-          <div className='w-[33%]'>
+          <div key={item.id} className='w-[33%]'>
             <button 
-              key={item.id}
               onClick={()=> handleClick(item.id)}
               className={`${checkTab(item.id, "text-black font-semibold")} `}>{item.title}<br/>{Object.keys(item.data).length}
             </button>
@@ -51,11 +49,18 @@ export default function Tab() {
           ))}
         </div>
         <div className='bg-white mx-10 my-12 '>
-          {Menu.map(item =>(
-            <div key={item.id} className={` panel flex-col flex aspect-[1] w-[207px] pl-12 pt-10  ${checkTab(item.id, "active")}`}>
-                <img src={item.data.img} className='h-full w-full object-cover object-center' />
-                <div className='text-lg leading-6 self-stretch mt-5'>{item.data.name}</div>
+          {Menu.map((item) =>(
+            <div key={item.id} className={` panel w-full flex-wrap ${checkTab(item.id, "active")}`}>
+            {item.data.map((v) => {
+              return(
+                <div className='flex-col items-center w-[207px] pl-12 pt-10 object-center'>
+                  <img src={v.img} className='h-full w-full object-cover aspect-[1] ' />
+                  <div className='text-lg leading-6 self-stretch mt-5'>{v.name}</div>
+              </div>
+              )
+            })}
             </div>
+            
             ))}
         </div>
       </div>
