@@ -5,7 +5,7 @@ import { FaLocationCrosshairs } from "react-icons/fa6";
 export default function HomeContent() {
   const [open, setOpen] = useState(false);
   return (
-    <div>
+    <div className=" grid place-items-center">
       <div className="justify-center text-white text-center text-4xl leading-10 w-[387px]">
         당신을 위한 <br />
         부산 추천 맛집
