@@ -16,7 +16,7 @@ export default function HomeTagList() {
           </div>
           <DetailButton />
         </div>
-        <div className="ml-8 mr-8 mt-11 mb-2.5 grid grid-cols-2  md:grid-cols-4 gap-5 p-4 place-items-center">
+        <div className="flex flex-wrap justify-between  gap-5 p-4 place-items-center">
           {data.map((item, index) => {
             return (
               <div key={index} className=" items-stretch w-3/12 max-md:mt-6 ">
