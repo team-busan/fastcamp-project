@@ -10,10 +10,10 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />}></Route>
-      <Route path="/detail" element={<Detail />}></Route>
+      <Route path="/detail/:id" element={<Detail />}></Route>
       <Route path="/tagdetail" element={<TagDetail />}></Route>
       <Route path="/searchresult" element={<SearchResult />}></Route>
-      <Route path="/mypage" element={<MyPage />}></Route>
+      <Route path="/mypage/:username" element={<MyPage />}></Route>
     </Routes>
   );
 }
