@@ -10,7 +10,9 @@ const axiosInstance = axios.create({
 });
 
 const API_URL = {
+  HOME: "home",
   TAGDETAIL: "tagdetail",
+  DETAIL: "detail",
   SEARCHRESULT: "searchresult",
 };
 
@@ -20,6 +22,8 @@ const axiosMock = new AxiosMockAdapter(axiosInstance, {
 });
 
 axiosMock.onGet(API_URL.TAGDETAIL).reply(200, RESTAURANTS);
+
+// axiosMock.onGet(API_URL.DETAIL).reply(200, {});
 
 axiosMock.onGet(API_URL.SEARCHRESULT).reply(200, RESTAURANTS);
 
