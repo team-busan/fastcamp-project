@@ -1,16 +1,10 @@
 import { useEffect, useState } from "react";
-import { axiosInstance, API_URL } from "../stores/API";
 import { CiClock1, CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
+import PropTypes from 'prop-types';
 
-export default function Information() {
+export default function Information({restaurant}) {
   const [ismenu, setIsmenu] = useState(false);
   const [restaurantList, setRestaurantList] = useState({});
-
-  useEffect(() => {
-    axiosInstance.get(API_URL.TAGDETAIL).then((res) => {
-      setRestaurantList(res.data[0]);
-    });
-  }, []);
 
   const toggleMenu = () => {
     setIsmenu(!ismenu);
@@ -20,7 +14,7 @@ export default function Information() {
     <div className="bg-white p-5 mb-4">
       <div className="flex justify-between mb-4">
         <h3 className="font-bold">영업시간</h3>
-        <p className="flex items-center text-myblue text-sm">
+        <p className="flex items-center text-secondary text-sm">
           <CiClock1 />
           영업 중
         </p>
@@ -28,7 +22,7 @@ export default function Information() {
       <div className="">
         <div className="flex justify-between">
           <span className="font-bold text-sm">[오늘]01.17(수)</span>
-          <span className="text-sm mb-4">영업시간 : 11:00 - 22:00</span>
+          <span className="text-sm mb-4 ">영업시간 : 11:00 - 22:00</span>
         </div>
         <div>
           <p className="flex justify-end text-sm mb-4">라스트오더:21:30</p>
@@ -36,8 +30,8 @@ export default function Information() {
       </div>
       <div>
         <ul>
-          {restaurantList.menu &&
-            restaurantList.menu.slice(0, 3).map((value, i) => (
+          {restaurant.cuisine &&
+            restaurant.cuisine.slice(0, 3).map((value, i) => (
               <li key={i}>
                 <div className="flex justify-between text-sm mb-3">
                   <span>{value.food}</span>
@@ -46,7 +40,7 @@ export default function Information() {
               </li>
             ))}
           {ismenu &&
-            restaurantList.menu.slice(3).map((value, i) => {
+            restaurant.cuisine.slice(3).map((value, i) => {
               return (
                 <li key={i}>
                   <div className="flex justify-between text-sm mb-3">
@@ -79,3 +73,25 @@ export default function Information() {
     </div>
   );
 }
+
+Information.propTypes = {
+  restaurant: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    cuisine: PropTypes.arrayOf(
+      PropTypes.shape({
+        food: PropTypes.string.isRequired,
+        price: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    rating: PropTypes.number.isRequired,
+    location: PropTypes.string.isRequired,
+    imgLink: PropTypes.string.isRequired,
+    detail__location: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    distance: PropTypes.string.isRequired,
+    category: PropTypes.arrayOf(PropTypes.string).isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    time: PropTypes.string.isRequired,
+  }).isRequired,
+};

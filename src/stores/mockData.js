@@ -670,7 +670,6 @@ const REVIEW = [
 const BLOGREVIEW = [
   {
     id: 1,
-    user_id: 1,
     restaurant_id: 1,
     title: "을지로 또간집 종로 맛집 노포 느낌 에서 보쌈에 낮술 웨이팅",
     comment:
@@ -678,7 +677,6 @@ const BLOGREVIEW = [
   },
   {
     id: 2,
-    user_id: 1,
     restaurant_id: 1,
     title: "(종로3가) 을지로 찐노포맛집 웨이팅필수 대련집 무생채 보쌈과 칼국수",
     comment:
@@ -686,7 +684,6 @@ const BLOGREVIEW = [
   },
   {
     id: 3,
-    user_id: 1,
     restaurant_id: 1,
     title: "또간집 종로 사골칼국수 생배추보쌈 돼지국밥 우육면 식당 여깁니다!",
     comment:
