@@ -3,38 +3,37 @@ import Review from "./Review";
 import { useState } from "react";
 import { CiCircleChevDown } from "react-icons/ci";
 
-export default function VisitRating() {
-  const [data, setData] = useState(data__list);
+export default function VisitRating({review}) {
   return (
     <div className="bg-white p-5 mb-4">
-      <h3 className="font-bold mb-4">{data.people}건의 방문자 평가</h3>
+      <h3 className="font-bold mb-4">0건의 방문자 평가</h3>
       <hr />
       <div className="flex justify-between mt-4">
         <div>
           <div className="flex items-center  mb-2">
-            <p className="font-bold mr-4">{data.rating}</p>
+            <p className="font-bold mr-4">0</p>
             <span className="flex">
-              <FaStar className="text-myblue text-lg" />
-              <FaStar className="text-myblue text-lg" />
-              <FaStar className="text-myblue text-lg" />
-              <FaStar className="text-myblue text-lg" />
-              <FaStar className="text-myblue text-lg" />
+              <FaStar className="text-secondary text-lg" />
+              <FaStar className="text-secondary text-lg" />
+              <FaStar className="text-secondary text-lg" />
+              <FaStar className="text-secondary text-lg" />
+              <FaStar className="text-secondary text-lg" />
             </span>
           </div>
           <div className="flex mb-4">
             <span className="flex items-center text-sm mr-2">
-              맛<FaStar className="text-myblue" />
-              {data.avgTaste}
+              맛<FaStar className="text-secondary" />
+              {/* {data.avgTaste} */}
             </span>
             <span className="flex items-center text-sm mr-2">
               가격
-              <FaStar className="text-myblue" />
-              {data.avgPrice}
+              <FaStar className="text-secondary" />
+              {/* {data.avgPrice} */}
             </span>
             <span className="flex items-center text-sm mr-2">
               서비스
-              <FaStar className="text-myblue" />
-              {data.avgService}
+              <FaStar className="text-secondary" />
+              {/* {data.avgService} */}
             </span>
           </div>
           <p className="text-sm mb-2">방문목적</p>
@@ -44,23 +43,23 @@ export default function VisitRating() {
         <div className="mt-4">
           <div className="flex items-center justify-between mb-1">
             <p className="text-sm mr-8">매우만족</p>
-            <div className="bg-myblue w-28 h-3"></div>
+            <div className="bg-secondary w-28 h-3"></div>
           </div>
           <div className="flex items-center justify-between mb-1">
             <p className="text-sm">만족</p>
-            <div className="bg-myblue w-28 h-3"></div>
+            <div className="bg-secondary w-28 h-3"></div>
           </div>
           <div className="flex items-center justify-between mb-1">
             <p className="text-sm">보통</p>
-            <div className="bg-myblue w-28 h-3"></div>
+            <div className="bg-secondary w-28 h-3"></div>
           </div>
           <div className="flex items-center justify-between mb-1">
             <p className="text-sm">불만</p>
-            <div className="bg-myblue w-28 h-3"></div>
+            <div className="bg-secondary w-28 h-3"></div>
           </div>
           <div className="flex items-center justify-between mb-1">
             <p className="text-sm">매우불만</p>
-            <div className="bg-myblue w-28 h-3"></div>
+            <div className="bg-secondary w-28 h-3"></div>
           </div>
         </div>
       </div>
@@ -81,7 +80,8 @@ export default function VisitRating() {
           맛집 평가하고 300원까지 적립받기
         </button>
       </div>
-      <Review setData={setData} />
+      <Review
+        review = {review} />
       <button className="bg-lightGray h-16 w-full rounded-lg flex items-center justify-center mt-4">
         더보기
         <CiCircleChevDown />
@@ -89,11 +89,3 @@ export default function VisitRating() {
     </div>
   );
 }
-const data__list = {
-  rating: "0",
-  people: "0",
-  avgRating: "0",
-  avgTaste: "0",
-  avgPrice: "0",
-  avgService: "0",
-};
