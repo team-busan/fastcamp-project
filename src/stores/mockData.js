@@ -706,7 +706,6 @@ const BLOGREVIEW = [
 
 /* 유저 데이터 추가 필드
   intro
-  img
 */
 const USER = [
   {
@@ -715,7 +714,6 @@ const USER = [
     hashed_password: "asd123",
     wishlist: [1, 2, 3],
     intro: "안녕하세요 음식을 좋아하는 미식가 FoodLove입니다.",
-    img: "img/profile.jpeg",
   },
 ];
 

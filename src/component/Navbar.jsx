@@ -56,12 +56,18 @@ export default function Navbar() {
           )}
         </div>
         <div className='className="self-center flex items-stretch justify-between gap-5 my-auto'>
-          <div className="justify-center text-black text-sm leading-4 cursor-pointer">
+          <Link
+            to="/login"
+            className="justify-center text-black text-sm leading-4 cursor-pointer"
+          >
             로그인
-          </div>
-          <div className="justify-center text-black text-sm leading-4 cursor-pointer">
+          </Link>
+          <Link
+            to="/signup"
+            className="justify-center text-black text-sm leading-4 cursor-pointer"
+          >
             회원가입
-          </div>
+          </Link>
         </div>
       </div>
       {isInputActive && (
