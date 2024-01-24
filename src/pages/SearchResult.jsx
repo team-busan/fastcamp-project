@@ -81,7 +81,7 @@ const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
     };
   }, []);
 
-  const socialList = ["내가좋아요한", "나의팔로우추천", "다코미식가추천"];
+  const socialList = ["내가좋아요한", "나의팔로우추천"];
   const peopleList = ["20대", "30대", "40대", "50대", "60대이상"];
   const genderList = ["여성", "남성"];
   const categoryList = [
@@ -127,7 +127,6 @@ const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
     "충북",
   ];
   const tvList = [
-    "다코숨은맛집",
     "생활의달인",
     "수요미식회",
     "미쉐린",
