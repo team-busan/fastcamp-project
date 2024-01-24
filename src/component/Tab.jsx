@@ -1,8 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react'
 import "../index.css";
+import { axiosInstance, API_URL } from "../stores/API";
 
 export default function Tab() {
-  // const [datas, setDatas] = useState({});
+  const [saveData, setSaveData] = useState([]);
+
+  useEffect(() => {
+    axiosInstance
+      .get(API_URL.HOME).then((res) => {
+        
+        setSaveData(res.data);
+        console.log(saveData);
+      })
+      .catch((error) => {
+        console.log("Tab", error);
+      });
+  }, []);
   const Menu = [
     {
       id: 1,
@@ -50,28 +63,17 @@ export default function Tab() {
             </div>
           ))}
         </div>
-        <div className="bg-white mx-10 my-12 ">
-          {Menu.map((item) => (
-            <div
-              key={item.id}
-              className={` panel w-full flex-wrap ${checkTab(
-                item.id,
-                "active"
-              )}`}
-            >
-              {item.data.map((v) => {
-                return (
-                  <div className="flex-col items-center w-[207px] pl-12 pt-10 object-center">
-                    <img
-                      src={v.img}
-                      className="h-full w-full object-cover aspect-[1] "
-                    />
-                    <div className="text-lg leading-6 self-stretch mt-5">
-                      {v.name}
-                    </div>
-                  </div>
-                );
-              })}
+        <div className='bg-white mx-10 my-12 '>
+          {Menu.map((item) =>(
+            <div key={item.id} className={` panel w-full flex-wrap ${checkTab(item.id, "active")}`}>
+            {item.saveData.map((v) => {
+              return(
+                <div className='flex-col items-center w-[207px] pl-12 pt-10 object-center'>
+                  <img src={v.imgLink} className='h-full w-full object-cover aspect-[1] ' />
+                  <div className='text-lg leading-6 self-stretch mt-5'>{v.name}</div>
+              </div>
+              )
+            })}
             </div>
           ))}
         </div>

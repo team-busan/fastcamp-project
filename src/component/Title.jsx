@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { axiosInstance, API_URL } from "../stores/API";
+import PropTypes from 'prop-types';
 import { FaStar, FaPencilAlt } from "react-icons/fa";
 import {
   CiHeart,
@@ -11,14 +11,7 @@ import {
 import { SlNotebook } from "react-icons/sl";
 import { MdOutlineMessage } from "react-icons/md";
 
-export default function RestaurantInformation() {
-  const [restaurantList, setRestaurantList] = useState({});
-
-  useEffect(() => {
-    axiosInstance.get(API_URL.TAGDETAIL).then((res) => {
-      setRestaurantList(res.data[0]);
-    });
-  }, []);
+export default function Title({restaurant}){
   return (
     <div className="bg-white p-5 mb-4">
       <div>
@@ -28,26 +21,26 @@ export default function RestaurantInformation() {
           className="mb-5 w-full"
         ></img>
         <div>
-          <h2 className="font-bold mb-4">{restaurantList.name}</h2>
+          <h2 className="font-bold mb-4">{restaurant.name}</h2>
           <p className="text-darkGray mb-4">
-            {restaurantList.location} | {restaurantList.category}
+            {restaurant.location} | {restaurant.category}
           </p>
           <div className="flex items-center">
             <span className="font-bold text-lg mr-2 mb-4">
-              {restaurantList.score}점
+              {restaurant.rating}점
             </span>
             <span className="text-sm text-darkGray mr-2 mb-4">
-              {restaurantList.gaveRatingPeopleNum}명의 평가
+              5명의 평가
             </span>
             <span className="text-sm font-bold mr-2 mb-4">
-              {restaurantList.rating}점
+              {restaurant.rating}점
             </span>
             <span className="flex">
-              <FaStar className="text-lg text-myblue mb-4" />
-              <FaStar className="text-lg text-myblue" />
-              <FaStar className="text-lg text-myblue" />
-              <FaStar className="text-lg text-myblue" />
-              <FaStar className="text-lg text-myblue" />
+              <FaStar className="text-lg text- mb-4 text-secondary"  />
+              <FaStar className="text-lg text-secondary" />
+              <FaStar className="text-lg text-secondary" />
+              <FaStar className="text-lg text-secondary" />
+              <FaStar className="text-lg text-secondary" />
             </span>
           </div>
           <hr></hr>
@@ -56,7 +49,7 @@ export default function RestaurantInformation() {
           <div className="flex">
             <button className="w-28 h-9 flex items-center justify-evenly border-solid border rounded-3xl border-black text-sm mr-6">
               <CiHeart />
-              좋아요({restaurantList.favorite})
+              좋아요(5)
             </button>
             <button className="w-20 h-9 flex items-center justify-evenly border-solid border border-black rounded-3xl text-sm">
               <CiShare1 />
@@ -74,23 +67,19 @@ export default function RestaurantInformation() {
         <div className="flex justify-between mt-4">
           <p className="flex items-center text-sm">
             <CiLocationOn />
-            {restaurantList.detail__location}
+            {restaurant.detail__location}
           </p>
-          <button className="text-white w-20 h-7 bg-darkblue rounded-lg text-sm">
+          <button className="text-white w-20 h-7 bg-secondary rounded-lg text-sm">
             지도보기
           </button>
         </div>
         <p className="flex items-center text-sm mt-4">
           <SlNotebook className="mr-2" />
-          {restaurantList.phone}
-        </p>
-        <p className="flex items-center text-sm mt-4">
-          <CiBookmark className="mr-2" />
-          {restaurantList.tags2}
+          {restaurant.phone}
         </p>
         <p className="flex items-center text-sm mt-4">
           <CiSquarePlus className="mr-2" />
-          {restaurantList.tags}
+          {restaurant.tags}
         </p>
         <p className="flex items-center text-sm mt-4">
           <MdOutlineMessage className="mr-2" />
@@ -100,3 +89,25 @@ export default function RestaurantInformation() {
     </div>
   );
 }
+
+/* Title.propTypes = {
+  restaurant: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    cuisine: PropTypes.arrayOf(
+      PropTypes.shape({
+        food: PropTypes.string.isRequired,
+        price: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    rating: PropTypes.number.isRequired,
+    location: PropTypes.string.isRequired,
+    imgLink: PropTypes.string.isRequired,
+    detail__location: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    distance: PropTypes.string.isRequired,
+    category: PropTypes.arrayOf(PropTypes.string).isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    time: PropTypes.string.isRequired,
+  }).isRequired,
+}; */

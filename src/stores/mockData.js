@@ -5,10 +5,19 @@ const ARTICLE = [
     title: "한국 최고의 냉면맛을 찾아서",
     content:
       "메밀향이 나는 거친 면과 맑은 육수의 평양냉면? 고구마전분의 쫄깃한 면과새콤달콤한 육수의 함흥냉면? 냉면의 계절 여름, 최고의 냉면에 대해 이야기해봅니다! 한국 최고의 냉면 맛집은 어디인가!",
-    author: "test",
+    author: "test1",
     publish_date: new Date(),
     link: "naver.com",
   },
+  {
+    id: 1,
+    title: "음식이 주는 위로",
+    content:
+      "마음에 한줄기 치유를 주고 가는 저마다의 컴포트 푸드를 통해 험난한 세상을 헤쳐 나갈 힘을 얻기를 바란다.",
+    author: "test2",
+    publish_date: new Date(),
+    link: "naver.com",
+  }
 ];
 
 /* restaurant 데이터 추가 필드 
