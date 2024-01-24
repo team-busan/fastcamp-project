@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../component/Navbar'
 import MyInfo from '../component/MyInfo'
 import MyPageSection from '../component/MyPageSection'

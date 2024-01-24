@@ -1,5 +1,5 @@
 import React from 'react'
-import {User} from '../stores/mockData.json'
+/* import {User} from '../stores/mockData.json' */
 
 export default function MyIntro() {
     const data = User[0];
