@@ -2,10 +2,10 @@ import React from "react";
 import LeftButton from "./LeftButton";
 import DetailButton from "./DetailButton";
 import RightButton from "./RightButton";
-import { Columns } from "../stores/mockData.json";
+/* import { Columns } from "../stores/mockData.json"; */
 
 export default function Column() {
-  const data = Columns[0];
+/*   const data = Columns[0]; */
   return (
     <div className="flex items-stretch justify-between gap-5 ml-5 mr-4 mt-14 ">
       <LeftButton />

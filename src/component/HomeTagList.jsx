@@ -1,11 +1,11 @@
 import React from "react";
 import LeftButton from "./LeftButton";
 import DetailButton from "./DetailButton";
-import { homeData } from "../stores/mockData.json";
+/* import { homeData } from "../stores/mockData.json"; */
 import RightButton from "./RightButton";
 
 export default function HomeTagList() {
-  const data = homeData;
+/*   const data = homeData; */
   return (
     <div className="flex  items-stretch justify-between gap-5 ml-5 mr-4 mt-14 ">
       <LeftButton />

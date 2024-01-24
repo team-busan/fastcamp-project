@@ -1,8 +1,8 @@
 import React from 'react'
-import {User} from '../stores/mockData.json'
+/* import {User} from '../stores/mockData.json' */
 
 export default function MyInfo() {
-    const data = User[0]
+/*     const data = User[0] */
     return (
         <div className="gap-5 flex flex-col md:flex-row place-items-center bg-white md:bg-zinc-100 bg-opacity-90 w-full px-20 py-9">
             <div className="md:flex flex-col grid  justify-center items-center  w-[22%] ">

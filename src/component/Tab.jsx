@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "../index.css";
-import {Rating, Save, Like} from "../stores/mockData.json";
+/* import {Rating, Save, Like} from "../stores/mockData.json"; */
 
 export default function Tab() {
   // const [datas, setDatas] = useState({});

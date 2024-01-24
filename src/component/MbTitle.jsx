@@ -1,26 +1,20 @@
 import { useEffect, useState } from "react";
-import { axiosInstance, API_URL } from "../stores/API";
 import { FaRegShareFromSquare } from "react-icons/fa6";
 import { FaStar} from "react-icons/fa";
 
-export default function MbTitle() {
-  useEffect(() => {
-    axiosInstance.get(API_URL.TAGDETAIL).then((res) => {
-      setRestaurantList(res.data[0]);
-    });
-  }, []);
-
-  const [restaurantList, setRestaurantList] = useState({});
+export default function MbTitle({restaurant}) {
 
   return (
       <header className = "flex-column bg-slate-100">
         <div className = "flex">
           <div>
-            <h3>{restaurantList.name}</h3>
-            <p>{restaurantList.location} | {restaurantList.category}
+            <img 
+              src = {restaurant.imgLink}
+              alt = "error"/>
+            <h3>{restaurant.name}</h3>
+            <p>{restaurant.location} | {restaurant.category}
             </p>
           </div>
-          <div><FaRegShareFromSquare/></div>
         </div>
         <div className = "flex">
           <span className="flex">
@@ -30,10 +24,10 @@ export default function MbTitle() {
             <FaStar className="text-lg text-myblue" />
             <FaStar className="text-lg text-myblue" />
           </span>
-          <p>{restaurantList.rating}</p>
-          <p>({restaurantList.gaveRatingPeopleNum}명)</p>
+          <p>{restaurant.rating}</p>
+          <p>(4명)</p>
           <span className="font-bold text-lg mr-2 mb-4">
-            {restaurantList.score}점
+            {restaurant.rating}점
           </span>
         </div>
       </header>
