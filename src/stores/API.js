@@ -1,7 +1,6 @@
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
-import { RESTAURANTS, REVIEW, BLOGREVIEW } from "./mockData";
-
+import { ARTICLE, RESTAURANTS, REVIEW, BLOGREVIEW, USER} from "./mockData";
 
 const BASE_URL = "https://localhost:8000/api/";
 
@@ -15,6 +14,8 @@ const API_URL = {
   TAGDETAIL: "tagdetail",
   DETAIL: "detail",
   SEARCHRESULT: "searchresult",
+  MYPAGE: "mypage",
+  ARTICLE: "article"
 };
 
 const axiosMock = new AxiosMockAdapter(axiosInstance, { //axios를 사용할 때 가짜 요청을 발생시키는 라이브러리
@@ -28,5 +29,11 @@ const detail_url = new RegExp(`${API_URL.DETAIL}/*`);
 axiosMock.onGet(detail_url).reply(200, {restaurant : RESTAURANTS, review : REVIEW, blogview : BLOGREVIEW});
 
 axiosMock.onGet(API_URL.SEARCHRESULT).reply(200, RESTAURANTS);
+
+axiosMock.onGet(API_URL.HOME).reply(200, RESTAURANTS);
+
+axiosMock.onGet(API_URL.ARTICLE).reply(200, ARTICLE);
+
+axiosMock.onGet(API_URL.MYPAGE).reply(200, USER);
 
 export { axiosInstance, API_URL };
