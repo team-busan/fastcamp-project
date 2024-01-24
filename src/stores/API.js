@@ -1,6 +1,6 @@
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
-import { RESTAURANTS } from "./mockData";
+import { RESTAURANTS, REVIEW, USER } from "./mockData";
 
 const BASE_URL = "https://localhost:8000/api/";
 
@@ -13,7 +13,7 @@ const API_URL = {
   HOME: "home",
   TAGDETAIL: "tagdetail",
   DETAIL: "detail",
-  SEARCHRESULT: "searchresult",
+  SEARCH: "search",
 };
 
 const axiosMock = new AxiosMockAdapter(axiosInstance, {
@@ -21,10 +21,14 @@ const axiosMock = new AxiosMockAdapter(axiosInstance, {
   onNoMatch: "throwException",
 });
 
-axiosMock.onGet(API_URL.TAGDETAIL).reply(200, RESTAURANTS);
+axiosMock
+  .onGet(API_URL.TAGDETAIL)
+  .reply(200, { restaurantList: RESTAURANTS, reviews: REVIEW, users: USER });
 
 // axiosMock.onGet(API_URL.DETAIL).reply(200, {});
 
-axiosMock.onGet(API_URL.SEARCHRESULT).reply(200, RESTAURANTS);
+axiosMock
+  .onGet(API_URL.SEARCH)
+  .reply(200, { restaurantList: RESTAURANTS, reviews: REVIEW, users: USER });
 
 export { axiosInstance, API_URL };

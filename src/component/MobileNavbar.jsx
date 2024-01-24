@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   MdArrowBack,
   MdAddCircle,
@@ -7,7 +8,10 @@ import {
 } from "react-icons/md";
 
 const MobileNavbar = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchValue, setSearchValue] = useState(
+    searchParams.get("query") ? searchParams.get("query") : ""
+  );
   const [isSearchDone, setIsSearchDone] = useState(true);
   return (
     <div className="flex items-center py-2 px-4 border-b-2 border-primary">
@@ -40,7 +44,10 @@ const MobileNavbar = () => {
         />
       )}
       {isSearchDone ? null : (
-        <div className="w-[calc(100vw-17px)] h-[300vh] absolute bg-white z-[101] top-[48px] left-0">
+        <div
+          className="w-[calc(100vw-17px)] h-[300vh] absolute bg-white z-[101] top-[48px] left-0"
+          onClick={() => setIsSearchDone(true)}
+        >
           <button className="flex items-center mx-auto bg-lightGray px-3 py-2 mt-8 rounded-full">
             <MdLocationOn className="text-primary text-2xl" />
             <span className="ml-1">내주변 검색</span>

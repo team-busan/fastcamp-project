@@ -1,7 +1,6 @@
 import React from "react";
 import LeftButton from "./LeftButton";
 import DetailButton from "./DetailButton";
-import { homeData } from "../stores/mockData.json";
 import RightButton from "./RightButton";
 
 export default function HomeTagList() {

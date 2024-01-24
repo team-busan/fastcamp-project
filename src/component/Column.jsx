@@ -2,7 +2,6 @@ import React from "react";
 import LeftButton from "./LeftButton";
 import DetailButton from "./DetailButton";
 import RightButton from "./RightButton";
-import { Columns } from "../stores/mockData.json";
 
 export default function Column() {
   const data = Columns[0];

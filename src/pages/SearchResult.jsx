@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { axiosInstance, API_URL } from "../stores/API.js";
 import Navbar from "../component/Navbar";
 import MobileNavbar from "../component/MobileNavbar";
 import {
@@ -382,7 +383,7 @@ const Button = ({ value, displayValue, sortState, setSortState }) => {
       onClick={() => setSortState(value)}
       className={`py-1 px-2 border-[1px] rounded-md mr-2 text-sm ${
         sortState === value
-          ? "border-tertiary text-tertiary font-bold"
+          ? "border-secondary text-secondary font-bold"
           : "border-lightGray text-mediumGray"
       }`}
     >
@@ -434,6 +435,17 @@ const SearchResult = () => {
   const [browserSizeX, setBrowserSizeX] = useState(window.innerWidth);
   const [sortSelect, setSortSelect] = useState("relate");
   const [meter, setMeter] = useState("500m");
+  const [restaurantList, setRestaurantList] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axiosInstance.get(API_URL.SEARCH).then((res) => {
+      setRestaurantList(res.data.restaurantList);
+      setReviews(res.data.reviews);
+      setUsers(res.data.users);
+    });
+  }, []);
 
   return (
     <>
@@ -564,15 +576,21 @@ const SearchResult = () => {
                 <NaverMap width="100%" height="h-72" isRounded={true} />
               </div>
             </div>
-            <RestaurantList />
-            <button className="w-[calc(100%-2rem)] m-4 bg-darkblue py-3 flex items-center justify-center text-white text-sm rounded-md">
+            <RestaurantList
+              list={restaurantList}
+              setList={setRestaurantList}
+              reviews={reviews}
+              users={users}
+              tag="none"
+            />
+            <button className="w-[calc(100%-2rem)] m-4 bg-secondary py-3 flex items-center justify-center text-white text-sm rounded-md hover:opacity-80">
               <MdFormatListBulleted />
               <span className="ml-1">검색 결과 더보기</span>
             </button>
           </div>
           <div className="bg-transparent py-8 flex flex-col items-center lg:mt-6 lg:ml-6 lg:rounded-lg lg:bg-white">
             <p className="font-bold text-sm">찾으시는 식당이 없으신가요?</p>
-            <button className="bg-primary text-white text-sm py-3 px-16 mt-4 rounded-md">
+            <button className="bg-primary text-white text-sm py-3 px-16 mt-4 rounded-md hover:opacity-80">
               맛집 등록 요청하기
             </button>
             <p className="text-xs text-mediumGray mt-4">
