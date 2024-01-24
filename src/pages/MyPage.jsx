@@ -11,9 +11,9 @@ export default function MyPage() {
     <div>
       <Navbar />
       <MyInfo />
-      <MyIntro />
-      <MyPageSection />
-      <MyPageContent />
+      {/* <MyIntro /> */}
+      {/* <MyPageSection /> */}
+      {/* <MyPageContent /> */}
       <MbMPContent />
     </div>
   )

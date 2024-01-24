@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LeftButton from "./LeftButton";
 import DetailButton from "./DetailButton";
 import RightButton from "./RightButton";
-import { Columns } from "../stores/mockData.json";
+import { axiosInstance, API_URL } from "../stores/API";
 
 export default function Column() {
-  const data = Columns[0];
+
+  const [articleData, setArticleData] = useState({});
+
+  useEffect(() => {
+    axiosInstance
+      .get(API_URL.ARTICLE).then((res) => {
+        
+        setArticleData(res.data[0]);
+        console.log(articleData)
+      })
+      .catch((error) => {
+        console.log("Column", error);
+      });
+  }, []);
+
+  if (!articleData) {
+    return <div>loading...</div>;
+  }
   return (
     <div className="flex items-stretch justify-between gap-5 ml-5 mr-4 mt-14 ">
       <LeftButton />
@@ -17,15 +34,11 @@ export default function Column() {
           <DetailButton />
         </div>
         <div className="flex-col overflow-hidden self-stretch relative flex min-h-[355px] items-stretch ">
-          <img
-            src={data.img}
-            className="absolute h-full w-full object-cover object-center inset-0"
-          />
-          <div className="md:hidden justify-end text-white text-3xl font-semibold leading-9 relative mt-36  ">
-            {data.title}
+          <div className=" justify-end text-3xl font-semibold leading-9 relative mt-36  ">
+            {articleData.title}
           </div>
-          <div className="md:hidden justify-center text-white text-xl leading-6 relative mt-8 ">
-            {data.content}
+          <div className=" justify-center text-xl leading-6 relative mt-8 ">
+            {articleData.content}
           </div>
         </div>
       </div>

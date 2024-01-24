@@ -17,7 +17,7 @@ export default function HomeContent() {
         >
           다른지역 선택
         </button>
-        <button className="justify-center text-white text-center text-lg leading-6 my-auto bg-myblue flex items-center gap-3 px-9 py-2.5 rounded-[50px]">
+        <button className="justify-center text-white text-center text-lg leading-6 my-auto bg-secondary flex items-center gap-3 px-9 py-2.5 rounded-[50px]">
           <FaLocationCrosshairs /> 현위치로 설정
         </button>
       </div>
