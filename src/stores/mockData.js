@@ -1,3 +1,4 @@
+// article 데이터 : link 필드 추가
 const ARTICLE = [
   {
     id: 1,
@@ -19,6 +20,15 @@ const ARTICLE = [
   }
 ];
 
+/* restaurant 데이터 추가 필드 
+  imgLink
+  detail__location
+  phone
+  distance
+  category
+  tags
+  time
+*/
 const RESTAURANTS = [
   {
     id: 1,
@@ -612,6 +622,11 @@ const RESTAURANTS = [
   },
 ];
 
+/* review 데이터 추가 필드
+  imgLink
+  name
+  imgLinkList
+*/
 const REVIEW = [
   {
     id: 1,
@@ -667,6 +682,13 @@ const REVIEW = [
   },
 ];
 
+/* blogreview 데이터 추가
+  포함 되어있는 필드 : 
+  id
+  restaurant_id
+  title
+  comment
+*/
 const BLOGREVIEW = [
   {
     id: 1,
@@ -691,6 +713,9 @@ const BLOGREVIEW = [
   },
 ];
 
+/* 유저 데이터 추가 필드
+  intro
+*/
 const USER = [
   {
     id: 1,
@@ -698,7 +723,6 @@ const USER = [
     hashed_password: "asd123",
     wishlist: [1, 2, 3],
     intro: "안녕하세요 음식을 좋아하는 미식가 FoodLove입니다.",
-    img: "img/profile.jpeg",
   },
 ];
 

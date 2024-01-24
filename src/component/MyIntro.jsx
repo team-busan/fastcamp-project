@@ -8,5 +8,5 @@ export default function MyIntro() {
             {/* {data.intro} */}
         </div>
     </div>
-  )
+  );
 }

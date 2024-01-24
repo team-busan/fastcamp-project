@@ -13,7 +13,7 @@ const API_URL = {
   HOME: "home",
   TAGDETAIL: "tagdetail",
   DETAIL: "detail",
-  SEARCHRESULT: "searchresult",
+  SEARCH: "search",
   MYPAGE: "mypage",
   ARTICLE: "article"
 };
@@ -23,12 +23,16 @@ const axiosMock = new AxiosMockAdapter(axiosInstance, { //axios를 사용할 때
   onNoMatch: "throwException", //예외처리
 });
 
-axiosMock.onGet(API_URL.TAGDETAIL).reply(200, RESTAURANTS);
+axiosMock
+  .onGet(API_URL.TAGDETAIL)
+  .reply(200, { restaurantList: RESTAURANTS, reviews: REVIEW, users: USER });
 
 const detail_url = new RegExp(`${API_URL.DETAIL}/*`);
 axiosMock.onGet(detail_url).reply(200, {restaurant : RESTAURANTS, review : REVIEW, blogview : BLOGREVIEW});
 
-axiosMock.onGet(API_URL.SEARCHRESULT).reply(200, RESTAURANTS);
+axiosMock
+  .onGet(API_URL.SEARCH)
+  .reply(200, { restaurantList: RESTAURANTS, reviews: REVIEW, users: USER });
 
 axiosMock.onGet(API_URL.HOME).reply(200, RESTAURANTS);
 

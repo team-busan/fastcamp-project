@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import LeftButton from "./LeftButton";
 import DetailButton from "./DetailButton";
 import RightButton from "./RightButton";
-
 import { axiosInstance, API_URL } from "../stores/API";
 
 export default function Column() {
