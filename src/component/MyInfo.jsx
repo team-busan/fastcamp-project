@@ -38,10 +38,5 @@ export default function MyInfo() {
                 </div>
             </div>
         </div>
-        <div className="hidden md:flex text-center  md:text-left  text-black text-xl leading-6 mt-14 max-md:max-w-full max-md:mt-10">
-          {data.intro}
-        </div>
-      </div>
-    </div>
   );
 }
