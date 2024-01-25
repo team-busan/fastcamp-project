@@ -3,9 +3,9 @@ import HomeTagList from "../component/HomeTagList";
 import LocalFoodPick from "../component/LocalFoodPick";
 import Navbar from "../component/Navbar";
 // import Search from "../component/Search";
-import MbLocalFood from "../component/mbLocalFood";
 import { useEffect, useState } from "react";
 import { axiosInstance, API_URL } from "../stores/API";
+import MbLocalFood from "../component/MbLocalFood";
 
 function Home() {
   const [articleData, setArticleData] = useState({});
@@ -31,7 +31,6 @@ function Home() {
       <Column article={articleData} setArticle={setArticleData}/>
       <HomeTagList list={tagListData} setList={setTagListData}/>
       </div>
-      
     </div>
   );
 }
