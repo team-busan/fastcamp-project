@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { CiClock1, CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-export default function Information({restaurant}) {
+export default function Information({ restaurant }) {
   const [ismenu, setIsmenu] = useState(false);
 
   const toggleMenu = () => {
@@ -72,25 +72,3 @@ export default function Information({restaurant}) {
     </div>
   );
 }
-
-Information.propTypes = {
-  restaurant: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    cuisine: PropTypes.arrayOf(
-      PropTypes.shape({
-        food: PropTypes.string.isRequired,
-        price: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    rating: PropTypes.number.isRequired,
-    location: PropTypes.string.isRequired,
-    imgLink: PropTypes.string.isRequired,
-    detail__location: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
-    distance: PropTypes.string.isRequired,
-    category: PropTypes.arrayOf(PropTypes.string).isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    time: PropTypes.string.isRequired,
-  }).isRequired,
-};
