@@ -1,10 +1,13 @@
 import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import useDetectClose from "../hooks/useDetectClose";
 import { MdOutlineSearch, MdLocationOn } from "react-icons/md";
 
 export default function Navbar() {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchValue, setSearchValue] = useState(
+    searchParams.get("query") ? searchParams.get("query") : ""
+  );
 
   const inputRef = useRef();
   const [isInputActive, setIsInputActive] = useDetectClose(inputRef, false);
@@ -14,11 +17,9 @@ export default function Navbar() {
       <div className="hidden md:flex w-full items-stretch justify-between gap-5 px-20 py-4 h-0... sticky top-0 bg-white z-[102] ">
         <Link
           to="/"
-          className="flex items-center justify-center text-primary text-3xl font-bold leading-9 self-center whitespace-nowrap my-auto cursor-pointer"
+          className="text-primary text-3xl font-bold leading-9 self-center whitespace-nowrap my-auto cursor-pointer"
         >
-          <MdLocationOn />
-          <span>다이닝</span>
-          <span className="ml-1 font-medium">코드</span>
+          <span>제목</span>
         </Link>
         <div
           ref={inputRef}
@@ -30,6 +31,7 @@ export default function Navbar() {
             type={searchValue}
             placeholder="지역, 음식 또는 식당명 입력"
             className="bg-transparent outline-none w-96"
+            value={searchValue}
             onChange={(e) => setSearchValue(e.currentTarget.value)}
             onClick={() => setIsInputActive(!isInputActive)}
           />
@@ -54,12 +56,18 @@ export default function Navbar() {
           )}
         </div>
         <div className='className="self-center flex items-stretch justify-between gap-5 my-auto'>
-          <div className="justify-center text-black text-sm leading-4 cursor-pointer">
+          <Link
+            to="/login"
+            className="justify-center text-black text-sm leading-4 cursor-pointer"
+          >
             로그인
-          </div>
-          <div className="justify-center text-black text-sm leading-4 cursor-pointer">
+          </Link>
+          <Link
+            to="/signup"
+            className="justify-center text-black text-sm leading-4 cursor-pointer"
+          >
             회원가입
-          </div>
+          </Link>
         </div>
       </div>
       {isInputActive && (

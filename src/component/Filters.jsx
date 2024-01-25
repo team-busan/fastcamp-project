@@ -35,16 +35,16 @@ const CheckBoxes = ({ list, isFlexCol, border }) => {
             <div
               className={`flex justify-center items-center text-sm ${
                 selected.includes(i)
-                  ? "text-white border-tertiary bg-tertiary"
+                  ? "text-white border-secondary bg-secondary"
                   : "text-mediumGray border-mediumGray bg-white"
-              } w-4 h-4 border-[1px] rounded`}
+              } w-4 h-4 border-[1px] rounded hover:border-primary hover:text-primary`}
             >
               {selected.includes(i) ? <MdCheck /> : "+"}
             </div>
             <span
               className={`ml-3 text-sm ${
                 selected.includes(i)
-                  ? "text-tertiary font-bold"
+                  ? "text-secondary font-bold"
                   : "text-black font-medium"
               }`}
             >
@@ -86,16 +86,16 @@ const Radios = ({ list, border }) => {
               className="w-1/2 mb-2 flex items-center cursor-pointer"
             >
               <div
-                className={`w-4 h-4 border-[1px] rounded-full ${
+                className={`w-4 h-4 border-[1px] rounded-full hover:border-primary ${
                   selected === i
-                    ? "border-[5px] border-tertiary"
+                    ? "border-[5px] border-secondary"
                     : "border-[1px] border-mediumGray"
                 }`}
               ></div>
               <span
                 className={`ml-3 text-sm ${
                   selected === i
-                    ? "font-bold text-tertiary"
+                    ? "font-bold text-secondary"
                     : "font-medium text-black"
                 }`}
               >
@@ -107,7 +107,7 @@ const Radios = ({ list, border }) => {
         {list.length > 8 ? (
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-full bg-lightGray my-2 py-2 px-8 flex items-center justify-center"
+            className="w-full bg-lightGray my-2 py-2 px-8 flex items-center justify-center hover:opacity-80"
           >
             {isOpen ? (
               <MdKeyboardArrowUp className="text-mediumGray" />
@@ -152,16 +152,16 @@ const CheckBoxesWithMore = ({ list }) => {
             <div
               className={`flex justify-center items-center text-sm ${
                 selected.includes(i)
-                  ? "text-white border-tertiary bg-tertiary"
+                  ? "text-white border-secondary bg-secondary"
                   : "text-mediumGray border-mediumGray bg-white"
-              } w-4 h-4 border-[1px] rounded`}
+              } w-4 h-4 border-[1px] rounded hover:border-primary hover:text-primary`}
             >
               {selected.includes(i) ? <MdCheck /> : "+"}
             </div>
             <span
               className={`ml-3 text-sm ${
                 selected.includes(i)
-                  ? "text-tertiary font-bold"
+                  ? "text-secondary font-bold"
                   : "text-black font-medium"
               }`}
             >
@@ -173,7 +173,7 @@ const CheckBoxesWithMore = ({ list }) => {
       {list.length > 4 ? (
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full bg-lightGray my-3 py-2 px-8 flex items-center justify-center"
+          className="w-full bg-lightGray my-3 py-2 px-8 flex items-center justify-center hover:opacity-80"
         >
           {isOpen ? (
             <MdKeyboardArrowUp className="text-mediumGray" />
@@ -203,7 +203,7 @@ const Select = ({ list, state, border }) => {
         type="button"
         value={state ? state : "광역시도"}
         onClick={() => setLocationIsOpen(!locationIsOpen)}
-        className="w-full mt-2 border-[1px] border-mediumGray px-4 py-1 rounded text-left text-sm cursor-pointer"
+        className="w-full mt-2 border-[1px] border-mediumGray px-4 py-1 rounded text-left text-sm cursor-pointer hover:border-primary"
       />
       {locationIsOpen ? (
         <MdKeyboardArrowUp

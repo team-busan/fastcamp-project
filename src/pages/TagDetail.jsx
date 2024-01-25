@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
-import { MdIosShare, MdLocationOn, MdArrowBackIosNew } from "react-icons/md";
+import { useSearchParams } from "react-router-dom";
+import { axiosInstance, API_URL } from "../stores/API";
 import RestaurantList from "../component/RestaurantList.jsx";
 import NaverMap from "../component/NaverMap.jsx";
 import { BottomSheet } from "react-spring-bottom-sheet";
+import { MdIosShare, MdLocationOn, MdArrowBackIosNew } from "react-icons/md";
 
 function TagDetail() {
+  const [params, setParams] = useSearchParams();
+  const [tag, setTag] = useState(params.get("tag"));
   const [open, setOpen] = useState(false);
   const [browserSizeX, setBrowserSizeX] = useState(window.innerWidth);
   const [orderBy, setOrderBy] = useState(0);
+  const [restaurantList, setRestaurantList] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [users, setUsers] = useState([]);
   const orderColor = "text-primary border-primary";
   const notOrderColor = "text-lightGray border-lightGray";
 
@@ -17,6 +24,11 @@ function TagDetail() {
 
   useEffect(() => {
     setOpen(true);
+    axiosInstance.get(API_URL.TAGDETAIL).then((res) => {
+      setRestaurantList(res.data.restaurantList);
+      setReviews(res.data.reviews);
+      setUsers(res.data.users);
+    });
   }, []);
 
   useEffect(() => {
@@ -32,19 +44,24 @@ function TagDetail() {
         <section className="w-[450px] h-screen border-r-[1px] border-lightGray">
           <div className="px-5 border-b-[1px] border-lightGray">
             <div className="flex items-center justify-between py-6">
-              <div className="flex items-center">
-                <MdLocationOn className="text-primary text-3xl" />
-                <h2 className="text-primary font-bold">다이닝</h2>
-                <h2 className="text-primary">코드</h2>
+              <div>
+                <h2 className="text-primary font-bold">제목</h2>
               </div>
               <MdIosShare className="text-2xl cursor-pointer" />
             </div>
             <div className="flex py-2">
               <h4>부산 금정구 구서동</h4>
-              <h4 className="ml-2 font-semibold">#점심특선</h4>
+              <h4 className="ml-2 font-semibold">{`#${tag}`}</h4>
             </div>
           </div>
-          <RestaurantList upperElementHeight="128px" />
+          <RestaurantList
+            list={restaurantList}
+            setList={setRestaurantList}
+            reviews={reviews}
+            users={users}
+            upperElementHeight="128px"
+            tag={tag}
+          />
         </section>
         <section>
           <NaverMap width="100vw - 450px" height="h-screen" isRounded={false} />
@@ -61,7 +78,7 @@ function TagDetail() {
           />
           <div className="flex">
             <h4 className="mr-2 text-lg sm:text-2xl">부산 금정구 구서동</h4>
-            <h4 className="text-lg sm:text-2xl">#점심특선</h4>
+            <h4 className="text-lg sm:text-2xl">{`#${tag}`}</h4>
           </div>
           <MdIosShare className="text-2xl sm:text-3xl cursor-pointer" />
         </div>
@@ -95,7 +112,13 @@ function TagDetail() {
             </div>
           }
         >
-          <RestaurantList />
+          <RestaurantList
+            list={restaurantList}
+            setList={setRestaurantList}
+            reviews={reviews}
+            users={users}
+            tag={tag}
+          />
         </BottomSheet>
       </div>
     );
