@@ -29,7 +29,7 @@ export default function MbTitle({restaurant, review, averageRating}) {
                   <FaStar className="text-lg text-secondary" />
                   <FaStar className="text-lg text-secondary" />
                 </span>
-                <p className>{averageRating.toFixed(1)}</p>
+                <p>{averageRating.toFixed(1)}</p>
               </div>
             </div>
             <hr/>

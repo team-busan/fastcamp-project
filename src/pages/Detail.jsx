@@ -13,6 +13,7 @@ import MbMenu from "../component/MbMenu";
 import MbLocation from "../component/MbLocation";
 import MbTag from "../component/MbTag";
 import MbVisitRating from "../component/MbVisitRating";
+import MbBlog from "../component/MbBlog";
 
 export default function Detail() {
   const params = useParams();
@@ -86,7 +87,10 @@ export default function Detail() {
         <MbVisitRating
           averageRating = {averageRating}
           review = {review}
+          restaurant = {restaurant}
         />
+        <MbBlog
+          blog = {blog}/>
       </div>
     </>
   );
