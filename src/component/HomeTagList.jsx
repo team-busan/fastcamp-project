@@ -6,24 +6,7 @@ import RightButton from "./RightButton";
 import { axiosInstance, API_URL } from "../stores/API";
 import { useState, useEffect } from "react";
 
-export default function HomeTagList() {
-  const [tagData, setTagData] = useState([]);
-
-  useEffect(() => {
-    axiosInstance
-      .get(API_URL.HOME)
-      .then((res) => {
-        setTagData(res.data);
-        console.log(tagData);
-      })
-      .catch((error) => {
-        console.log("HomeTagList", error);
-      });
-  }, []);
-
-  if (!tagData) {
-    return <div>loading...</div>;
-  }
+export default function HomeTagList({list, setList}) {
   return (
     <div className="flex  items-stretch justify-between gap-5 ml-5 mr-4 mt-14 ">
       <LeftButton />
@@ -35,7 +18,7 @@ export default function HomeTagList() {
           <DetailButton />
         </div>
         <div className="flex flex-wrap justify-between  gap-5 p-4 place-items-center">
-          {tagData.map((item, index) => {
+          {list.map((item, index) => {
             return (
               <Link
                 to={`/detail/${item.id}`}

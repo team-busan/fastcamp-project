@@ -45,11 +45,11 @@ axiosMock
 
 axiosMock.onPost(API_URL.SEARCHFILTER).reply(200, { message: "필터 적용" });
 
-axiosMock.onGet(API_URL.HOME).reply(200, RESTAURANTS);
+axiosMock.onGet(API_URL.HOME).reply(200, {tagList: RESTAURANTS, articles: ARTICLE});
 
 axiosMock.onGet(API_URL.ARTICLE).reply(200, ARTICLE);
 
-axiosMock.onGet(API_URL.MYPAGE).reply(200, { USER, RESTAURANTS });
+axiosMock.onGet(API_URL.MYPAGE).reply(200, {users: USER, wishlists: RESTAURANTS});
 
 axiosMock
   .onPost(API_URL.SIGNUP)
