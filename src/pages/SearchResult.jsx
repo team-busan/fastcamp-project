@@ -654,9 +654,8 @@ const SearchResult = () => {
   }, []);
 
   useEffect(() => {
-    console.log(tagList);
     axiosInstance.post(API_URL.SEARCHFILTER, tagList).then((res) => {
-      console.log(res.data.message);
+      // console.log(res.data.message);
     });
   }, [tagList]);
 
