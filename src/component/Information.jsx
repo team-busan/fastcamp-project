@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { CiClock1, CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-export default function Information({restaurant}) {
+export default function Information({ restaurant }) {
   const [ismenu, setIsmenu] = useState(false);
 
   const toggleMenu = () => {

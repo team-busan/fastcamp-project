@@ -18,6 +18,7 @@ import {
   MdRefresh,
   MdKeyboardArrowUp,
   MdKeyboardArrowDown,
+  MdReplay,
 } from "react-icons/md";
 
 const SearchResultNavbar = ({ browserSizeX }) => {
@@ -40,32 +41,103 @@ const FilterSelect = ({
   convenienceList,
   purposeList,
   moodList,
+  tagList,
+  setTagList,
 }) => {
   if (selectFilter === "social") {
-    return <CheckBoxes list={socialList} isFlexCol={false} border={false} />;
+    return (
+      <CheckBoxes
+        list={socialList}
+        isFlexCol={false}
+        border={false}
+        tagList={tagList}
+        setTagList={setTagList}
+      />
+    );
   } else if (selectFilter === "people") {
     return (
       <div className="flex flex-col">
-        <CheckBoxes list={peopleList} isFlexCol={false} border={true} />
-        <Radios list={genderList} border={false} />
+        <CheckBoxes
+          list={peopleList}
+          isFlexCol={false}
+          border={true}
+          tagList={tagList}
+          setTagList={setTagList}
+        />
+        <Radios
+          list={genderList}
+          border={false}
+          tagList={tagList}
+          setTagList={setTagList}
+        />
       </div>
     );
   } else if (selectFilter === "category") {
-    return <Radios list={categoryList} border={false} />;
+    return (
+      <Radios
+        list={categoryList}
+        border={false}
+        tagList={tagList}
+        setTagList={setTagList}
+      />
+    );
   } else if (selectFilter === "location") {
-    return <Select list={locationList} state={location} border={false} />;
+    return (
+      <Select
+        list={locationList}
+        state={location}
+        border={false}
+        tagList={tagList}
+        setTagList={setTagList}
+      />
+    );
   } else if (selectFilter === "tv") {
-    return <CheckBoxes list={tvList} isFlexCol={false} />;
+    return (
+      <CheckBoxes
+        list={tvList}
+        isFlexCol={false}
+        tagList={tagList}
+        setTagList={setTagList}
+      />
+    );
   } else if (selectFilter === "convenience") {
-    return <CheckBoxes list={convenienceList} isFlexCol={false} />;
+    return (
+      <CheckBoxes
+        list={convenienceList}
+        isFlexCol={false}
+        tagList={tagList}
+        setTagList={setTagList}
+      />
+    );
   } else if (selectFilter === "purpose") {
-    return <CheckBoxes list={purposeList} isFlexCol={false} />;
+    return (
+      <CheckBoxes
+        list={purposeList}
+        isFlexCol={false}
+        tagList={tagList}
+        setTagList={setTagList}
+      />
+    );
   } else {
-    return <CheckBoxes list={moodList} isFlexCol={false} />;
+    return (
+      <CheckBoxes
+        list={moodList}
+        isFlexCol={false}
+        tagList={tagList}
+        setTagList={setTagList}
+      />
+    );
   }
 };
 
-const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
+const Filter = ({
+  browserSizeX,
+  setBrowserSizeX,
+  sortState,
+  setSortState,
+  tagList,
+  setTagList,
+}) => {
   const [location, setLocation] = useState("");
   const [isFilterOpen, setIsFilterOpen] = useState(true);
   const [selectFilter, setSelectFilter] = useState("social");
@@ -197,48 +269,80 @@ const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
             <div className="bg-red-600 w-3 h-3 mr-2 rounded"></div>
             <h5 className="font-bold">소셜</h5>
           </div>
-          <CheckBoxes list={socialList} isFlexCol={true} />
+          <CheckBoxes
+            list={socialList}
+            isFlexCol={true}
+            tagList={tagList}
+            setTagList={setTagList}
+          />
         </div>
         <div id="eachFilter2">
           <div className="flex items-center">
             <div className="bg-amber-500 w-3 h-3 mr-2 rounded"></div>
             <h5 className="font-bold">이용자층</h5>
           </div>
-          <CheckBoxes list={peopleList} isFlexCol={false} />
+          <CheckBoxes
+            list={peopleList}
+            isFlexCol={false}
+            tagList={tagList}
+            setTagList={setTagList}
+          />
         </div>
         <div id="eachFilter3">
-          <Radios list={genderList} />
+          <Radios list={genderList} tagList={tagList} setTagList={setTagList} />
         </div>
         <div id="eachFilter4" className="flex items-center">
           <div className="bg-yellow-300 w-3 h-3 mr-2 rounded"></div>
           <h5 className="font-bold">카테고리</h5>
         </div>
-        <Radios list={categoryList} />
+        <Radios list={categoryList} tagList={tagList} setTagList={setTagList} />
         <div id="eachFilter5" className="flex items-center">
           <div className="bg-lime-600 w-3 h-3 mr-2 rounded"></div>
           <h5 className="font-bold">지역</h5>
         </div>
-        <Select list={locationList} state={location} border={true} />
+        <Select
+          list={locationList}
+          state={location}
+          border={true}
+          tagList={tagList}
+          setTagList={setTagList}
+        />
         <div id="eachFilter6" className="flex items-center">
           <div className="bg-cyan-300 w-3 h-3 mr-2 rounded"></div>
           <h5 className="font-bold">TV맛집</h5>
         </div>
-        <CheckBoxesWithMore list={tvList} />
+        <CheckBoxesWithMore
+          list={tvList}
+          tagList={tagList}
+          setTagList={setTagList}
+        />
         <div id="eachFilter7" className="flex items-center">
           <div className="bg-indigo-400 w-3 h-3 mr-2 rounded"></div>
           <h5 className="font-bold">편의기능</h5>
         </div>
-        <CheckBoxesWithMore list={convenienceList} />
+        <CheckBoxesWithMore
+          list={convenienceList}
+          tagList={tagList}
+          setTagList={setTagList}
+        />
         <div id="eachFilter8" className="flex items-center">
           <div className="bg-blue-600 w-3 h-3 mr-2 rounded"></div>
           <h5 className="font-bold">방문목적</h5>
         </div>
-        <CheckBoxesWithMore list={purposeList} />
+        <CheckBoxesWithMore
+          list={purposeList}
+          tagList={tagList}
+          setTagList={setTagList}
+        />
         <div id="eachFilter9" className="flex items-center">
           <div className="bg-violet-800 w-3 h-3 mr-2 rounded"></div>
           <h5 className="font-bold">분위기</h5>
         </div>
-        <CheckBoxesWithMore list={moodList} />
+        <CheckBoxesWithMore
+          list={moodList}
+          tagList={tagList}
+          setTagList={setTagList}
+        />
       </div>
     );
   } else {
@@ -328,6 +432,8 @@ const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
                   convenienceList={convenienceList}
                   purposeList={purposeList}
                   moodList={moodList}
+                  tagList={tagList}
+                  setTagList={setTagList}
                 />
               </div>
             </div>
@@ -376,10 +482,46 @@ const Filter = ({ browserSizeX, setBrowserSizeX, sortState, setSortState }) => {
   }
 };
 
-const Button = ({ value, displayValue, sortState, setSortState }) => {
+const Button = ({
+  value,
+  displayValue,
+  sortState,
+  setSortState,
+  originalList,
+  setRestaurantList,
+}) => {
+  const sortFunc = () => {
+    if (value === "relate") {
+      setRestaurantList(originalList);
+    } else if (value === "score") {
+      const originalListCopy = [...originalList].sort(
+        (a, b) => b.rating - a.rating
+      );
+      setRestaurantList(originalListCopy);
+    } else if (value === "review") {
+      const originalListCopy = [...originalList].sort(
+        (a, b) => b.reviewCount - a.reviewCount
+      );
+      setRestaurantList(originalListCopy);
+    } else if (value === "favorite") {
+      const originalListCopy = [...originalList].sort(
+        (a, b) => b.wishListCount - a.wishListCount
+      );
+      setRestaurantList(originalListCopy);
+    } else {
+      const originalListCopy = [...originalList].sort(
+        (a, b) => b.distance - a.distance
+      );
+      setRestaurantList(originalListCopy);
+    }
+  };
+
   return (
     <button
-      onClick={() => setSortState(value)}
+      onClick={() => {
+        setSortState(value);
+        sortFunc();
+      }}
       className={`py-1 px-2 border-[1px] rounded-md mr-2 text-sm ${
         sortState === value
           ? "border-secondary text-secondary font-bold"
@@ -391,10 +533,70 @@ const Button = ({ value, displayValue, sortState, setSortState }) => {
   );
 };
 
-const MapButton = ({ value, meterState, setMeterState }) => {
+const MapButton = ({
+  value,
+  meterState,
+  setMeterState,
+  originalList,
+  setRestaurantList,
+}) => {
+  const filterFunc = () => {
+    if (value === "100m") {
+      const originalListCopy = [...originalList].filter(
+        (v) => v.distance <= 100
+      );
+      setRestaurantList(originalListCopy);
+    } else if (value === "300m") {
+      const originalListCopy = [...originalList].filter(
+        (v) => v.distance <= 300
+      );
+      setRestaurantList(originalListCopy);
+    } else if (value === "500m") {
+      const originalListCopy = [...originalList].filter(
+        (v) => v.distance <= 500
+      );
+      setRestaurantList(originalListCopy);
+    } else if (value === "1km") {
+      const originalListCopy = [...originalList].filter(
+        (v) => v.distance <= 1000
+      );
+      setRestaurantList(originalListCopy);
+    } else if (value === "2km") {
+      const originalListCopy = [...originalList].filter(
+        (v) => v.distance <= 2000
+      );
+      setRestaurantList(originalListCopy);
+    } else if (value === "3km") {
+      const originalListCopy = [...originalList].filter(
+        (v) => v.distance <= 3000
+      );
+      setRestaurantList(originalListCopy);
+    } else if (value === "5km") {
+      const originalListCopy = [...originalList].filter(
+        (v) => v.distance <= 5000
+      );
+      setRestaurantList(originalListCopy);
+    } else if (value === "10km") {
+      const originalListCopy = [...originalList].filter(
+        (v) => v.distance <= 10000
+      );
+      setRestaurantList(originalListCopy);
+    } else if (value === "15km") {
+      const originalListCopy = [...originalList].filter(
+        (v) => v.distance <= 15000
+      );
+      setRestaurantList(originalListCopy);
+    } else {
+      setRestaurantList(originalList);
+    }
+  };
+
   return (
     <button
-      onClick={() => setMeterState(value)}
+      onClick={() => {
+        setMeterState(value);
+        filterFunc();
+      }}
       className={`py-1 px-3 rounded-full hover:bg-darkGray ${
         meterState === value ? "bg-darkGray" : null
       }`}
@@ -435,16 +637,28 @@ const SearchResult = () => {
   const [sortSelect, setSortSelect] = useState("relate");
   const [meter, setMeter] = useState("500m");
   const [restaurantList, setRestaurantList] = useState([]);
+  const [originalList, setOriginalList] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [users, setUsers] = useState([]);
+  const [tagList, setTagList] = useState([]);
 
   useEffect(() => {
     axiosInstance.get(API_URL.SEARCH).then((res) => {
-      setRestaurantList(res.data.restaurantList);
+      setRestaurantList(
+        res.data.restaurantList.filter((v) => v.distance <= 500)
+      );
+      setOriginalList(res.data.restaurantList);
       setReviews(res.data.reviews);
       setUsers(res.data.users);
     });
   }, []);
+
+  useEffect(() => {
+    console.log(tagList);
+    axiosInstance.post(API_URL.SEARCHFILTER, tagList).then((res) => {
+      console.log(res.data.message);
+    });
+  }, [tagList]);
 
   return (
     <>
@@ -455,6 +669,8 @@ const SearchResult = () => {
           setBrowserSizeX={setBrowserSizeX}
           sortState={sortSelect}
           setSortState={setSortSelect}
+          tagList={tagList}
+          setTagList={setTagList}
         />
         <div className="flex flex-col w-full lg:w-9/12">
           <div id="content" className="bg-white lg:ml-6 lg:rounded-2xl">
@@ -473,30 +689,40 @@ const SearchResult = () => {
                     displayValue="연관순"
                     sortState={sortSelect}
                     setSortState={setSortSelect}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <Button
                     value="score"
                     displayValue="평점순"
                     sortState={sortSelect}
                     setSortState={setSortSelect}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <Button
                     value="review"
                     displayValue="리뷰많은순"
                     sortState={sortSelect}
                     setSortState={setSortSelect}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <Button
                     value="favorite"
                     displayValue="좋아요많은순"
                     sortState={sortSelect}
                     setSortState={setSortSelect}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <Button
                     value="distance"
                     displayValue="거리순"
                     sortState={sortSelect}
                     setSortState={setSortSelect}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                 </div>
                 <div className="pl-4 flex items-center border-l-[1px] border-lightGray text-sm">
@@ -507,17 +733,62 @@ const SearchResult = () => {
               </div>
             ) : null}
             <div>
+              {tagList.length !== 0 && (
+                <div className="w-full p-4 flex items-center justify-between">
+                  <ul className="flex gap-2">
+                    {tagList.map((v, i) => {
+                      return (
+                        <li
+                          key={i}
+                          className="bg-primary text-white py-1 px-2 flex items-center rounded-md"
+                        >
+                          <p>{v}</p>
+                          <p
+                            onClick={() => {
+                              const filteredTagList = [...tagList].filter(
+                                (v2) => v2 !== v
+                              );
+                              setTagList(filteredTagList);
+                            }}
+                            className="bg-secondary ml-1 rounded-full rotate-45 w-5 h-5 flex items-center justify-center cursor-pointer"
+                          >
+                            +
+                          </p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <MdReplay
+                    onClick={() => setTagList([])}
+                    className="cursor-pointer"
+                  />
+                </div>
+              )}
               <div className="flex items-center justify-between px-5 py-4">
                 <div className="font-semibold">
                   <span>{meter === "전국" ? null : "내주변"}</span>
                   <span className="ml-1">{meter}</span>
                   <span className="ml-1">맛집</span>
                   <span className="ml-1">
-                    (<span className="text-primary">55</span>)
+                    (
+                    <span className="text-primary">
+                      {restaurantList.length}
+                    </span>
+                    )
                   </span>
                   <span>곳</span>
                 </div>
-                <MdIosShare className="text-lg" />
+                <MdIosShare
+                  onClick={async () => {
+                    try {
+                      await navigator.clipboard.writeText(window.location.href);
+                      alert("클립보드에 링크가 복사되었습니다.");
+                    } catch (e) {
+                      alert("복사에 실패하였습니다.");
+                    }
+                  }}
+                  className="text-lg cursor-pointer"
+                />
               </div>
               <div className="px-4 rounded-2xl">
                 <div className="w-full p-1 bg-mediumGray text-white text-sm flex justify-between rounded-t-2xl">
@@ -525,51 +796,71 @@ const SearchResult = () => {
                     value="100m"
                     meterState={meter}
                     setMeterState={setMeter}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <MapButton
                     value="300m"
                     meterState={meter}
                     setMeterState={setMeter}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <MapButton
                     value="500m"
                     meterState={meter}
                     setMeterState={setMeter}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <MapButton
                     value="1km"
                     meterState={meter}
                     setMeterState={setMeter}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <MapButton
                     value="2km"
                     meterState={meter}
                     setMeterState={setMeter}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <MapButton
                     value="3km"
                     meterState={meter}
                     setMeterState={setMeter}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <MapButton
                     value="5km"
                     meterState={meter}
                     setMeterState={setMeter}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <MapButton
                     value="10km"
                     meterState={meter}
                     setMeterState={setMeter}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <MapButton
                     value="15km"
                     meterState={meter}
                     setMeterState={setMeter}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                   <MapButton
                     value="전국"
                     meterState={meter}
                     setMeterState={setMeter}
+                    originalList={originalList}
+                    setRestaurantList={setRestaurantList}
                   />
                 </div>
                 <NaverMap width="100%" height="h-72" isRounded={true} />

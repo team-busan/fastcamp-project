@@ -1,8 +1,8 @@
 import Blog from "../component/Blog";
 import Information from "../component/Information";
 import { axiosInstance, API_URL } from "../stores/API";
-import {useParams} from 'react-router-dom';
-import Map from "../component/Map";
+import { useParams } from "react-router-dom";
+import NaverMap from "../component/NaverMap";
 import RecommendedRestaurants from "../component/RecommendedRestaurants";
 import Title from "../component/Title";
 import VisitRating from "../component/VisitRating";
@@ -23,24 +23,25 @@ export default function Detail() {
   const averageRating = calculateAverageRating(review);
 
   useEffect(() => {
-    axiosInstance.get(API_URL.DETAIL)
+    axiosInstance
+      .get(API_URL.DETAIL)
       .then((res) => {
         const data = res.data.restaurant.find((v) => {
-          return v.id === Number(params.id)
+          return v.id === Number(params.id);
         });
-        if(data){
+        if (data) {
           setRestaurant(data);
         }
         const data2 = res.data.review.filter((v) => {
           return v.restaurant_id === Number(params.id);
         });
-        if(data2){
+        if (data2) {
           setReview(data2);
         }
         const data3 = res.data.blogview.filter((v) => {
           return v.restaurant_id === Number(params.id);
         });
-        if(data3){
+        if (data3) {
           setBlog(data3);
         }
       })
@@ -53,7 +54,7 @@ export default function Detail() {
     if (reviews.length === 0) {
       return 0;
     }
-  
+
     const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
     const averageRating = totalRating / reviews.length;
     return averageRating;
@@ -62,13 +63,13 @@ export default function Detail() {
   return (
     <>
       <div className="hidden md:flex md:flex-row md:center md:w-screen md:justify-evenly bg-lightGray">
-        <Map />
+        <NaverMap width="14rem" height="h-56" />
         <main className="w-6/12">
-        <Title restaurant={restaurant} />
-        <Information restaurant={restaurant} />
-        {/* <RecommendedRestaurants /> */}
-        <VisitRating review={review} averageRating = {averageRating} />
-        <Blog blog={blog} />
+          <Title restaurant={restaurant} />
+          <Information restaurant={restaurant} />
+          {/* <RecommendedRestaurants /> */}
+          <VisitRating review={review} averageRating={averageRating} />
+          <Blog blog={blog} />
         </main>
       </div>
       <div className=" md:hidden md:flex-col md:items-center md:w-screen bg-slate-50">
