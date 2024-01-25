@@ -9,10 +9,13 @@ function Home() {
   return (
     <div>
       <Navbar />
+      <div className="bg-lightGray ">
       <LocalFoodPick />
       <MbLocalFood />
       <Column />
       <HomeTagList />
+      </div>
+      
     </div>
   );
 }

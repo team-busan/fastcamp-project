@@ -12,7 +12,7 @@ export default function MyPage() {
       <MyInfo />
       {/* <MyIntro /> */}
       {/* <MyPageSection /> */}
-      {/* <MyPageContent /> */}
+      <MyPageContent />
       <MbMPContent />
     </div>
   )

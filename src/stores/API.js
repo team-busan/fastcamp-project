@@ -46,7 +46,7 @@ axiosMock.onGet(API_URL.HOME).reply(200, RESTAURANTS);
 
 axiosMock.onGet(API_URL.ARTICLE).reply(200, ARTICLE);
 
-axiosMock.onGet(API_URL.MYPAGE).reply(200, USER);
+axiosMock.onGet(API_URL.MYPAGE).reply(200, {USER, RESTAURANTS});
 
 axiosMock
   .onPost(API_URL.SIGNUP)

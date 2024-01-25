@@ -33,11 +33,11 @@ export default function Column() {
           </div>
           <DetailButton />
         </div>
-        <div className="flex-col overflow-hidden self-stretch relative flex min-h-[355px] items-stretch ">
-          <div className=" justify-end text-3xl font-semibold leading-9 relative mt-36  ">
+        <div className="flex-col overflow-hidden self-stretch relative flex min-h-[355px] items-stretch bg-white">
+          <div className=" justify-end text-3xl font-semibold leading-9 relative mt-24  ml-10 ">
             {articleData.title}
           </div>
-          <div className=" justify-center text-xl leading-6 relative mt-8 ">
+          <div className=" justify-center text-xl leading-6 relative mt-8 ml-10 mr-10">
             {articleData.content}
           </div>
         </div>
