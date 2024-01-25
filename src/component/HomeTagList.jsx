@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import LeftButton from "./LeftButton";
 import DetailButton from "./DetailButton";
 import RightButton from "./RightButton";
@@ -6,7 +7,6 @@ import { axiosInstance, API_URL } from "../stores/API";
 import { useState, useEffect } from "react";
 
 export default function HomeTagList({list, setList}) {
-
   return (
     <div className="flex  items-stretch justify-between gap-5 ml-5 mr-4 mt-14 ">
       <LeftButton />
@@ -20,7 +20,11 @@ export default function HomeTagList({list, setList}) {
         <div className="flex flex-wrap justify-between  gap-5 p-4 place-items-center">
           {list.map((item, index) => {
             return (
-              <div key={index} className=" items-stretch w-3/12 max-md:mt-6 ">
+              <Link
+                to={`/detail/${item.id}`}
+                key={index}
+                className=" items-stretch w-3/12 max-md:mt-6 "
+              >
                 <div className="flex grow flex-col items-center ">
                   <div className="flex-col overflow-hidden relative flex aspect-[1] w-[207px] pl-16 pt-12 items-end ">
                     <img
@@ -33,7 +37,7 @@ export default function HomeTagList({list, setList}) {
                     {item.name}
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

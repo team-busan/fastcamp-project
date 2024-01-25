@@ -15,6 +15,7 @@ const API_URL = {
   TAGDETAIL: "tagdetail",
   DETAIL: "detail",
   SEARCH: "search",
+  SEARCHFILTER: "search/filter",
   MYPAGE: "mypage",
   ARTICLE: "article",
   LOGIN: "login",
@@ -41,6 +42,8 @@ axiosMock.onGet(detail_url).reply(200, {
 axiosMock
   .onGet(API_URL.SEARCH)
   .reply(200, { restaurantList: RESTAURANTS, reviews: REVIEW, users: USER });
+
+axiosMock.onPost(API_URL.SEARCHFILTER).reply(200, { message: "필터 적용" });
 
 axiosMock.onGet(API_URL.HOME).reply(200, {tagList: RESTAURANTS, articles: ARTICLE});
 
