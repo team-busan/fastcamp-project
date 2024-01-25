@@ -42,11 +42,11 @@ axiosMock
   .onGet(API_URL.SEARCH)
   .reply(200, { restaurantList: RESTAURANTS, reviews: REVIEW, users: USER });
 
-axiosMock.onGet(API_URL.HOME).reply(200, RESTAURANTS);
+axiosMock.onGet(API_URL.HOME).reply(200, {tagList: RESTAURANTS, articles: ARTICLE});
 
 axiosMock.onGet(API_URL.ARTICLE).reply(200, ARTICLE);
 
-axiosMock.onGet(API_URL.MYPAGE).reply(200, {USER, RESTAURANTS});
+axiosMock.onGet(API_URL.MYPAGE).reply(200, {users: USER, wishlists: RESTAURANTS});
 
 axiosMock
   .onPost(API_URL.SIGNUP)

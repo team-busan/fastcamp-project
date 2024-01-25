@@ -4,16 +4,32 @@ import LocalFoodPick from "../component/LocalFoodPick";
 import Navbar from "../component/Navbar";
 // import Search from "../component/Search";
 import MbLocalFood from "../component/mbLocalFood";
+import { useEffect, useState } from "react";
+import { axiosInstance, API_URL } from "../stores/API";
 
 function Home() {
+  const [articleData, setArticleData] = useState({});
+  const [tagListData, setTagListData] = useState([]);
+
+  useEffect(() => {
+    axiosInstance
+      .get(API_URL.HOME).then((res) => {
+        
+        setArticleData(res.data.articles[0]);
+        setTagListData(res.data.tagList);
+      })
+      .catch((error) => {
+        console.log("Home", error);
+      });
+  }, []);
   return (
     <div>
       <Navbar />
       <div className="bg-lightGray ">
       <LocalFoodPick />
       <MbLocalFood />
-      <Column />
-      <HomeTagList />
+      <Column article={articleData} setArticle={setArticleData}/>
+      <HomeTagList list={tagListData} setList={setTagListData}/>
       </div>
       
     </div>
