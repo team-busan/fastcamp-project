@@ -13,6 +13,7 @@ import MbMenu from "../component/MbMenu";
 import MbLocation from "../component/MbLocation";
 import MbTag from "../component/MbTag";
 import MbVisitRating from "../component/MbVisitRating";
+import MbBlog from "../component/MbBlog";
 
 export default function Detail() {
   const params = useParams();
@@ -74,14 +75,23 @@ export default function Detail() {
       <div className=" md:hidden md:flex-col md:items-center md:w-screen bg-slate-50">
         <MbTitle
           restaurant={restaurant}
-          review={review}
-          averageRating={averageRating}
+          review = {review}
+          averageRating = {averageRating}
         />
-        <MbInformation restaurant={restaurant} />
-        <MbMenu restaurant={restaurant} />
-        <MbLocation />
-        <MbTag restaurant={restaurant} />
-        <MbVisitRating averageRating={averageRating} review={review} />
+        <MbInformation
+          restaurant = {restaurant} />
+        <MbMenu
+          restaurant = {restaurant}/>
+        <MbLocation/>
+        <MbTag
+          restaurant = {restaurant}/>
+        <MbVisitRating
+          averageRating = {averageRating}
+          review = {review}
+          restaurant = {restaurant}
+        />
+        <MbBlog
+          blog = {blog}/>
       </div>
     </>
   );

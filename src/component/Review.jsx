@@ -53,7 +53,7 @@ export default function Review({ review }) {;
                         key={j}
                         src={img.imgLink}
                         alt={`optional_${j}`}
-                        className="w-32 h-24"
+                        className="w-2/6 h-32"
                       />
                     ))}
                 </div>

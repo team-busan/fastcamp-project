@@ -66,7 +66,20 @@ export default function Information({ restaurant }) {
         <hr />
         <div className="">
           <h3 className="font-bold mt-4 mb-4">맛집태그</h3>
-          <div className="bg-gray-200 h-40">태그 박스</div>
+          <div className="h-40">
+          <div>
+            {restaurant.category &&
+              restaurant.category.map((value, i) => (
+                <span
+                  key={i}
+                  style={{ fontSize: `${Math.floor(Math.random() * 20 + 10)}px` }}
+                  className = ""
+                >
+                  {value}
+                </span>
+              ))}
+          </div>
+          </div>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { LuPencil } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
 import MbReview from './MbReview';
 
-export default function MbVisitRating({averageRating, review}) {
+export default function MbVisitRating({averageRating, review, restaurant}) {
   return (
     <div className = "bg-white p-5 mb-3">
       <div className = "flex items-center mb-2">
@@ -36,7 +36,10 @@ export default function MbVisitRating({averageRating, review}) {
         </div>
       </div>
       <hr/>
-      <MbReview review = {review}/>
+      <MbReview 
+        review = {review}
+        restaurant = {restaurant}
+      />
     </div>
   )
 }
