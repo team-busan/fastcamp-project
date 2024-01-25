@@ -4,7 +4,7 @@ import { FaAngleRight } from "react-icons/fa6";
 
 export default function MbMPContent() {
   return (
-    <div className="bg-zinc-300 self-stretch flex w-full flex-col items-stretch mt-20 px-12 py-10">
+    <div className="bg-zinc-300 self-stretch flex w-full flex-col items-stretch mt-20 px-12 py-10 md:hidden">
         <div className="bg-white flex w-full items-center justify-between gap-5 pl-7 pr-2 py-12 rounded-[50px_50px_0px_0px] border-b-stone-300 border-b border-solid">
             <div className="justify-center text-black text-3xl font-semibold w-[250px] my-auto">
             평가한 맛집
