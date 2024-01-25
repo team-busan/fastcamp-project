@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import LeftButton from "./LeftButton";
 import DetailButton from "./DetailButton";
 import RightButton from "./RightButton";
@@ -10,8 +11,8 @@ export default function HomeTagList() {
 
   useEffect(() => {
     axiosInstance
-      .get(API_URL.HOME).then((res) => {
-        
+      .get(API_URL.HOME)
+      .then((res) => {
         setTagData(res.data);
         console.log(tagData);
       })
@@ -36,7 +37,11 @@ export default function HomeTagList() {
         <div className="flex flex-wrap justify-between  gap-5 p-4 place-items-center">
           {tagData.map((item, index) => {
             return (
-              <div key={index} className=" items-stretch w-3/12 max-md:mt-6 ">
+              <Link
+                to={`/detail/${item.id}`}
+                key={index}
+                className=" items-stretch w-3/12 max-md:mt-6 "
+              >
                 <div className="flex grow flex-col items-center ">
                   <div className="flex-col overflow-hidden relative flex aspect-[1] w-[207px] pl-16 pt-12 items-end ">
                     <img
@@ -49,7 +54,7 @@ export default function HomeTagList() {
                     {item.name}
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

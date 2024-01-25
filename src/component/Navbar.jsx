@@ -1,9 +1,10 @@
 import { useState, useRef } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import useDetectClose from "../hooks/useDetectClose";
 import { MdOutlineSearch, MdLocationOn } from "react-icons/md";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchValue, setSearchValue] = useState(
     searchParams.get("query") ? searchParams.get("query") : ""
@@ -11,6 +12,13 @@ export default function Navbar() {
 
   const inputRef = useRef();
   const [isInputActive, setIsInputActive] = useDetectClose(inputRef, false);
+
+  const handleSearch = (query) => {
+    if (query === "") {
+      query = "내주변";
+    }
+    navigate(`/search?query=${query}`);
+  };
 
   return (
     <>
@@ -34,22 +42,36 @@ export default function Navbar() {
             value={searchValue}
             onChange={(e) => setSearchValue(e.currentTarget.value)}
             onClick={() => setIsInputActive(!isInputActive)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch(searchValue);
+              }
+            }}
           />
-          <MdOutlineSearch className="cursor-pointer text-2xl" />
+          <MdOutlineSearch
+            onClick={() => handleSearch(searchValue)}
+            className="cursor-pointer text-2xl"
+          />
           {isInputActive && (
             <div className="absolute w-full py-4 rounded-b-2xl bg-white -bottom-[72px] left-0 shadow z-[102]">
               <div className="flex items-center cursor-pointer px-4 py-2 border-l-2 hover:bg-lightGray hover:border-primary">
                 {searchValue ? (
-                  <>
+                  <div
+                    onClick={() => handleSearch(searchValue)}
+                    className="flex"
+                  >
                     <MdOutlineSearch className="text-2xl" />
                     <span className="ml-2 text-myblue">{`'${searchValue}'`}</span>
                     <span className="ml-1">검색</span>
-                  </>
+                  </div>
                 ) : (
-                  <>
+                  <div
+                    onClick={() => handleSearch(searchValue)}
+                    className="flex"
+                  >
                     <MdLocationOn className="text-primary text-2xl" />
                     <span className="ml-2 font-semibold">내주변 검색</span>
-                  </>
+                  </div>
                 )}
               </div>
             </div>
