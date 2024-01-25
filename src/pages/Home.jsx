@@ -3,19 +3,18 @@ import HomeTagList from "../component/HomeTagList";
 import LocalFoodPick from "../component/LocalFoodPick";
 import Navbar from "../component/Navbar";
 // import Search from "../component/Search";
-import MbLocalFood from "../component/mbLocalFood";
+import MbLocalFood from "../component/MbLocalFood";
 
 function Home() {
   return (
     <div>
       <Navbar />
       <div className="bg-lightGray ">
-      <LocalFoodPick />
-      <MbLocalFood />
-      <Column />
-      <HomeTagList />
+        <LocalFoodPick />
+        <MbLocalFood />
+        <Column />
+        <HomeTagList />
       </div>
-      
     </div>
   );
 }
