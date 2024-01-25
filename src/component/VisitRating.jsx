@@ -3,15 +3,13 @@ import Review from "./Review";
 import { useState } from "react";
 import { CiCircleChevDown } from "react-icons/ci";
 
-export default function VisitRating({review}) {
+export default function VisitRating({review, averageRating}) {
+
   return (
     <div className="bg-white p-5 mb-4">
-      <h3 className="font-bold mb-4">0건의 방문자 평가</h3>
-      <hr />
-      <div className="flex justify-between mt-4">
-        <div>
-          <div className="flex items-center  mb-2">
-            <p className="font-bold mr-4">0</p>
+      <div className = "flex">
+        <h3 className="font-bold mb-4">{review.length}건의 방문자 평가</h3>
+        <div className="flex items-center mb-2 ml-2">
             <span className="flex">
               <FaStar className="text-secondary text-lg" />
               <FaStar className="text-secondary text-lg" />
@@ -19,21 +17,26 @@ export default function VisitRating({review}) {
               <FaStar className="text-secondary text-lg" />
               <FaStar className="text-secondary text-lg" />
             </span>
-          </div>
+            <p className="font-bold mr-4 ml-2">{averageRating.toFixed(1)}</p>
+        </div>
+      </div>
+      {/* <div className="flex justify-between mt-4">
+        <div>
+        
           <div className="flex mb-4">
             <span className="flex items-center text-sm mr-2">
               맛<FaStar className="text-secondary" />
-              {/* {data.avgTaste} */}
+              {data.avgTaste}
             </span>
             <span className="flex items-center text-sm mr-2">
               가격
               <FaStar className="text-secondary" />
-              {/* {data.avgPrice} */}
+              {data.avgPrice}
             </span>
             <span className="flex items-center text-sm mr-2">
               서비스
               <FaStar className="text-secondary" />
-              {/* {data.avgService} */}
+              {data.avgService}
             </span>
           </div>
           <p className="text-sm mb-2">방문목적</p>
@@ -62,7 +65,7 @@ export default function VisitRating({review}) {
             <div className="bg-secondary w-28 h-3"></div>
           </div>
         </div>
-      </div>
+      </div> */}
       <hr />
       <div className="flex justify-between mt-4 mb-4">
         <div className="flex items-center">

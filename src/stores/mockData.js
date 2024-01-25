@@ -81,21 +81,21 @@ const RESTAURANTS = [
     ],
     rating: 4.5,
     location: "구서본점",
-    imgLink: "img/restaurantImg.jpg",
+    imgLink: "https://d12zq4w4guyljn.cloudfront.net/750_750_20230611022228318_photo_f993c3bb3acd.jpg",
     detail__location: "부산광역시 금정구 구서동 84-15",
     phone: "010-1234-1234",
     distance: "1.7km",
-    category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    category: ["보쌈", "보쌈김치","깔끔한", "밥집","뚝배기", "공기밥", "두부","커피", "대통밥"],
+    tags: ["가족외식", "무료주차", "배달"],
     time: "11:00 ~ 22:00",
   },
   {
     id: 2,
-    name: "배비장보쌈",
+    name: "고도식",
     cuisine: [
       {
-        food: "굴,과메기삼합",
-        price: "68,000",
+        food: "고도식 세트메뉴 3-4인",
+        price: "79,000",
       },
       {
         food: "점심(모둠특선)",
@@ -138,13 +138,13 @@ const RESTAURANTS = [
         price: "5,000",
       },
     ],
-    rating: 4.5,
-    location: "구서본점",
-    imgLink: "img/restaurantImg.jpg",
-    detail__location: "부산광역시 금정구 구서동 84-15",
-    phone: "010-1234-1234",
+    rating: 5.0,
+    location: "부산본점",
+    imgLink: "https://d12zq4w4guyljn.cloudfront.net/750_750_20231225054330_photo1_20e8e2fc1a60.jpg",
+    detail__location: "서울특별시 송파구 송파동 55-7",
+    phone: "010-1234-1211",
     distance: "1.7km",
-    category: ["보쌈", "보쌈김치"],
+    category: ["보쌈", "보쌈김치", "수육"],
     tags: ["가족외식", "무료주차", "배달", "깔끔한"],
     time: "11:00 ~ 22:00",
   },
@@ -655,9 +655,35 @@ const REVIEW = [
     ],
   },
   {
-    id: 2,
+    id: 1,
     user_id: 1,
     restaurant_id: 1,
+    rating: 5,
+    comment:
+      "칼국수 국물의 깊이가 있고 배추보쌈도 고기가 야들야들하니 맛있었어요 보쌈이랑 파전때문에 배부를 것 같아서 셋이서 칼국수 2인만 시켰는데 그릇3개로 나눠서 주셔서 감동이었습니다. 다만 사람이 너무 많아서 바쁘신지 파전이 계속 안나와서 서빙이 안된걸 확인하고 파전은 식은채로 먹어서 아쉬웠습니다.",
+    created_at: new Date(),
+    imgLink:
+      "https://media.istockphoto.com/id/1458719394/ko/%EC%82%AC%EC%A7%84/%ED%9A%8C%EC%9D%98-%EC%A4%91-%ED%86%A0%EB%A1%A0%EC%9D%84-%EB%93%A3%EA%B3%A0-%EC%9E%88%EB%8A%94-%EC%82%AC%EC%97%85%EA%B0%80.jpg?s=1024x1024&w=is&k=20&c=njt5KD5Z2_fYD_E6p5MVEFu0JuDWCyv3YhaAP1zeuB4=",
+    name: "이재형",
+    imgLinkList: [
+      {
+        imgLink:
+          "https://d12zq4w4guyljn.cloudfront.net/20230512095818587_photo_a0b494512cec.jpg",
+      },
+      {
+        imgLink:
+          "https://d12zq4w4guyljn.cloudfront.net/300_300_20191205115314_photo1_e7dbf6690af0.jpg",
+      },
+      {
+        imgLink:
+          "https://d12zq4w4guyljn.cloudfront.net/20220706091725102_photo_9f0c35fec356.jpg",
+      },
+    ],
+  },
+  {
+    id: 2,
+    user_id: 1,
+    restaurant_id: 2,
     rating: 5.0,
     comment:
       "여러명이 칼국수 + 보쌈 시키면 칼국수 여러 그릇에 나눠서 주십니다. 예를 들면 4인 가면 칼국수 3인분을 네그릇에 나눠서 주세요. 그래도 양이 많습니다. 보쌈 양은 보통인 것 같고요. 배추가 달고 맛있습니다. 다만 바닥이 기름진 것 처럼 미끄러워서 조심해야할 것 같습니다..",
@@ -706,7 +732,7 @@ const BLOGREVIEW = [
   },
   {
     id: 3,
-    restaurant_id: 1,
+    restaurant_id: 2,
     title: "또간집 종로 사골칼국수 생배추보쌈 돼지국밥 우육면 식당 여깁니다!",
     comment:
       "안녕하세요~ 오늘도 또간집 종로편 정리해왔습니다. 종로는 솔직히 2가 3가로 나눠야될거 같을만큼 맛집이 많을거 같은데요. 광장시장도 있고 낙원상가도 있어서 거리가 오래되어서 더 기대됩니다. 그럼 그 중에 어떤 집을",

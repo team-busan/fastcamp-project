@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 export default function Information({restaurant}) {
   const [ismenu, setIsmenu] = useState(false);
-  const [restaurantList, setRestaurantList] = useState({});
 
   const toggleMenu = () => {
     setIsmenu(!ismenu);
