@@ -97,7 +97,11 @@ function CustomBottomSheet({ open, setOpen }) {
 
   return (
     <>
-      <BottomSheet open={open} onDismiss={onDismiss}>
+      <BottomSheet
+        open={open}
+        onDismiss={onDismiss}
+        snapPoints={({ maxHeight }) => [maxHeight - 140]}
+      >
         <div>
           <div className="flex items-center pt-2 pb-4 border-b-2 border-primary">
             <MdArrowBack

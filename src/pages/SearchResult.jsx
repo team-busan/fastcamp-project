@@ -644,7 +644,9 @@ const SearchResult = () => {
 
   useEffect(() => {
     axiosInstance.get(API_URL.SEARCH).then((res) => {
-      setRestaurantList(res.data.restaurantList);
+      setRestaurantList(
+        res.data.restaurantList.filter((v) => v.distance <= 500)
+      );
       setOriginalList(res.data.restaurantList);
       setReviews(res.data.reviews);
       setUsers(res.data.users);

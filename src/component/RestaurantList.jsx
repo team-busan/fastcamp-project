@@ -108,11 +108,13 @@ function RestaurantList({
                     </div>
                     <div className="flex items-center">
                       <MdOutlineStar className="text-lg text-yellow-400 mr-1" />
-                      <span className=" text-sm font-medium">{`${v.rating} (${v.reviewCount}명)`}</span>
+                      <span className=" text-sm font-medium">{`${v.rating} (${
+                        v.reviewCount ? v.reviewCount : 0
+                      }명)`}</span>
                       <div className="w-px h-2 mx-2 bg-mediumGray"></div>
                       <MdFavoriteBorder className="text-lg text-mediumGray mr-1" />
                       <span className="text-sm font-medium">
-                        {v.wishListCount}
+                        {v.wishListCount ? v.wishListCount : 0}
                       </span>
                     </div>
                   </div>
