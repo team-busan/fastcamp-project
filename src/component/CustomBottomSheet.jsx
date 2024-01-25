@@ -23,12 +23,10 @@ const RegionBlock = ({
       >
         <div className="flex items-center">
           {isSpecial ? <MdFlashOn className="text-primary mr-1" /> : null}
-          <span className={isSelected ? "text-white" : "text-black"}>
-            {name}
-          </span>
+          <span>{name}</span>
         </div>
         {isSelected && !isLast ? (
-          <MdArrowForwardIos className="text-white float-right" />
+          <MdArrowForwardIos className="float-right" />
         ) : null}
       </div>
     </li>
@@ -101,7 +99,7 @@ function CustomBottomSheet({ open, setOpen }) {
     <>
       <BottomSheet open={open} onDismiss={onDismiss}>
         <div>
-          <div className="flex items-center pt-2 pb-4 border-b-2 border-tertiary">
+          <div className="flex items-center pt-2 pb-4 border-b-2 border-primary">
             <MdArrowBack
               className="text-3xl ml-2 cursor-pointer"
               onClick={() => setOpen(false)}
