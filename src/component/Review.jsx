@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import PropTypes from 'prop-types';
 
-export default function Review({ review }) {
+export default function Review({ review }) {;
   return (
-    <div className="border-2 p-5">
+    <div className="">
       {review.length !== 0 &&
         review.map((value, i) => (
-          <div key={i}>
+          <div className = "border border-2 mb-2 p-5 "key={i}>
             <div className="flex mb-2">
               <img
                 className="w-16 h-16 rounded-full mr-2"
@@ -27,7 +27,7 @@ export default function Review({ review }) {
             </div>
             <div>
               <main className="flex-column">
-                <div className="flex mb-2">
+                {/* <div className="flex mb-2">
                   <span className="flex items-center text-sm mr-2">
                     맛<FaStar className="text-secondary" />
                     {value.rating}
@@ -42,7 +42,7 @@ export default function Review({ review }) {
                     <FaStar className="text-secondary" />
                     {value.rating}
                   </span>
-                </div>
+                </div> */}
                 <div>
                   <p className="text-sm mb-4">{value.comment}</p>
                 </div>
@@ -53,7 +53,7 @@ export default function Review({ review }) {
                         key={j}
                         src={img.imgLink}
                         alt={`optional_${j}`}
-                        className="w-32 h-24"
+                        className="w-2/6 h-32"
                       />
                     ))}
                 </div>

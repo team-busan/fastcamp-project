@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { axiosInstance, API_URL } from "../stores/API";
 import RestaurantList from "../component/RestaurantList.jsx";
 import NaverMap from "../component/NaverMap.jsx";
 import { BottomSheet } from "react-spring-bottom-sheet";
-import { MdIosShare, MdLocationOn, MdArrowBackIosNew } from "react-icons/md";
+import { MdIosShare, MdArrowBackIosNew } from "react-icons/md";
 
 function TagDetail() {
   const [params, setParams] = useSearchParams();
@@ -44,10 +44,20 @@ function TagDetail() {
         <section className="w-[450px] h-screen border-r-[1px] border-lightGray">
           <div className="px-5 border-b-[1px] border-lightGray">
             <div className="flex items-center justify-between py-6">
-              <div>
+              <Link to="/">
                 <h2 className="text-primary font-bold">제목</h2>
-              </div>
-              <MdIosShare className="text-2xl cursor-pointer" />
+              </Link>
+              <MdIosShare
+                onClick={async () => {
+                  try {
+                    await navigator.clipboard.writeText(window.location.href);
+                    alert("클립보드에 링크가 복사되었습니다.");
+                  } catch (e) {
+                    alert("복사에 실패하였습니다.");
+                  }
+                }}
+                className="text-2xl cursor-pointer"
+              />
             </div>
             <div className="flex py-2">
               <h4>부산 금정구 구서동</h4>
@@ -80,7 +90,17 @@ function TagDetail() {
             <h4 className="mr-2 text-lg sm:text-2xl">부산 금정구 구서동</h4>
             <h4 className="text-lg sm:text-2xl">{`#${tag}`}</h4>
           </div>
-          <MdIosShare className="text-2xl sm:text-3xl cursor-pointer" />
+          <MdIosShare
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(window.location.href);
+                alert("클립보드에 링크가 복사되었습니다.");
+              } catch (e) {
+                alert("복사에 실패하였습니다.");
+              }
+            }}
+            className="text-2xl sm:text-3xl cursor-pointer"
+          />
         </div>
         <NaverMap width="100vw" height="h-screen" isRounded={false} />
         <BottomSheet

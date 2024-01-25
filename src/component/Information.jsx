@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { CiClock1, CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-export default function Information({restaurant}) {
+export default function Information({ restaurant }) {
   const [ismenu, setIsmenu] = useState(false);
-  const [restaurantList, setRestaurantList] = useState({});
 
   const toggleMenu = () => {
     setIsmenu(!ismenu);
@@ -67,31 +66,22 @@ export default function Information({restaurant}) {
         <hr />
         <div className="">
           <h3 className="font-bold mt-4 mb-4">맛집태그</h3>
-          <div className="bg-gray-200 h-40">태그 박스</div>
+          <div className="h-40">
+          <div>
+            {restaurant.category &&
+              restaurant.category.map((value, i) => (
+                <span
+                  key={i}
+                  style={{ fontSize: `${Math.floor(Math.random() * 20 + 10)}px` }}
+                  className = ""
+                >
+                  {value}
+                </span>
+              ))}
+          </div>
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
-Information.propTypes = {
-  restaurant: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    cuisine: PropTypes.arrayOf(
-      PropTypes.shape({
-        food: PropTypes.string.isRequired,
-        price: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    rating: PropTypes.number.isRequired,
-    location: PropTypes.string.isRequired,
-    imgLink: PropTypes.string.isRequired,
-    detail__location: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
-    distance: PropTypes.string.isRequired,
-    category: PropTypes.arrayOf(PropTypes.string).isRequired,
-    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-    time: PropTypes.string.isRequired,
-  }).isRequired,
-};

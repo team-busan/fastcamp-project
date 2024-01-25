@@ -6,7 +6,7 @@ import {
   MdKeyboardArrowUp,
 } from "react-icons/md";
 
-const CheckBoxes = ({ list, isFlexCol, border }) => {
+const CheckBoxes = ({ list, isFlexCol, border, tagList, setTagList }) => {
   const [selected, setSelected] = useState([]);
   return (
     <ul
@@ -27,6 +27,14 @@ const CheckBoxes = ({ list, isFlexCol, border }) => {
                 selectedCopy.push(i);
                 setSelected(selectedCopy);
               }
+              if (tagList.includes(v)) {
+                const filteredTagList = [...tagList].filter((v2) => v2 !== v);
+                setTagList(filteredTagList);
+              } else {
+                const tagListCopy = [...tagList];
+                tagListCopy.push(v);
+                setTagList(tagListCopy);
+              }
             }}
             className={`${
               isFlexCol ? null : "w-1/2"
@@ -34,16 +42,16 @@ const CheckBoxes = ({ list, isFlexCol, border }) => {
           >
             <div
               className={`flex justify-center items-center text-sm ${
-                selected.includes(i)
+                selected.includes(i) && tagList.includes(v)
                   ? "text-white border-secondary bg-secondary"
                   : "text-mediumGray border-mediumGray bg-white"
               } w-4 h-4 border-[1px] rounded hover:border-primary hover:text-primary`}
             >
-              {selected.includes(i) ? <MdCheck /> : "+"}
+              {selected.includes(i) && tagList.includes(v) ? <MdCheck /> : "+"}
             </div>
             <span
               className={`ml-3 text-sm ${
-                selected.includes(i)
+                selected.includes(i) && tagList.includes(v)
                   ? "text-secondary font-bold"
                   : "text-black font-medium"
               }`}
@@ -57,7 +65,7 @@ const CheckBoxes = ({ list, isFlexCol, border }) => {
   );
 };
 
-const Radios = ({ list, border }) => {
+const Radios = ({ list, border, tagList, setTagList }) => {
   const [selected, setSelected] = useState(-1);
   const [listShown, setListShown] = useState(
     list.length > 4 ? list.slice(0, 8) : list
@@ -82,19 +90,29 @@ const Radios = ({ list, border }) => {
               onClick={() => {
                 const index = selected === i ? -1 : i;
                 setSelected(index);
+                if (tagList.includes(v)) {
+                  const filteredTagList = [...tagList].filter((v2) => v2 !== v);
+                  setTagList(filteredTagList);
+                } else {
+                  const tagListCopy = [...tagList].filter(
+                    (v2) => !list.includes(v2)
+                  );
+                  tagListCopy.push(v);
+                  setTagList(tagListCopy);
+                }
               }}
               className="w-1/2 mb-2 flex items-center cursor-pointer"
             >
               <div
                 className={`w-4 h-4 border-[1px] rounded-full hover:border-primary ${
-                  selected === i
+                  selected === i && tagList.includes(v)
                     ? "border-[5px] border-secondary"
                     : "border-[1px] border-mediumGray"
                 }`}
               ></div>
               <span
                 className={`ml-3 text-sm ${
-                  selected === i
+                  selected === i && tagList.includes(v)
                     ? "font-bold text-secondary"
                     : "font-medium text-black"
                 }`}
@@ -122,7 +140,7 @@ const Radios = ({ list, border }) => {
   );
 };
 
-const CheckBoxesWithMore = ({ list }) => {
+const CheckBoxesWithMore = ({ list, tagList, setTagList }) => {
   const [selected, setSelected] = useState([]);
   const [listShown, setListShown] = useState(list.slice(0, 4));
   const [isOpen, setIsOpen] = useState(false);
@@ -146,21 +164,29 @@ const CheckBoxesWithMore = ({ list }) => {
                 selectedCopy.push(i);
                 setSelected(selectedCopy);
               }
+              if (tagList.includes(v)) {
+                const filteredTagList = [...tagList].filter((v2) => v2 !== v);
+                setTagList(filteredTagList);
+              } else {
+                const tagListCopy = [...tagList];
+                tagListCopy.push(v);
+                setTagList(tagListCopy);
+              }
             }}
             className="mb-2 flex items-center cursor-pointer"
           >
             <div
               className={`flex justify-center items-center text-sm ${
-                selected.includes(i)
+                selected.includes(i) && tagList.includes(v)
                   ? "text-white border-secondary bg-secondary"
                   : "text-mediumGray border-mediumGray bg-white"
               } w-4 h-4 border-[1px] rounded hover:border-primary hover:text-primary`}
             >
-              {selected.includes(i) ? <MdCheck /> : "+"}
+              {selected.includes(i) && tagList.includes(v) ? <MdCheck /> : "+"}
             </div>
             <span
               className={`ml-3 text-sm ${
-                selected.includes(i)
+                selected.includes(i) && tagList.includes(v)
                   ? "text-secondary font-bold"
                   : "text-black font-medium"
               }`}
@@ -187,7 +213,7 @@ const CheckBoxesWithMore = ({ list }) => {
   );
 };
 
-const Select = ({ list, state, border }) => {
+const Select = ({ list, state, border, tagList, setTagList }) => {
   const locationRef = useRef();
   const [locationIsOpen, setLocationIsOpen] = useDetectColse(
     locationRef,
@@ -223,6 +249,21 @@ const Select = ({ list, state, border }) => {
               <li
                 key={i}
                 className="px-4 py-2 text-sm hover:bg-lightGray cursor-pointer"
+                onClick={() => {
+                  if (tagList.includes(v)) {
+                    const filteredTagList = [...tagList].filter(
+                      (v2) => v2 !== v
+                    );
+                    setTagList(filteredTagList);
+                  } else {
+                    const tagListCopy = [...tagList].filter(
+                      (v2) => !list.includes(v2)
+                    );
+                    tagListCopy.push(v);
+                    setTagList(tagListCopy);
+                  }
+                  setLocationIsOpen(!locationIsOpen);
+                }}
               >
                 {v}
               </li>

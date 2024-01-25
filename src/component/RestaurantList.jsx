@@ -63,7 +63,11 @@ function RestaurantList({
                           {v.location}
                         </span>
                       </div>
-                      <span className="text-xs">{v.distance}</span>
+                      <span className="text-xs">
+                        {v.distance >= 1000
+                          ? `${v.distance / 1000}km`
+                          : `${v.distance}m`}
+                      </span>
                     </div>
                     <div>
                       {v.category.map((v2, i2) => {
@@ -104,11 +108,13 @@ function RestaurantList({
                     </div>
                     <div className="flex items-center">
                       <MdOutlineStar className="text-lg text-yellow-400 mr-1" />
-                      <span className=" text-sm font-medium">{`${v.rating}명 (${v.reviewCount}명)`}</span>
+                      <span className=" text-sm font-medium">{`${v.rating} (${
+                        v.reviewCount ? v.reviewCount : 0
+                      }명)`}</span>
                       <div className="w-px h-2 mx-2 bg-mediumGray"></div>
                       <MdFavoriteBorder className="text-lg text-mediumGray mr-1" />
                       <span className="text-sm font-medium">
-                        {v.wishListCount}
+                        {v.wishListCount ? v.wishListCount : 0}
                       </span>
                     </div>
                   </div>

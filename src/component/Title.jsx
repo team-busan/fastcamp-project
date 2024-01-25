@@ -16,9 +16,9 @@ export default function Title({restaurant}){
     <div className="bg-white p-5 mb-4">
       <div>
         <img
-          src="https://www.seoulfn.com/news/photo/202103/412309_187543_1220.gif"
+          src = {restaurant.imgLink}
           alt="food"
-          className="mb-5 w-full"
+          className="mb-5 w-full h-80"
         ></img>
         <div>
           <h2 className="font-bold mb-4">{restaurant.name}</h2>
