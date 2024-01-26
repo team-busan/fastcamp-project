@@ -45,12 +45,19 @@ export default function MbReview({ review, restaurant }) {
               <Slider {...settings}>
                 {value.imgLinkList &&
                   value.imgLinkList.map((img, j) => (
-                    <img
-                      key={j}
-                      src={img.imgLink}
-                      alt="error"
-                      className="w-full h-72"
-                    />
+                    <div key={j} className = "relative">
+                      <img
+                        src={img.imgLink}
+                        alt="error"
+                        className="w-full h-72"
+                      />
+                      <span
+                        className = "rounded-sm absolute right-3 top-2 w-10 text-center"
+                        style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        color : 'white'}}>
+                        {`${j + 1}/${value.imgLinkList.length}`}
+                      </span>
+                    </div>
                   ))}
               </Slider>
             </div>

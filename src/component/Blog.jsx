@@ -14,7 +14,7 @@ export default function Blog({blog}) {
             blog.map((value, i) => (
               <li key={i}>
                 <p className="mt-4 font-bold">{value.title}</p>
-                <p>{value.comment}</p>
+                <p>{value.comment.substring(0,100) + "..."}</p>
                 <div className="flex items-center mb-4">
                   <SiNaver className="text-darkGray" />
                   <p>{value.id}</p>

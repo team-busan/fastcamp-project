@@ -747,7 +747,7 @@ const USER = [
     id: 1,
     username: "FoodLove",
     hashed_password: "asd123",
-    wishlist: [1, 2, 3],
+    wishlist: [1,2,3],
     intro: "안녕하세요 음식을 좋아하는 미식가 FoodLove입니다.",
   },
 ];
