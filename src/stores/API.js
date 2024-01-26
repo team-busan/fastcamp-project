@@ -37,6 +37,7 @@ axiosMock.onGet(detail_url).reply(200, {
   restaurant: RESTAURANTS,
   review: REVIEW,
   blogview: BLOGREVIEW,
+  users : USER,
 });
 
 axiosMock
