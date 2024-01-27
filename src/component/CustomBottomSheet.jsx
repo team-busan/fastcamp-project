@@ -102,7 +102,7 @@ function CustomBottomSheet({ open, setOpen }) {
         onDismiss={onDismiss}
         snapPoints={({ maxHeight }) => [maxHeight - 140]}
       >
-        <div>
+        <div className="max-h-[calc(100vh-160px)] overflow-hidden">
           <div className="flex items-center pt-2 pb-4 border-b-2 border-primary">
             <MdArrowBack
               className="text-3xl ml-2 cursor-pointer"
@@ -110,7 +110,7 @@ function CustomBottomSheet({ open, setOpen }) {
             />
             <h5 className="font-bold ml-4">지역 선택</h5>
           </div>
-          <div>
+          <div className="h-full overflow-hidden">
             <div className="flex w-full border-b-[1px] border-lightGray">
               <h6 className="w-[27.5%] pl-4 h-10 flex items-center font-semibold">
                 광역시도
@@ -122,9 +122,9 @@ function CustomBottomSheet({ open, setOpen }) {
                 읍면동
               </h6>
             </div>
-            <div className="flex">
-              <div className="w-[27.5%]">
-                <ul className="flex flex-col pt-1 max-h-[calc(100vh-173px)] overflow-y-scroll no-scrollbar">
+            <div className="flex h-full overflow-hidden">
+              <div className="w-[27.5%] max-h-[calc(100vh-313px)] overflow-y-scroll no-scrollbar">
+                <ul className="flex flex-col pt-1">
                   {list.map((v, i) => (
                     <RegionBlock
                       name={v.name}
@@ -138,8 +138,8 @@ function CustomBottomSheet({ open, setOpen }) {
                   ))}
                 </ul>
               </div>
-              <div className="w-[36.25%]">
-                <ul className="flex flex-col pt-1 border-x-[1px] border-lightGray max-h-[calc(100vh-173px)] overflow-y-scroll no-scrollbar">
+              <div className="w-[36.25%] max-h-[calc(100vh-313px)] overflow-y-scroll no-scrollbar">
+                <ul className="flex flex-col pt-1 border-x-[1px] border-lightGray">
                   {list2.map((v, i) => (
                     <RegionBlock
                       name={v.name}
@@ -153,8 +153,8 @@ function CustomBottomSheet({ open, setOpen }) {
                   ))}
                 </ul>
               </div>
-              <div className="w-[36.25%]">
-                <ul className="flex flex-col pt-1 max-h-[calc(100vh-173px)] overflow-y-scroll no-scrollbar">
+              <div className="w-[36.25%] max-h-[calc(100vh-313px)] overflow-y-scroll no-scrollbar">
+                <ul className="flex flex-col pt-1">
                   {list3.map((v, i) => (
                     <RegionBlock
                       name={v.name}
