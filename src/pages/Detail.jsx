@@ -14,12 +14,15 @@ import MbLocation from "../component/MbLocation";
 import MbTag from "../component/MbTag";
 import MbVisitRating from "../component/MbVisitRating";
 import MbBlog from "../component/MbBlog";
+import Navbar from "../component/Navbar";
+import MbHeader from "../component/MbHeader";
 
 export default function Detail() {
   const params = useParams();
   const [restaurant, setRestaurant] = useState({});
   const [review, setReview] = useState([]);
   const [blog, setBlog] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
   const averageRating = calculateAverageRating(review);
 
   useEffect(() => {
@@ -44,6 +47,12 @@ export default function Detail() {
         if (data3) {
           setBlog(data3);
         }
+        const userId = 1; 
+        
+        const currentUser = res.data.users.find((user) => user.id === userId);
+        if (currentUser && Array.isArray(currentUser.wishlist)) {
+          setWishlist(currentUser.wishlist);
+        }
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -61,11 +70,18 @@ export default function Detail() {
   }
 
   return (
-    <>
-      <div className="hidden md:flex md:flex-row md:center md:w-screen md:justify-evenly bg-lightGray">
-        <NaverMap width="14rem" height="h-56" />
-        <main className="w-6/12">
-          <Title restaurant={restaurant} />
+    <div>
+      <Navbar/>
+      <div className="hidden md:flex md:flex-row md:center md:w-screen md:justify-center bg-lightGray">
+        <div className = "bg-white p-3 h-80 mt-5 mr-5">
+          <NaverMap width="14rem" height="h-56" />
+          <div className = "mt-3">
+            <p className = "font-bold">{restaurant.location}</p>
+            <p>맛집 더 검색해보기</p>
+          </div>
+        </div>
+        <main className="w-4/12 mt-5">
+          <Title restaurant={restaurant} wishlist = {wishlist} setWishlist = {setWishlist} />
           <Information restaurant={restaurant} />
           {/* <RecommendedRestaurants /> */}
           <VisitRating review={review} averageRating={averageRating} />
@@ -73,6 +89,7 @@ export default function Detail() {
         </main>
       </div>
       <div className=" md:hidden md:flex-col md:items-center md:w-screen bg-slate-50">
+        <MbHeader restaurant ={restaurant}/>
         <MbTitle
           restaurant={restaurant}
           review = {review}
@@ -93,6 +110,6 @@ export default function Detail() {
         <MbBlog
           blog = {blog}/>
       </div>
-    </>
+    </div>
   );
 }

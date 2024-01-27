@@ -2,7 +2,6 @@ import React from 'react'
 import { GoPencil } from "react-icons/go";
 
 export default function MbBlog({blog}) {
-  console.log(blog.length);
   return (
     <div className = "bg-white p-5">
       <header className = "flex items-center mb-3">

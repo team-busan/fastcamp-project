@@ -11,7 +11,15 @@ import {
 import { SlNotebook } from "react-icons/sl";
 import { MdOutlineMessage } from "react-icons/md";
 
-export default function Title({restaurant}){
+export default function Title({restaurant, wishlist ,setWishlist}){
+
+  const onWish = () => {
+    if (wishlist.includes(restaurant.id)) {
+      return;
+    }
+    setWishlist((prevWishlist) => [...prevWishlist, restaurant.id]);
+  };
+  console.log(wishlist);
   return (
     <div className="bg-white p-5 mb-4">
       <div>
@@ -45,11 +53,13 @@ export default function Title({restaurant}){
           </div>
           <hr></hr>
         </div>
-        <form className="mt-4 mb-4 flex justify-between">
+        <div className="mt-4 mb-4 flex justify-between">
           <div className="flex">
-            <button className="w-28 h-9 flex items-center justify-evenly border-solid border rounded-3xl border-black text-sm mr-6">
+            <button 
+              onClick = {() => onWish()}
+              className="w-28 h-9 flex items-center justify-evenly border-solid border rounded-3xl border-black text-sm mr-6">
               <CiHeart />
-              좋아요(5)
+              좋아요
             </button>
             <button className="w-20 h-9 flex items-center justify-evenly border-solid border border-black rounded-3xl text-sm">
               <CiShare1 />
@@ -62,7 +72,7 @@ export default function Title({restaurant}){
               평가하기
             </button>
           </div>
-        </form>
+        </div>
         <hr></hr>
         <div className="flex justify-between mt-4">
           <p className="flex items-center text-sm">
