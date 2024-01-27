@@ -49,7 +49,7 @@ axiosMock.onGet(API_URL.HOME).reply(200, {tagList: RESTAURANTS, articles: ARTICL
 
 axiosMock.onGet(API_URL.ARTICLE).reply(200, ARTICLE);
 
-axiosMock.onGet(API_URL.MYPAGE).reply(200, {users: USER, wishlists: RESTAURANTS});
+axiosMock.onGet(API_URL.MYPAGE).reply(200, {users: USER, restaurant: RESTAURANTS});
 
 axiosMock
   .onPost(API_URL.SIGNUP)
