@@ -1,9 +1,6 @@
 import Navbar from '../component/Navbar'
 import MyInfo from '../component/MyInfo'
-import MyPageSection from '../component/MyPageSection'
 import MyPageContent from '../component/MyPageContent'
-import MyIntro from '../component/MyIntro'
-import MbMPContent from '../component/MbMPContent'
 import { useParams } from "react-router-dom";
 import { axiosInstance, API_URL } from "../stores/API";
 import { useState, useEffect } from "react";
@@ -11,7 +8,7 @@ import { useState, useEffect } from "react";
 export default function MyPage() {
   const params = useParams();
   const [userData, setUserData] = useState({});
-  const [wishLists, setWishLists] = useState([])
+  const [wishlist, setWishList] = useState([]);
 
   useEffect(() => {
     axiosInstance
@@ -20,8 +17,9 @@ export default function MyPage() {
         const listCopy = [...res.data.users];
         const user = listCopy.find((v) => v.username === params.username);
         setUserData(user);
-        setWishLists(res.data.wishlists);
-        console.log(userData);
+        let listCopy2 = [...res.data.restaurant];
+        let wishs = listCopy2.filter((v)=> user.wishlist.includes(v.id));
+        setWishList(wishs);
       })
       .catch((error) => {
         console.log("MyPage", error);
@@ -32,10 +30,7 @@ export default function MyPage() {
     <div>
       <Navbar />
       <MyInfo my={userData} setMy={setUserData}/>
-      {/* <MyIntro /> */}
-      {/* <MyPageSection /> */}
-      <MyPageContent list={wishLists} setList={setWishLists} />
-      <MbMPContent />
+      <MyPageContent list={wishlist} setList={setWishList} />
     </div>
   )
 }
