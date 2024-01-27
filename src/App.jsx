@@ -7,7 +7,6 @@ import Detail from "./pages/Detail";
 import TagDetail from "./pages/TagDetail";
 import SearchResult from "./pages/SearchResult";
 import MyPage from "./pages/MyPage";
-import MbTitle from "./component/MbTitle";
 
 function App() {
   return (

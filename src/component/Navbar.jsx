@@ -27,7 +27,7 @@ export default function Navbar() {
           to="/"
           className="text-primary text-3xl font-bold leading-9 self-center whitespace-nowrap my-auto cursor-pointer"
         >
-          <span>제목</span>
+          <span>패스트다이닝</span>
         </Link>
         <div
           ref={inputRef}

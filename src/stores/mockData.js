@@ -7,7 +7,8 @@ const ARTICLE = [
       "메밀향이 나는 거친 면과 맑은 육수의 평양냉면? 고구마전분의 쫄깃한 면과새콤달콤한 육수의 함흥냉면? 냉면의 계절 여름, 최고의 냉면에 대해 이야기해봅니다! 한국 최고의 냉면 맛집은 어디인가!",
     author: "test1",
     publish_date: new Date(),
-    link: "naver.com",
+    link: "https://naver.com",
+    image: "/img/column_naengmyeon.png",
   },
   {
     id: 1,
@@ -16,7 +17,8 @@ const ARTICLE = [
       "마음에 한줄기 치유를 주고 가는 저마다의 컴포트 푸드를 통해 험난한 세상을 헤쳐 나갈 힘을 얻기를 바란다.",
     author: "test2",
     publish_date: new Date(),
-    link: "naver.com",
+    link: "https://naver.com",
+    image: "/img/column_deserts.png",
   },
 ];
 
@@ -81,11 +83,22 @@ const RESTAURANTS = [
     ],
     rating: 4.5,
     location: "구서본점",
-    imgLink: "https://d12zq4w4guyljn.cloudfront.net/750_750_20230611022228318_photo_f993c3bb3acd.jpg",
+    imgLink:
+      "https://d12zq4w4guyljn.cloudfront.net/750_750_20230611022228318_photo_f993c3bb3acd.jpg",
     detail__location: "부산광역시 금정구 구서동 84-15",
     phone: "010-1234-1234",
     distance: 1700,
-    category: ["보쌈", "보쌈김치","깔끔한", "밥집","뚝배기", "공기밥", "두부","커피", "대통밥"],
+    category: [
+      "보쌈",
+      "보쌈김치",
+      "깔끔한",
+      "밥집",
+      "뚝배기",
+      "공기밥",
+      "두부",
+      "커피",
+      "대통밥",
+    ],
     tags: ["가족외식", "무료주차", "배달"],
     time: "11:00 ~ 22:00",
   },
@@ -140,12 +153,13 @@ const RESTAURANTS = [
     ],
     rating: 3.6,
     location: "부산본점",
-    imgLink: "https://d12zq4w4guyljn.cloudfront.net/750_750_20231225054330_photo1_20e8e2fc1a60.jpg",
+    imgLink:
+      "https://d12zq4w4guyljn.cloudfront.net/750_750_20231225054330_photo1_20e8e2fc1a60.jpg",
     detail__location: "서울특별시 송파구 송파동 55-7",
     phone: "010-1234-1211",
     distance: 400,
     category: ["보쌈", "보쌈김치", "수육"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["깔끔한", "뷰가좋은", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -204,7 +218,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 2600,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["무료주차", "놀이방", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -263,7 +277,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 5000,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["고급스러운", "가족외식", "무료주차"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -322,7 +336,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 1,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["놀이방", "24시영업", "배달", "깔끔한", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -381,7 +395,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 800,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["뷰가좋은", "조용한", "가성비좋은", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -440,7 +454,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 1000,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["24시영업", "배달", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -499,7 +513,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 1200,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["가족외식", "무료주차", "배달"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -558,7 +572,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 520,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["뷰가좋은", "조용한", "고급스러운", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
