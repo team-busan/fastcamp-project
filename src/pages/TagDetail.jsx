@@ -45,7 +45,7 @@ function TagDetail() {
           <div className="px-5 border-b-[1px] border-lightGray">
             <div className="flex items-center justify-between py-6">
               <Link to="/">
-                <h2 className="text-primary font-bold">제목</h2>
+                <h2 className="text-primary font-bold">패스트다이닝</h2>
               </Link>
               <MdIosShare
                 onClick={async () => {

@@ -1,7 +1,7 @@
 import Blog from "../component/Blog";
 import Information from "../component/Information";
 import { axiosInstance, API_URL } from "../stores/API";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import NaverMap from "../component/NaverMap";
 import RecommendedRestaurants from "../component/RecommendedRestaurants";
 import Title from "../component/Title";
@@ -19,6 +19,7 @@ import MbHeader from "../component/MbHeader";
 
 export default function Detail() {
   const params = useParams();
+  const navigate = useNavigate();
   const [restaurant, setRestaurant] = useState({});
   const [review, setReview] = useState([]);
   const [blog, setBlog] = useState([]);
@@ -89,7 +90,9 @@ export default function Detail() {
         </main>
       </div>
       <div className=" md:hidden md:flex-col md:items-center md:w-screen bg-slate-50">
-        <MbHeader restaurant ={restaurant}/>
+        <MbHeader restaurant ={restaurant} goBack={() => {
+          navigate(-1)
+        }} />
         <MbTitle
           restaurant={restaurant}
           review = {review}
