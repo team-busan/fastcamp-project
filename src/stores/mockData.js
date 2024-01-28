@@ -83,11 +83,22 @@ const RESTAURANTS = [
     ],
     rating: 4.5,
     location: "구서본점",
-    imgLink: "https://d12zq4w4guyljn.cloudfront.net/750_750_20230611022228318_photo_f993c3bb3acd.jpg",
+    imgLink:
+      "https://d12zq4w4guyljn.cloudfront.net/750_750_20230611022228318_photo_f993c3bb3acd.jpg",
     detail__location: "부산광역시 금정구 구서동 84-15",
     phone: "010-1234-1234",
     distance: 1700,
-    category: ["보쌈", "보쌈김치","깔끔한", "밥집","뚝배기", "공기밥", "두부","커피", "대통밥"],
+    category: [
+      "보쌈",
+      "보쌈김치",
+      "깔끔한",
+      "밥집",
+      "뚝배기",
+      "공기밥",
+      "두부",
+      "커피",
+      "대통밥",
+    ],
     tags: ["가족외식", "무료주차", "배달"],
     time: "11:00 ~ 22:00",
   },
@@ -142,12 +153,13 @@ const RESTAURANTS = [
     ],
     rating: 3.6,
     location: "부산본점",
-    imgLink: "https://d12zq4w4guyljn.cloudfront.net/750_750_20231225054330_photo1_20e8e2fc1a60.jpg",
+    imgLink:
+      "https://d12zq4w4guyljn.cloudfront.net/750_750_20231225054330_photo1_20e8e2fc1a60.jpg",
     detail__location: "서울특별시 송파구 송파동 55-7",
     phone: "010-1234-1211",
     distance: 400,
     category: ["보쌈", "보쌈김치", "수육"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["깔끔한", "뷰가좋은", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -206,7 +218,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 2600,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["무료주차", "놀이방", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -265,7 +277,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 5000,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["고급스러운", "가족외식", "무료주차"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -324,7 +336,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 1,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["놀이방", "24시영업", "배달", "깔끔한", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -383,7 +395,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 800,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["뷰가좋은", "조용한", "가성비좋은", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -442,7 +454,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 1000,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["24시영업", "배달", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -501,7 +513,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 1200,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["가족외식", "무료주차", "배달"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -560,7 +572,7 @@ const RESTAURANTS = [
     phone: "010-1234-1234",
     distance: 520,
     category: ["보쌈", "보쌈김치"],
-    tags: ["가족외식", "무료주차", "배달", "깔끔한"],
+    tags: ["뷰가좋은", "조용한", "고급스러운", "가족외식"],
     time: "11:00 ~ 22:00",
   },
   {
@@ -749,7 +761,7 @@ const USER = [
     id: 1,
     username: "FoodLove",
     hashed_password: "asd123",
-    wishlist: [1,2,3],
+    wishlist: [1, 2, 3],
     intro: "안녕하세요 음식을 좋아하는 미식가 FoodLove입니다.",
   },
 ];
