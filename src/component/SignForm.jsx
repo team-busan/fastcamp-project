@@ -16,8 +16,8 @@ const TextInput = ({ state, setState, placeholder }) => {
 
 const SignForm = ({ isSignUp }) => {
   const navigate = useNavigate();
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
+  const [id, setId] = useState("FoodLove");
+  const [pw, setPw] = useState("1234");
   const [pwConfirm, setPwConfirm] = useState("");
 
   const signUpFunc = (e, id, pw, pwConfirm) => {
@@ -36,7 +36,8 @@ const SignForm = ({ isSignUp }) => {
     axiosInstance.post(API_URL.SIGNUP, body).then((res) => {
       console.log(body);
       alert(res.data.message);
-      navigate("/");
+      navigate(`/mypage/${id}`);
+      // navigate("/");
     });
   };
 
@@ -52,7 +53,8 @@ const SignForm = ({ isSignUp }) => {
     axiosInstance.post(API_URL.LOGIN, body).then((res) => {
       console.log(body);
       alert(res.data.message);
-      navigate("/");
+      navigate(`/mypage/${id}`);
+      // navigate("/");
     });
   };
 
