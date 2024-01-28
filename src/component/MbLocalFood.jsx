@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function MbLocalFood() {
   return (
-    <div className="bg-[url('./img/fastdining_hero_bg.png')] bg-cover flex-col overflow-hidden relative flex min-h-[327px] w-full items-stretch pb-8 px-5 md:hidden ">
+    <div className="bg-[url('/img/fastdining_hero_bg.png')] bg-cover flex-col overflow-hidden relative flex min-h-[327px] w-full items-stretch pb-8 px-5 md:hidden ">
       <div className="relative flex w-full justify-between items-center gap-5 h-[60px]">
         <Link to="/" className="justify-center text-primary text-2xl leading-8 tracking-wide flex-1">
         패스트다이닝

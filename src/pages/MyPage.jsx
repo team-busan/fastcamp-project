@@ -4,6 +4,7 @@ import MyPageContent from '../component/MyPageContent'
 import { useParams } from "react-router-dom";
 import { axiosInstance, API_URL } from "../stores/API";
 import { useState, useEffect } from "react";
+import MypageNav from '../component/MypageNav';
 
 export default function MyPage() {
   const params = useParams();
@@ -29,6 +30,7 @@ export default function MyPage() {
   return (
     <div>
       <Navbar />
+      <MypageNav />
       <MyInfo my={userData} setMy={setUserData}/>
       <MyPageContent list={wishlist} setList={setWishList} />
     </div>
