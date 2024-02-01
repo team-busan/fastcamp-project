@@ -34,8 +34,8 @@ axiosMock
 
 const detail_url = new RegExp(`${API_URL.DETAIL}/*`);
 axiosMock.onGet(detail_url).reply(200, {
-  restaurant: RESTAURANTS,
-  review: REVIEW,
+  restaurant : RESTAURANTS,
+  review : REVIEW,
   blogview: BLOGREVIEW,
   users : USER,
 });
