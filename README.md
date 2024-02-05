@@ -14,19 +14,19 @@ Fast Dining은 위치기반으로 맛집을 추천, 소개해주는 서비스입
 
 ---
 ### 1.정홍천 (Front-End)
-<img width="220" height="220" alt="정홍천" src="https://github.com/team-busan/fastcamp-project/assets/gugonggu.jpg">
+<img width="220" height="220" alt="정홍천" src="https://github.com/team-busan/fastcamp-project/blob/main/assets/gugonggu.jpg">
 - 지역선택 바텀시트 컴포넌트
 - 태그별 자세히보기 페이지
 - 검색결과 페이지
 - 회원가입, 로그인 페이지
 
 ### 2.송은우 (Front-End)
-<img width="220" height="220" alt="송은우" src="https://github.com/team-busan/fastcamp-project/assets/your_img.jpg">
+<img width="220" height="220" alt="송은우" src="https://github.com/team-busan/fastcamp-project/blob/main/assets/your_img.jpg">
 - 홈 페이지
 - 마이페이지
 
 ### 3.이재형 (Front-End)
-<img width="220" height="220" alt="이재형" src="https://github.com/team-busan/fastcamp-project/assets/your_img.jpg">
+<img width="220" height="220" alt="이재형" src="https://github.com/team-busan/fastcamp-project/blob/main/assets/your_img.jpg">
 - 가게 상세페이지
 
 ## 기술 스택
@@ -42,11 +42,11 @@ Fast Dining은 위치기반으로 맛집을 추천, 소개해주는 서비스입
 |                                                              |                                                              |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |     **홈화면 검색**    |    **홈화면 칼럼** |
-| ![홈화면 검색](https://github.com/team-busan/fastcamp-project/assets/homesearch.gif) | ![홈화면 칼럼](https://github.com/team-busan/fastcamp-project/assets/homeslide.gif) |
+| ![홈화면 검색](https://github.com/team-busan/fastcamp-project/blob/main/assets/homesearch.gif) | ![홈화면 칼럼](https://github.com/team-busan/fastcamp-project/blob/main/assets/homeslide.gif) |
 |     **홈화면 바텀시트 UI**     |   **태그별 자세히보기** |
-| ![홈화면 바텀시트 UI](https://github.com/team-busan/fastcamp-project/assets/bottomsheet.gif) | ![태그별 자세히보기](https://github.com/team-busan/fastcamp-project/assets/tag.gif) |
+| ![홈화면 바텀시트 UI](https://github.com/team-busan/fastcamp-project/blob/main/assets/bottomsheet.gif) | ![태그별 자세히보기](https://github.com/team-busan/fastcamp-project/blob/main/assets/tag.gif) |
 |  **가게상세페이지** | **가게상세페이지 슬라이더** |
-| ![가게상세페이지](https://github.com/team-busan/fastcamp-project/assets/detail.gif) | ![가게상세페이지 슬라이더](https://github.com/team-busan/fastcamp-project/assets/detailslide.gif) |
+| ![가게상세페이지](https://github.com/team-busan/fastcamp-project/blob/main/assets/detail.gif) | ![가게상세페이지 슬라이더](https://github.com/team-busan/fastcamp-project/blob/main/assets/detailslide.gif) |
 
 ---
 
