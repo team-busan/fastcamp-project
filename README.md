@@ -14,19 +14,19 @@ Fast Dining은 위치기반으로 맛집을 추천, 소개해주는 서비스입
 
 ---
 ### 1.정홍천 (Front-End)
-![정홍천](https://github.com/team-busan/fastcamp-project/assets/gugonggu.jpg)
+<img width="220" height="220" alt="정홍천" src="https://github.com/team-busan/fastcamp-project/assets/gugonggu.jpg">
 - 지역선택 바텀시트 컴포넌트
 - 태그별 자세히보기 페이지
 - 검색결과 페이지
 - 회원가입, 로그인 페이지
 
 ### 2.송은우 (Front-End)
-![송은우](url_to_younghi_image)
+<img width="220" height="220" alt="송은우" src="https://github.com/team-busan/fastcamp-project/assets/your_img.jpg">
 - 홈 페이지
 - 마이페이지
 
 ### 3.이재형 (Front-End)
-![이재형](url_to_minsoo_image)
+<img width="220" height="220" alt="이재형" src="https://github.com/team-busan/fastcamp-project/assets/your_img.jpg">
 - 가게 상세페이지
 
 ## 기술 스택
