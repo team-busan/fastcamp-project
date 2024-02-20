@@ -1,8 +1,11 @@
 import React from 'react'
 import { CiLocationOn,CiBookmark ,CiCirclePlus,  CiClock1  } from "react-icons/ci";
 import { RiBookletLine } from "react-icons/ri";
+import useCurrentDate from '../hooks/useCurrentDate';
 
 export default function MbInformation({restaurant}) {
+  const {currentDate, currentDayOfWeek} = useCurrentDate();
+
   return (
     <div className = "bg-white p-5 mb-3">
       <div>
@@ -28,7 +31,7 @@ export default function MbInformation({restaurant}) {
         <hr/>
         <div className = "flex items-center mt-5 mb-5">
           <CiClock1 className = "text-xl mr-2 text-primary"/>
-          <p>영업시간 : 11:00 ~ 21:00</p>
+          <p>[오늘]{currentDate}({currentDayOfWeek})</p>
         </div>
         <hr/>
         <div className = "flex items-center mt-5 mb-5">

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { CiClock1, CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
 import PropTypes from "prop-types";
+import useCurrentDate from "../hooks/useCurrentDate";
 
 export default function Information({ restaurant }) {
   const [ismenu, setIsmenu] = useState(false);
+  const {currentDate, currentDayOfWeek} = useCurrentDate();
 
   const toggleMenu = () => {
     setIsmenu(!ismenu);
@@ -20,7 +22,7 @@ export default function Information({ restaurant }) {
       </div>
       <div className="">
         <div className="flex justify-between">
-          <span className="font-bold text-sm">[오늘]01.17(수)</span>
+          <span className="font-bold text-sm">[오늘]{currentDate}({currentDayOfWeek})</span>
           <span className="text-sm mb-4 ">영업시간 : 11:00 - 22:00</span>
         </div>
         <div>
