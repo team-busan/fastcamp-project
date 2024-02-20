@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { axiosInstance, API_URL } from "../stores/API";
+import { useSetRecoilState } from "recoil";
+import { isLoginAtom } from "../atoms";
 
 const TextInput = ({ state, setState, placeholder }) => {
   return (
@@ -19,6 +21,7 @@ const SignForm = ({ isSignUp }) => {
   const [id, setId] = useState("FoodLove");
   const [pw, setPw] = useState("1234");
   const [pwConfirm, setPwConfirm] = useState("");
+  const setterFunc = useSetRecoilState(isLoginAtom);
 
   const signUpFunc = (e, id, pw, pwConfirm) => {
     e.preventDefault();
@@ -36,8 +39,7 @@ const SignForm = ({ isSignUp }) => {
     axiosInstance.post(API_URL.SIGNUP, body).then((res) => {
       console.log(body);
       alert(res.data.message);
-      navigate(`/mypage/${id}`);
-      // navigate("/");
+      navigate(`/login`);
     });
   };
 
@@ -53,8 +55,8 @@ const SignForm = ({ isSignUp }) => {
     axiosInstance.post(API_URL.LOGIN, body).then((res) => {
       console.log(body);
       alert(res.data.message);
-      navigate(`/mypage/${id}`);
-      // navigate("/");
+      setterFunc(res.data.username);
+      navigate(`/`);
     });
   };
 

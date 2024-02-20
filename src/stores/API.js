@@ -34,10 +34,10 @@ axiosMock
 
 const detail_url = new RegExp(`${API_URL.DETAIL}/*`);
 axiosMock.onGet(detail_url).reply(200, {
-  restaurant : RESTAURANTS,
-  review : REVIEW,
+  restaurant: RESTAURANTS,
+  review: REVIEW,
   blogview: BLOGREVIEW,
-  users : USER,
+  users: USER,
 });
 
 axiosMock
@@ -46,18 +46,25 @@ axiosMock
 
 axiosMock.onPost(API_URL.SEARCHFILTER).reply(200, { message: "필터 적용" });
 
-axiosMock.onGet(API_URL.HOME).reply(200, {tagList: RESTAURANTS, articles: ARTICLE});
+axiosMock
+  .onGet(API_URL.HOME)
+  .reply(200, { tagList: RESTAURANTS, articles: ARTICLE });
 
 axiosMock.onGet(API_URL.ARTICLE).reply(200, ARTICLE);
 
-axiosMock.onGet(API_URL.MYPAGE).reply(200, {users: USER, restaurant: RESTAURANTS});
-
 axiosMock
-  .onPost(API_URL.SIGNUP)
-  .reply(200, { message: "성공적으로 회원가입 되었습니다." });
+  .onGet(API_URL.MYPAGE)
+  .reply(200, { users: USER, restaurant: RESTAURANTS });
+
+axiosMock.onPost(API_URL.SIGNUP).reply(200, {
+  message: "성공적으로 회원가입 되었습니다.",
+});
 
 axiosMock
   .onPost(API_URL.LOGIN)
-  .reply(200, { message: "성공적으로 로그인 되었습니다." });
+  .reply(200, {
+    username: "FoodLove",
+    message: "성공적으로 로그인 되었습니다.",
+  });
 
 export { axiosInstance, API_URL };

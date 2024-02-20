@@ -3,7 +3,7 @@ import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import useDetectClose from "../hooks/useDetectClose";
 import { MdOutlineSearch, MdLocationOn } from "react-icons/md";
 
-export default function Navbar() {
+export default function Navbar({ isLogin, setIsLogin }) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchValue, setSearchValue] = useState(
@@ -78,18 +78,37 @@ export default function Navbar() {
           )}
         </div>
         <div className='className="self-center flex items-stretch justify-between gap-5 my-auto'>
-          <Link
-            to="/login"
-            className="justify-center text-black text-sm leading-4 cursor-pointer"
-          >
-            로그인
-          </Link>
-          <Link
-            to="/signup"
-            className="justify-center text-black text-sm leading-4 cursor-pointer"
-          >
-            회원가입
-          </Link>
+          {isLogin === "" ? (
+            <>
+              <Link
+                to="/login"
+                className="justify-center text-black text-sm leading-4 cursor-pointer"
+              >
+                로그인
+              </Link>
+              <Link
+                to="/signup"
+                className="justify-center text-black text-sm leading-4 cursor-pointer"
+              >
+                회원가입
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                to={`/mypage/${isLogin}`}
+                className="justify-center text-black text-sm leading-4 cursor-pointer"
+              >
+                마이페이지
+              </Link>
+              <span
+                onClick={() => setIsLogin("")}
+                className="justify-center text-black text-sm leading-4 cursor-pointer"
+              >
+                로그아웃
+              </span>
+            </>
+          )}
         </div>
       </div>
       {isInputActive && (
