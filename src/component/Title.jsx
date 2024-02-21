@@ -10,16 +10,19 @@ import {
 } from "react-icons/ci";
 import { SlNotebook } from "react-icons/sl";
 import { MdOutlineMessage } from "react-icons/md";
+import { isLoginAtom } from "../atoms";
+import { useRecoilValue } from "recoil";
+import Login from "../pages/Login";
+import { useNavigate } from "react-router-dom";
 
 export default function Title({restaurant, wishlist ,setWishlist}){
+  const isLogin = useRecoilValue(isLoginAtom);
+  const navigate = useNavigate();
 
   const onWish = () => {
-    if (wishlist.includes(restaurant.id)) {
-      return;
-    }
-    setWishlist((prevWishlist) => [...prevWishlist, restaurant.id]);
+    console.log("굿");
   };
-  console.log(wishlist);
+
   return (
     <div className="bg-white p-5 mb-4">
       <div>
@@ -56,18 +59,22 @@ export default function Title({restaurant, wishlist ,setWishlist}){
         <div className="mt-4 mb-4 flex justify-between">
           <div className="flex">
             <button 
-              onClick = {() => onWish()}
+              onClick = {isLogin == "" ? () => navigate(`/login`) :() => onWish}
               className="w-28 h-9 flex items-center justify-evenly border-solid border rounded-3xl border-black text-sm mr-6">
               <CiHeart />
               좋아요
             </button>
-            <button className="w-20 h-9 flex items-center justify-evenly border-solid border border-black rounded-3xl text-sm">
+            <button
+              onClick = {isLogin == "" ? () => navigate(`/login`) :() => onWish}
+              className="w-20 h-9 flex items-center justify-evenly border-solid border border-black rounded-3xl text-sm">
               <CiShare1 />
               공유
             </button>
           </div>
           <div>
-            <button className="w-24 h-9 flex items-center justify-evenly border-solid border border-black rounded-3xl text-sm">
+            <button
+              onClick = {isLogin == "" ? () => navigate(`/login`) :() => onWish}
+              className="w-24 h-9 flex items-center justify-evenly border-solid border border-black rounded-3xl text-sm">
               <FaPencilAlt />
               평가하기
             </button>
@@ -99,6 +106,7 @@ export default function Title({restaurant, wishlist ,setWishlist}){
     </div>
   );
 }
+
 
 /* Title.propTypes = {
   restaurant: PropTypes.shape({

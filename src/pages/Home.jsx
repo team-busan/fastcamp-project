@@ -7,14 +7,18 @@ import { useEffect, useState } from "react";
 import { axiosInstance, API_URL } from "../stores/API";
 import MbLocalFood from "../component/MbLocalFood";
 import MbSearchBox from "../component/MbSearchBox";
+import { useRecoilState } from "recoil";
+import { isLoginAtom } from "../atoms";
 
 function Home() {
   const [articleListData, setArticleListData] = useState({});
   const [tagListData, setTagListData] = useState([]);
+  const [isLogin, setIsLogin] = useRecoilState(isLoginAtom);
 
   useEffect(() => {
     axiosInstance
-      .get(API_URL.HOME).then((res) => {
+      .get(API_URL.HOME)
+      .then((res) => {
         console.log(res.data);
 
         setArticleListData(res.data.articles);
@@ -26,10 +30,10 @@ function Home() {
   }, []);
   return (
     <div>
-      <Navbar />
+      <Navbar isLogin={isLogin} setIsLogin={setIsLogin} />
       <div className="bg-lightGray ">
         <LocalFoodPick />
-        <MbLocalFood />
+        <MbLocalFood isLogin={isLogin} setIsLogin={setIsLogin} />
         <div className="flex md:hidden">
           <MbSearchBox />
         </div>
