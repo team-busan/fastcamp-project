@@ -2,8 +2,13 @@ import React from 'react'
 import { LuPencil } from "react-icons/lu";
 import { FaStar } from "react-icons/fa";
 import MbReview from './MbReview';
+import {  useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
+import { isLoginAtom } from '../atoms';
 
 export default function MbVisitRating({averageRating, review, restaurant}) {
+  const isLogin = useRecoilValue(isLoginAtom);
+  const navigate = useNavigate();
   return (
     <div className = "bg-white p-5 mb-3">
       <div className = "flex items-center mb-2">
@@ -29,7 +34,9 @@ export default function MbVisitRating({averageRating, review, restaurant}) {
             이 음식점의 평가결과는 신뢰할 수 있을만큼 이루어졌습니다.
             </p>
           </div>
-          <button className="flex justify-center items-center border w-full border-black p-3 rounded-lg">
+          <button
+            onClick = {isLogin == "" ? () => navigate(`/login`) : ""}
+            className="flex justify-center items-center border w-full border-black p-3 rounded-lg">
           <LuPencil className = "mr-3"/>
           맛집 평가하기
           </button>
