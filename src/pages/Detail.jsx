@@ -16,6 +16,8 @@ import MbVisitRating from "../component/MbVisitRating";
 import MbBlog from "../component/MbBlog";
 import Navbar from "../component/Navbar";
 import MbHeader from "../component/MbHeader";
+import { useRecoilState } from "recoil";
+import { isLoginAtom } from "../atoms";
 
 export default function Detail() {
   const params = useParams();
@@ -25,6 +27,7 @@ export default function Detail() {
   const [blog, setBlog] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const averageRating = calculateAverageRating(review);
+  const [isLogin, setIsLogin] = useRecoilState(isLoginAtom);
 
   useEffect(() => {
     axiosInstance
@@ -72,15 +75,15 @@ export default function Detail() {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar isLogin = {isLogin} setIsLogin={setIsLogin}/>
       <div className="hidden md:flex md:flex-row md:center md:w-screen md:justify-center bg-lightGray">
-        <div className = "bg-white p-3 h-80 mt-5 mr-5">
-          <NaverMap width="14rem" height="h-56" />
-          <div className = "mt-3">
-            <p className = "font-bold">{restaurant.location}</p>
-            <p>맛집 더 검색해보기</p>
-          </div>
+      <div className="bg-white p-3 h-80 mt-5 mr-5">
+        <NaverMap width="14rem" height="h-56" />
+        <div className="mt-3">
+          <p className="font-bold">{restaurant.location}</p>
+          <p className = "cursor-pointer" onClick={() => navigate("/search")}>맛집 더 검색해보기</p>
         </div>
+      </div>
         <main className="w-4/12 mt-5">
           <Title restaurant={restaurant} wishlist = {wishlist} setWishlist = {setWishlist} />
           <Information restaurant={restaurant} />

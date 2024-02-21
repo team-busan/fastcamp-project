@@ -2,9 +2,14 @@ import { FaStar } from "react-icons/fa";
 import Review from "./Review";
 import { useState } from "react";
 import { CiCircleChevDown } from "react-icons/ci";
+import { isLoginAtom } from "../atoms";
+import {  useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
 
 export default function VisitRating({ review, averageRating }) {
   const [visibleReviews, setVisibleReviews] = useState(3); 
+  const isLogin = useRecoilValue(isLoginAtom);
+  const navigate = useNavigate();
 
   const showMoreReviews = () => {
     setVisibleReviews(prevVisibleReviews => prevVisibleReviews + 2);
@@ -38,7 +43,9 @@ export default function VisitRating({ review, averageRating }) {
             </p>
           </div>
         </div>
-        <button className="text-sm border w-full border-black p-3">
+        <button
+          onClick = {isLogin == "" ? () => navigate(`/login`) : ""}
+          className="text-sm border w-full border-black p-3">
           맛집 평가하고 300원까지 적립받기
         </button>
       </div>

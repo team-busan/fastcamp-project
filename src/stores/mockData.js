@@ -785,23 +785,38 @@ const BLOGREVIEW = [
   {
     id: 1,
     restaurant_id: 1,
+    naver_id : "오늘뭐먹지",
     title: "을지로 또간집 종로 맛집 노포 느낌 에서 보쌈에 낮술 웨이팅",
     comment:
       "대련집 서울 종로구 종로 16길 37 ⏰월 - 토 11:00 ~ 21:30 브레이크타임 14:30 ~ 17:00 매주 일요일 정기휴무 02-2265-5349 주차 불가능 예전부터 종로맛집 을지로맛집인 #대련집 유명해서 장소 저장해놓고 가보고싶다 생각했었눈데",
+    url : "https://blog.naver.com/PostView.nhn?blogId=momentravel&logNo=223358398508&redirect=Dlog&widgetTypeCall=true"
   },
   {
     id: 2,
     restaurant_id: 1,
+    naver_id : "내일뭐먹지",
     title: "(종로3가) 을지로 찐노포맛집 웨이팅필수 대련집 무생채 보쌈과 칼국수",
     comment:
       "안녕하세요 hee 입니다 오늘은 종로노포맛집 을지로 찐맛집으로 유명한 대련집 다녀왔습니다 웨이팅에 항상 실패했던 곳인데 이번에 다녀오면서 느낌 웨이팅 꿀팁도 알려드릴게용 대련집 웨이팅 꿀팁 ✔️오후 8시쯤",
+    url : "https://blog.naver.com/PostView.nhn?blogId=ppoyayj&logNo=223354073143&redirect=Dlog&widgetTypeCall=true"
+  },
+  {
+    id: 3,
+    restaurant_id: 1,
+    naver_id : "모레뭐먹지",
+    title: "또간집 종로 사골칼국수 생배추보쌈 돼지국밥 우육면 식당 여깁니다!",
+    comment:
+      "안녕하세요~ 오늘도 또간집 종로편 정리해왔습니다. 종로는 솔직히 2가 3가로 나눠야될거 같을만큼 맛집이 많을거 같은데요. 광장시장도 있고 낙원상가도 있어서 거리가 오래되어서 더 기대됩니다. 그럼 그 중에 어떤 집을",
+    url : "https://blog.naver.com/PostView.nhn?blogId=goldtop3321&logNo=223348827201&redirect=Dlog&widgetTypeCall=true"
   },
   {
     id: 3,
     restaurant_id: 2,
+    naver_id : "모레뭐먹지",
     title: "또간집 종로 사골칼국수 생배추보쌈 돼지국밥 우육면 식당 여깁니다!",
     comment:
       "안녕하세요~ 오늘도 또간집 종로편 정리해왔습니다. 종로는 솔직히 2가 3가로 나눠야될거 같을만큼 맛집이 많을거 같은데요. 광장시장도 있고 낙원상가도 있어서 거리가 오래되어서 더 기대됩니다. 그럼 그 중에 어떤 집을",
+    url : "https://blog.naver.com/PostView.nhn?blogId=goldtop3321&logNo=223348827201&redirect=Dlog&widgetTypeCall=true"
   },
 ];
 
