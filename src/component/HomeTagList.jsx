@@ -14,6 +14,7 @@ export default function HomeTagList({ tagname = "cafe", list }) {
   }
 
   const slicedList = list.slice(current * limit, current * limit +limit);
+  // const slicedList = list;
 
   return (
     <div className="flex items-stretch justify-between gap-5 ml-5 mr-4 mt-14 ">
@@ -41,14 +42,14 @@ export default function HomeTagList({ tagname = "cafe", list }) {
                 >
                   <div className="flex flex-col aspect-[1] w-full">
                     <img
-                      src={item.imgLink}
+                      src={item.image_url}
                       className="h-full w-full object-cover object-center"
                     />
                   </div>
                   <div className="flex flex-col justify-left text-black text-lg leading-6 self-stretch mt-2">
                     <div>{item.name}</div>
                     <div className="mt-1 text-sm text-gray-400">
-                      {item.location}</div>
+                      {item.address}</div>
                   </div>
                 </Link>
               </div>

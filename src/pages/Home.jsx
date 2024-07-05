@@ -16,15 +16,24 @@ function Home() {
   const [isLogin, setIsLogin] = useRecoilState(isLoginAtom);
 
   useEffect(() => {
-    axiosInstance
-      .get(API_URL.HOME)
-      .then((res) => {
-        console.log(res.data);
+    // axiosInstance
+    //   .get(API_URL.HOME)
+    //   .then((res) => {
+    //     console.log(res.data);
 
-        setArticleListData(res.data.articles);
-        setTagListData(res.data.tagList);
-      })
-      .catch((error) => {
+    //     setArticleListData(res.data.articles);
+    //     setTagListData(res.data.tagList);
+    //   })
+    //   .catch((error) => {
+    //     console.log("Home", error);
+    //   });
+
+    axiosInstance
+      .get("/restaurants/")
+      .then((res) => {
+        console.log(res);
+        setTagListData(res.data);
+      }).catch((error) => {
         console.log("Home", error);
       });
   }, []);
