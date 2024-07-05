@@ -3,23 +3,40 @@ import AxiosMockAdapter from "axios-mock-adapter";
 import { ARTICLE, RESTAURANTS, REVIEW, BLOGREVIEW, USER } from "./mockData";
 
 const BASE_URL = "http://localhost:5173/api";
+// const BASE_URL = "http://localhost:8080";
 
 const axiosInstance = axios.create({
   //axios 인스턴스 생성
   baseURL: BASE_URL,
   timeout: 5000,
+  // headers: {
+  //   "Content-Type": "application/x-www-form-urlencoded",
+  //   Accept: "application/json",
+  // },
 });
 
 const API_URL = {
-  HOME: "home",
-  TAGDETAIL: "tagdetail",
+  LOGIN: "login",
+  SIGNUP: "signup",
+
+  RESTAURANTS: "restaurants",
+  REVIEWS: "reviews",
+  BLOGREVIEWS: "blog_reviews",
+  USERS: "users",
+  ARTICLES: "articles",
+
+  CUISINE_TYPES: "cuisine_types",
+  CUISINE_TYPES_CATEGORIES: "cuisine_type_categories",
+  TAGS: "tags",
+
+  // HOME: "home",
+
+  KEYWORDS: "keywords",
+
   DETAIL: "detail",
   SEARCH: "search",
   SEARCHFILTER: "search/filter",
-  MYPAGE: "mypage",
-  ARTICLE: "article",
-  LOGIN: "login",
-  SIGNUP: "signup",
+  WHOAMI: "users/me",
 };
 
 // const axiosMock = new AxiosMockAdapter(axiosInstance, {

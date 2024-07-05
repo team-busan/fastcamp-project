@@ -8,7 +8,7 @@ import { axiosInstance, API_URL } from "../stores/API";
 import MbLocalFood from "../component/MbLocalFood";
 import MbSearchBox from "../component/MbSearchBox";
 import { useRecoilState } from "recoil";
-import { isLoginAtom } from "../atoms";
+import { isLoginAtom } from "../stores/atoms";
 
 function Home() {
   const [articleListData, setArticleListData] = useState({});

@@ -6,7 +6,7 @@ import { PiNotePencil } from "react-icons/pi";
 import { RiShareForward2Fill } from "react-icons/ri";
 import {  useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
-import { isLoginAtom } from "../atoms";
+import { isLoginAtom } from "../stores/atoms";
 
 export default function MbTitle({ restaurant, review, averageRating }) {
   const isLogin = useRecoilValue(isLoginAtom);

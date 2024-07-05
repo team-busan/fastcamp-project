@@ -10,7 +10,7 @@ import {
 } from "react-icons/ci";
 import { SlNotebook } from "react-icons/sl";
 import { MdOutlineMessage } from "react-icons/md";
-import { isLoginAtom } from "../atoms";
+import { isLoginAtom } from "../stores/atoms";
 import { useRecoilValue } from "recoil";
 import Login from "../pages/Login";
 import { useNavigate } from "react-router-dom";

@@ -17,7 +17,7 @@ import MbBlog from "../component/MbBlog";
 import Navbar from "../component/Navbar";
 import MbHeader from "../component/MbHeader";
 import { useRecoilState } from "recoil";
-import { isLoginAtom } from "../atoms";
+import { isLoginAtom } from "../stores/atoms";
 
 export default function Detail() {
   const params = useParams();

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { axiosInstance, API_URL } from "../stores/API";
-import { useSetRecoilState } from "recoil";
-import { isLoginAtom } from "../atoms";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { accessTokenAtom, isLoginAtom } from "../stores/atoms";
+import qs from "query-string";
 
 const TextInput = ({ state, setState, placeholder }) => {
   return (
@@ -18,10 +19,17 @@ const TextInput = ({ state, setState, placeholder }) => {
 
 const SignForm = ({ isSignUp }) => {
   const navigate = useNavigate();
-  const [id, setId] = useState("FoodLove");
-  const [pw, setPw] = useState("1234");
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
   const [pwConfirm, setPwConfirm] = useState("");
+
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
   const setterFunc = useSetRecoilState(isLoginAtom);
+
+  const [_, setAccessToken] = useRecoilState(accessTokenAtom)
 
   const signUpFunc = (e, id, pw, pwConfirm) => {
     e.preventDefault();
@@ -32,13 +40,23 @@ const SignForm = ({ isSignUp }) => {
       return alert("비밀번호가 일치하지 않습니다.");
     }
     const body = {
-      id: id,
-      pw: pw,
-      pwConfirm: pwConfirm,
+      username: id,
+      password: pw,
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
     };
-    axiosInstance.post(API_URL.SIGNUP, body).then((res) => {
+    // axiosInstance.post(API_URL.SIGNUP, qs.stringify(body), {
+    //   headers: {
+    //     "Content-Type": "application/x-www-form-urlencoded",
+    //   },
+    // }).then((res) => {
+
+    axiosInstance.post(API_URL.SIGNUP, body, {
+    }).then((res) => {
       console.log(body);
-      alert(res.data.message);
+      // alert(res.data.id);
+      alert("회원가입이 완료되었습니다.")
       navigate(`/login`);
     });
   };
@@ -49,14 +67,21 @@ const SignForm = ({ isSignUp }) => {
       return alert("모든 값을 입력해주세요");
     }
     const body = {
-      id: id,
-      pw: pw,
+      username: `${id}`.trim(),
+      password: `${pw}`.trim(),
+      // scope: "",
+      // grant_type: "",
+      // client_id: "",
+      // client_secret: "",
     };
-    axiosInstance.post(API_URL.LOGIN, body).then((res) => {
-      console.log(body);
-      alert(res.data.message);
-      setterFunc(res.data.username);
-      navigate(`/`);
+    
+    //application/x-www-form-urlencoded
+    axiosInstance.post(API_URL.LOGIN, qs.stringify(body)).then((res) => {
+      // console.log(res);
+      // alert(res.data.access_token);
+      setterFunc(res.data.access_token);
+      setAccessToken(res.data.access_token);
+      navigate(`/mypage`);
     });
   };
 
@@ -69,11 +94,16 @@ const SignForm = ({ isSignUp }) => {
         <TextInput state={id} setState={setId} placeholder="아이디 입력" />
         <TextInput state={pw} setState={setPw} placeholder="비밀번호 입력" />
         {isSignUp ? (
-          <TextInput
+          <div>
+            <TextInput
             state={pwConfirm}
             setState={setPwConfirm}
             placeholder="비밀번호 확인"
           />
+          <TextInput state={email} setState={setEmail} placeholder="이메일 입력" />
+          <TextInput state={firstName} setState={setFirstName} placeholder="이름 입력" />
+          <TextInput state={lastName} setState={setLastName} placeholder="성 입력" />
+          </div>
         ) : null}
         <button
           onClick={(e) =>

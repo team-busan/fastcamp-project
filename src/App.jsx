@@ -7,6 +7,7 @@ import Detail from "./pages/Detail";
 import TagDetail from "./pages/TagDetail";
 import SearchResult from "./pages/SearchResult";
 import MyPage from "./pages/MyPage";
+import UserPage from "./pages/UserPage";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
       <Route path="/detail/:id" element={<Detail />}></Route>
       <Route path="/tagdetail" element={<TagDetail />}></Route>
       <Route path="/search" element={<SearchResult />}></Route>
-      <Route path="/mypage/:username" element={<MyPage />}></Route>
+      <Route path="/mypage/" element={<MyPage />}></Route>
+      <Route path="/user/:id" element={<UserPage />}></Route>
     </Routes>
   );
 }

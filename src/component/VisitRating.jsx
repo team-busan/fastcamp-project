@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa";
 import Review from "./Review";
 import { useState } from "react";
 import { CiCircleChevDown } from "react-icons/ci";
-import { isLoginAtom } from "../atoms";
+import { isLoginAtom } from "../stores/atoms";
 import {  useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
 

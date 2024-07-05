@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 import MbReview from './MbReview';
 import {  useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
-import { isLoginAtom } from '../atoms';
+import { isLoginAtom } from '../stores/atoms';
 
 export default function MbVisitRating({averageRating, review, restaurant}) {
   const isLogin = useRecoilValue(isLoginAtom);
