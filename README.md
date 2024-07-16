@@ -8,29 +8,6 @@
 Fast Dining은 위치기반으로 맛집을 추천, 소개해주는 서비스입니다.
 위치를 현재or수동으로 지정 할 수 있고 설정한 위치 주변의 인기있는 식당, 특정태그에 부합하는 식당을 추천 해줍니다
 가게를 등록 할 수 있고 등록된가게의 상세 정보 영업정보 블로그 후기등을 제공합니다.<br>
-배포링크 : <a href = "https://team-busan.netlify.app/">FastCampDining</a>
-
-## 팀 소개
-
----
-### 1.정홍천 (Front-End)
-<img width="220" height="220" alt="정홍천" src="https://github.com/team-busan/fastcamp-project/blob/main/assets/gugonggu.jpg">
-
-- 지역선택 바텀시트 컴포넌트
-- 태그별 자세히보기 페이지
-- 검색결과 페이지
-- 회원가입, 로그인 페이지
-
-### 2.송은우 (Front-End)
-<img width="220" height="220" alt="송은우" src="https://github.com/team-busan/fastcamp-project/blob/main/assets/your_img.jpg">
-
-- 홈 페이지
-- 마이페이지
-
-### 3.이재형 (Front-End)
-<img width="220" height="220" alt="이재형" src="https://github.com/team-busan/fastcamp-project/blob/main/assets/your_img.jpg">
-
-- 가게 상세페이지
 
 ## 기술 스택
 
@@ -53,4 +30,21 @@ Fast Dining은 위치기반으로 맛집을 추천, 소개해주는 서비스입
 
 ---
 
-개발 하면서 중요하게 생각했던 지점들 ..
+## 팀 소개
+
+---
+### 1.정홍천 (Front-End)
+
+- 지역선택 바텀시트 컴포넌트
+- 태그별 자세히보기 페이지
+- 검색결과 페이지
+- 회원가입, 로그인 페이지
+
+### 2.송은우 (Front-End)
+
+- 홈 페이지
+- 마이페이지
+
+### 3.이재형 (Front-End)
+
+- 가게 상세페이지
