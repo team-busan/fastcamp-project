@@ -12,7 +12,7 @@ export default function MbInformation({restaurant}) {
         <div className = "flex justify-between">
           <div className = "flex mb-5">
             <CiLocationOn className = "text-xl mr-2 text-primary"/>
-            <p>{restaurant.detail__location}</p>
+            <p>{restaurant.address}</p>
           </div>
           <div className = "flex ">
             <button className = "w-16 h-8 bg-secondary rounded-md text-white">지도보기</button>
@@ -24,10 +24,10 @@ export default function MbInformation({restaurant}) {
           <p>{restaurant.phone}</p>
         </div>
         <hr/>
-        <div className = "flex items-center mt-5 mb-5 ">
+        {/* <div className = "flex items-center mt-5 mb-5 ">
           <CiCirclePlus className = "text-xl mr-2 text-primary"/>
           <p>{restaurant.tags}</p>
-        </div>
+        </div> */}
         <hr/>
         <div className = "flex items-center mt-5 mb-5">
           <CiClock1 className = "text-xl mr-2 text-primary"/>

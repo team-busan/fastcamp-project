@@ -56,7 +56,7 @@ const CheckBoxes = ({ list, isFlexCol, border, tagList, setTagList }) => {
                   : "text-black font-medium"
               }`}
             >
-              {v}
+              {v.name}
             </span>
           </li>
         );
@@ -117,7 +117,7 @@ const Radios = ({ list, border, tagList, setTagList }) => {
                     : "font-medium text-black"
                 }`}
               >
-                {v}
+                {v.name}
               </span>
             </li>
           );
@@ -191,7 +191,7 @@ const CheckBoxesWithMore = ({ list, tagList, setTagList }) => {
                   : "text-black font-medium"
               }`}
             >
-              {v}
+              {v.name}
             </span>
           </li>
         );
@@ -213,7 +213,7 @@ const CheckBoxesWithMore = ({ list, tagList, setTagList }) => {
   );
 };
 
-const Select = ({ list, state, border, tagList, setTagList }) => {
+const LocationSelect = ({ list, state, setState, border}) => {
   const locationRef = useRef();
   const [locationIsOpen, setLocationIsOpen] = useDetectColse(
     locationRef,
@@ -250,18 +250,19 @@ const Select = ({ list, state, border, tagList, setTagList }) => {
                 key={i}
                 className="px-4 py-2 text-sm hover:bg-lightGray cursor-pointer"
                 onClick={() => {
-                  if (tagList.includes(v)) {
-                    const filteredTagList = [...tagList].filter(
-                      (v2) => v2 !== v
-                    );
-                    setTagList(filteredTagList);
-                  } else {
-                    const tagListCopy = [...tagList].filter(
-                      (v2) => !list.includes(v2)
-                    );
-                    tagListCopy.push(v);
-                    setTagList(tagListCopy);
-                  }
+                  // if (tagList.includes(v)) {
+                  //   const filteredTagList = [...tagList].filter(
+                  //     (v2) => v2 !== v
+                  //   );
+                  //   setTagList(filteredTagList);
+                  // } else {
+                  //   const tagListCopy = [...tagList].filter(
+                  //     (v2) => !list.includes(v2)
+                  //   );
+                  //   tagListCopy.push(v);
+                  //   setTagList(tagListCopy);
+                  // }
+                  setState(v);
                   setLocationIsOpen(!locationIsOpen);
                 }}
               >
@@ -275,4 +276,4 @@ const Select = ({ list, state, border, tagList, setTagList }) => {
   );
 };
 
-export { CheckBoxes, Radios, CheckBoxesWithMore, Select };
+export { CheckBoxes, Radios, CheckBoxesWithMore, LocationSelect };

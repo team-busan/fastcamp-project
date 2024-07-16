@@ -16,13 +16,13 @@ export default function MbTitle({ restaurant, review, averageRating }) {
         <div className = "flex">
           <div>
             <img 
-              src = {restaurant.imgLink}
+              src = {restaurant.image_url ? restaurant.image_url : "https://placehold.co/300x300?text=image"}
               alt = "error"
               className = "h-72 w-screen"
               />
             <div className = "p-5">
               <h3>{restaurant.name}</h3>
-              <p className = "text-sm text-mediumGray mb-2">{restaurant.location} | {restaurant.category}
+              <p className = "text-sm text-mediumGray mb-2">{restaurant.address} | {restaurant.category}
               </p>
               <div className = "flex items-center">
                 <span className="flex mr-2">

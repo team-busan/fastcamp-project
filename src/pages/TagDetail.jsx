@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { axiosInstance, API_URL } from "../stores/API";
 import RestaurantList from "../component/RestaurantList.jsx";
 import NaverMap from "../component/NaverMap.jsx";
@@ -7,6 +7,8 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import { MdIosShare, MdArrowBackIosNew } from "react-icons/md";
 
 function TagDetail() {
+  const navigate = useNavigate();
+
   const [params, setParams] = useSearchParams();
   const [tag, setTag] = useState(params.get("tag"));
   const [open, setOpen] = useState(false);
@@ -24,10 +26,10 @@ function TagDetail() {
 
   useEffect(() => {
     setOpen(true);
-    axiosInstance.get(API_URL.TAGDETAIL).then((res) => {
-      setRestaurantList(res.data.restaurantList);
-      setReviews(res.data.reviews);
-      setUsers(res.data.users);
+    axiosInstance.get(`/restaurants/?tag=${tag}`).then((res) => {
+      setRestaurantList(res.data);
+      // setReviews(res.data.reviews);
+      // setUsers(res.data.users);
     });
   }, []);
 
@@ -102,7 +104,21 @@ function TagDetail() {
             className="text-2xl sm:text-3xl cursor-pointer"
           />
         </div>
-        <NaverMap width="100vw" height="h-screen" isRounded={false} />
+        <NaverMap width="100vw" height="h-screen" isRounded={false} zoomLevel={14}
+          markers={restaurantList ? restaurantList.map((_item) => {
+            return {
+              id: _item.id,
+              title: _item.name,
+              lat: _item.latitude,
+              lng: _item.longitude,
+              address: _item.address,
+              category: _item.category,
+              score: _item.score,
+            }
+          }) : []}
+          onMarkerClick={(_marker) => {
+            navigate(`/detail/${_marker.id}`);
+          }} />
         <BottomSheet
           open={open}
           blocking={false}
@@ -114,17 +130,15 @@ function TagDetail() {
           header={
             <div className="ml-1">
               <button
-                className={`float-left bg-white py-1 px-2 border-[1px] rounded-lg ${
-                  orderBy === 0 ? orderColor : notOrderColor
-                }`}
+                className={`float-left bg-white py-1 px-2 border-[1px] rounded-lg ${orderBy === 0 ? orderColor : notOrderColor
+                  }`}
                 onClick={() => setOrderBy(0)}
               >
                 추천순
               </button>
               <button
-                className={`float-left bg-white py-1 px-2 border-[1px] rounded-lg ml-2 ${
-                  orderBy === 1 ? orderColor : notOrderColor
-                }`}
+                className={`float-left bg-white py-1 px-2 border-[1px] rounded-lg ml-2 ${orderBy === 1 ? orderColor : notOrderColor
+                  }`}
                 onClick={() => setOrderBy(1)}
               >
                 거리순

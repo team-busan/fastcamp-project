@@ -4,7 +4,7 @@ import LeftButton from "./LeftButton";
 import DetailButton from "./DetailButton";
 import RightButton from "./RightButton";
 
-export default function HomeTagList({ tagname = "cafe", list }) {
+export default function HomeRestaurantList({ tagname = "cafe", list }) {
   const navigate = useNavigate();
   const [current, setCurrent] = useState(0);
   const limit = 6;

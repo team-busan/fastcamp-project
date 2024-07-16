@@ -27,14 +27,14 @@ export default function Title({restaurant, wishlist ,setWishlist}){
     <div className="bg-white p-5 mb-4">
       <div>
         <img
-          src = {restaurant.imgLink}
+          src = {restaurant.image_url ? restaurant.image_url : "https://placehold.co/300x300?text=image"}
           alt="food"
           className="mb-5 w-full h-80"
         ></img>
         <div>
           <h2 className="font-bold mb-4">{restaurant.name}</h2>
           <p className="text-darkGray mb-4">
-            {restaurant.location} | {restaurant.category}
+            {restaurant.address} | {restaurant.category}
           </p>
           <div className="flex items-center">
             <span className="font-bold text-lg mr-2 mb-4">
@@ -94,10 +94,10 @@ export default function Title({restaurant, wishlist ,setWishlist}){
           <SlNotebook className="mr-2" />
           {restaurant.phone}
         </p>
-        <p className="flex items-center text-sm mt-4">
+        {/* <p className="flex items-center text-sm mt-4">
           <CiSquarePlus className="mr-2" />
           {restaurant.tags}
-        </p>
+        </p> */}
         <p className="flex items-center text-sm mt-4">
           <MdOutlineMessage className="mr-2" />
           폐업신고 - 정보수정 제안

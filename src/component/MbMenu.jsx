@@ -16,22 +16,22 @@ export default function MbMenu({restaurant}) {
       </div>
       <div>
       <ul className = "mt-3">
-          {restaurant.cuisine &&
-            restaurant.cuisine.slice(0, 3).map((value, i) => (
+          {restaurant.cuisine_types &&
+            restaurant.cuisine_types.slice(0, 3).map((value, i) => (
               <li key={i}>
                 <div className="flex justify-between text-sm mb-3">
-                  <span>{value.food}</span>
-                  <span>{value.price}</span>
+                  <span>{value.cuisine_type.name}</span>
+                  {/* <span>{value.price}</span> */}
                 </div>
               </li>
             ))}
             {isMenu &&
-            restaurant.cuisine.slice(3).map((value, i) => {
+            restaurant.cuisine_types.slice(3).map((value, i) => {
               return (
                 <li key={i}>
                   <div className="flex justify-between text-sm mb-3">
-                    <span>{value.food}</span>
-                    <span>{value.price}</span>
+                    <span>{value.cuisine_type.name}</span>
+                    {/* <span>{value.price}</span> */}
                   </div>
                 </li>
               );

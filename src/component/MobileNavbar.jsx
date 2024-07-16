@@ -7,7 +7,9 @@ import {
   MdLocationOn,
 } from "react-icons/md";
 
-const MobileNavbar = () => {
+const MobileNavbar = ({
+  isLogin, setIsLogin
+}) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchValue, setSearchValue] = useState(
     searchParams.get("query") ? searchParams.get("query") : ""

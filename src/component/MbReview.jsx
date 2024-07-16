@@ -77,7 +77,7 @@ export default function MbReview({ review, restaurant }) {
                 <FaStar className="text-secondary text-lg" />
               </span>
               <div className="flex">
-                <p className="mr-2">{restaurant.location}</p>
+                <p className="mr-2">{restaurant.address}</p>
                 <p>{new Intl.DateTimeFormat('ko-KR').format(new Date(value.created_at))}</p>
               </div>
             </div>
