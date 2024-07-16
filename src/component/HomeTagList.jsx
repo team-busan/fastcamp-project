@@ -42,7 +42,7 @@ export default function HomeTagList({ tagname = "cafe", list }) {
                 >
                   <div className="flex flex-col aspect-[1] w-full">
                     <img
-                      src={item.image_url}
+                      src={item.image_url ? item.image_url : "https://placehold.co/300x300?text=image"}
                       className="h-full w-full object-cover object-center"
                     />
                   </div>
