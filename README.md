@@ -30,21 +30,35 @@ Fast Dining은 위치기반으로 맛집을 추천, 소개해주는 서비스입
 
 ---
 
-## 팀 소개
+## 이용 방법 및 주의사항
+---
+
+- 내부 프록시를 사용하는 경우(CORS):
+- - vite.config.js 파일에서 target 을 해당 백엔드 주소로 설정합니다.
+
+- 프록시 없이 api 주소를 바로 사용하는 경우:
+- - src/stores/API.js 파일에서 BASE_URL 을 백엔드 주소로 설정합니다.
+- - 현재는 vite.config.js 에서 설정한 내부 프록시를 사용하여 /api 주소로 API 통신하도록 설정되어 있습니다.
+
+- 백엔드 설정 필요 - .env파일 - VWORLD_API_URL, DATA_GO_KR_API_KEY
+
+- 프론트엔드 설정 필요 - index.html - 지도 기능 사용을 위해서 naver cloud map api key 필요함
+
+- 검색 필터 -필터에 해당하는 정보가 없을 때 빈 배열이 오는게 정상적인 피드백인데, 전체 목록이 온다.
+
+- 식당 별 리뷰 필터링 param 없음
+
+- 식당 별 블로그 필터링 param 없음
+
+- src/component/SignForm.jsx
+- - /signup 엔드포인트가 "Content-Type"을 "application/x-www-form-urlencoded" 로 받는지 "application/json" 으로 받는지 확인하세요.
 
 ---
-### 1.정홍천 (Front-End)
 
-- 지역선택 바텀시트 컴포넌트
-- 태그별 자세히보기 페이지
-- 검색결과 페이지
-- 회원가입, 로그인 페이지
+## 팀
 
-### 2.송은우 (Front-End)
-
-- 홈 페이지
-- 마이페이지
-
-### 3.이재형 (Front-End)
-
-- 가게 상세페이지
+---
+[정홍천 (Front-End)](https://github.com/gugonggu), 
+[송은우 (Front-End)](https://github.com/Eunoos), 
+[이재형 (Front-End)](https://github.com/jaehyeong21), 
+[이기환](https://github.com/kifhan)
