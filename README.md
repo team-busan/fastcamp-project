@@ -44,13 +44,13 @@ Fast Dining은 위치기반으로 맛집을 추천, 소개해주는 서비스입
 
 - 프론트엔드 설정 필요 - index.html - 지도 기능 사용을 위해서 naver cloud map api key 필요함
 
-- 검색 필터 -필터에 해당하는 정보가 없을 때 빈 배열이 오는게 정상적인 피드백인데, 전체 목록이 온다.
+- 백엔드 확인필요 - 검색 필터 -필터에 해당하는 정보가 없을 때 빈 배열이 오는게 정상적인 피드백인데, 전체 목록이 온다.
 
-- 식당 별 리뷰 필터링 param 없음
+- 백엔드 확인필요 - 식당 별 리뷰 필터링 param 없음
 
-- 식당 별 블로그 필터링 param 없음
+- 백엔드 확인필요 - 식당 별 블로그 필터링 param 없음
 
-- src/component/SignForm.jsx
+- 백엔드 확인필요 - src/component/SignForm.jsx
 - - /signup 엔드포인트가 "Content-Type"을 "application/x-www-form-urlencoded" 로 받는지 "application/json" 으로 받는지 확인하세요.
 
 ---
