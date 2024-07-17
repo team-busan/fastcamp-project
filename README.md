@@ -46,7 +46,7 @@ Fast Dining은 위치기반으로 맛집을 추천, 소개해주는 서비스입
 
 - 백엔드 설정 필요 - .env파일 - VWORLD_API_URL, DATA_GO_KR_API_KEY
 
-- 프론트엔드 설정 필요 - index.html - 지도 기능 사용을 위해서 naver cloud map api key 필요함
+- 프론트엔드 설정 필요 - index.html - 지도 기능 사용을 위해서 naver cloud map api key 필요함 (NAVER_MAP_API_KEY 교체)
 
 - 백엔드 확인필요 - 검색 필터 -필터에 해당하는 정보가 없을 때 빈 배열이 오는게 정상적인 피드백인데, 전체 목록이 온다.
 
